@@ -23,7 +23,7 @@ CardioCardo is a web application inspired by MapMyRun built using Ruby on Rails 
 **Objective**: Functioning rails project with front-end Authentication
 
 ### Phase 2: Maps Model, API, and components (2 days)
-**Objective**: Maps can be created, read, edited, and destroyed through the API.
+**Objective**: Maps can be created, read, and destroyed through the API.
 
 ### Phase 3: User Dashboard (2 days)
 **Objective**: Dashboard that displays all of the users created and completed routes, along with appropriate styling.
