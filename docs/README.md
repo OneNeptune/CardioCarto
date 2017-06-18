@@ -4,6 +4,7 @@
 CardioCardo is a web application inspired by MapMyRun built using Ruby on Rails and React/Redux. By the end of Week 9, this app will, at a minimum, satisfy the following criteria with smooth, bug-free navigation, adequate seed data and sufficient CSS styling:
 
  - [ ] Hosting on Heroku
+ - [ ] A production README
  - [ ] New account creation, login, and guest/demo login
  - [ ] Making running routes using map
  - [ ] Friending
