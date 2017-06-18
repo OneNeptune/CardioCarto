@@ -13,10 +13,10 @@
         * UserProfile
     * RecentRunsIndexContainer
         * RecentRunsIndex
-            * RecentRunsIndex Item
+            * RecentRunsIndexItem
     * CreatedRunsIndexContainer
         * CreatedRunsIndex
-            * CreatedRunsIndex Item
+            * CreatedRunsIndexItem
   * UserActivityContainer
     * UserDetails
         * ActivityIndexContainer

@@ -1,12 +1,12 @@
 # CardioCarto
-
+[Trello](http://trello.com/b/cGD1sUuC/cardiocarto)
 ## Minimum Viable Product
 CardioCardo is a web application inspired by MapMyRun built using Ruby on Rails and React/Redux. By the end of Week 9, this app will, at a minimum, satisfy the following criteria with smooth, bug-free navigation, adequate seed data and sufficient CSS styling:
 
  - [ ] Hosting on Heroku
  - [ ] A production README
  - [ ] New account creation, login, and guest/demo login
- - [ ] Making routes using map
+ - [ ] Making3 routes using map
  - [ ] Friending
  - [ ] Comments on routes
  - [ ] Dashboard that tracks created / completed routes
