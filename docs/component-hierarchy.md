@@ -11,12 +11,12 @@
     * UserDetails
         * UserStats
         * UserProfile
-    * RecentRunsIndexContainer
-        * RecentRunsIndex
-            * RecentRunsIndexItem
-    * CreatedRunsIndexContainer
-        * CreatedRunsIndex
-            * CreatedRunsIndexItem
+    * RecentRoutesIndexContainer
+        * RecentRoutesIndex
+            * RecentRouteIndexItem
+    * CreatedRoutesIndexContainer
+        * CreatedRoutesIndex
+            * CreatedRouteIndexItem
   * UserActivityContainer
     * UserDetails
         * ActivityIndexContainer
