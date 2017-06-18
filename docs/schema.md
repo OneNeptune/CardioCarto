@@ -16,8 +16,10 @@ column name | data type | details
 id | integer | not null, primary key
 user_id | integer | not null, foreign key (references users)
 title | string | not null
+preview_url | string | not null
 polylines | string | not null
 distance | float | not null
+duration | integer | not null, default: 0
 completed | boolean | not null, default: false
 
 ## relationships
