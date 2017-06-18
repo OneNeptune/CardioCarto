@@ -11,7 +11,7 @@ CardioCardo is a web application inspired by MapMyRun built using Ruby on Rails 
  - [ ] Dashboard that tracks created / completed runs
 
 ## Design Docs
- - [View Wireframes](/wireframes)
+ - [View Wireframes](/docs/wireframes)
  - [React Components](/component-hierarchy.md)
  - [API Endpoints](/api-endpoints.md)
  - [DB schema](/schema.md)
