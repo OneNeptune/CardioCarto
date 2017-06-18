@@ -6,10 +6,10 @@ CardioCardo is a web application inspired by MapMyRun built using Ruby on Rails 
  - [ ] Hosting on Heroku
  - [ ] A production README
  - [ ] New account creation, login, and guest/demo login
- - [ ] Making running routes using map
+ - [ ] Making routes using map
  - [ ] Friending
- - [ ] Comments on runs
- - [ ] Dashboard that tracks created / completed runs
+ - [ ] Comments on routes
+ - [ ] Dashboard that tracks created / completed routes
 
 ## Design Docs
  - [View Wireframes](/docs/wireframes)
