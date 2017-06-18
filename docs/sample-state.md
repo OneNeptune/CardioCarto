@@ -1,4 +1,4 @@
-{
+````{
   currentUser: {
     id: 1,
     name: "Michael",
@@ -58,4 +58,4 @@
       body: "we should run this soon!"
     }
   }
-}
+}````
