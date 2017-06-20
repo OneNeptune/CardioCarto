@@ -1,9 +1,11 @@
 ````
 {
-  currentUser: {
-    id: 1,
-    name: "Michael",
-    avatar_url: "some_url"
+  session: {
+    currentUser: {
+      id: 1,
+      name: "Michael",
+      avatar_url: "some_url"
+    }
   },
   errors: {
     signUp: [],
