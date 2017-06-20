@@ -4,3 +4,7 @@ html {
 .main-wrapper {
 
 }
+
+html {
+  overflow-y: scroll;
+}

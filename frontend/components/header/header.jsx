@@ -17,6 +17,7 @@ class Header extends React.Component {
     } else if (this.props.location.pathname.includes('auth')) {
       return(
         <nav className='session-links'>
+
         </nav>
       );
     } else {
