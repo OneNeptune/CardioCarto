@@ -15,4 +15,5 @@
  *= require main
  *= require header
  *= require session-forms
+ *= require front-page
  */

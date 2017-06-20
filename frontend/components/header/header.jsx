@@ -11,9 +11,13 @@ class Header extends React.Component {
     const { currentUser } = this.props;
 
     if (currentUser) {
-      // user avatar with dropdown menu
+      return (
+        <button onClick={ this.props.logOut }>Log Out</button>
+      );
+    } else if (this.props.location.pathname.includes('auth')) {
+      return null;
     } else {
-      // Login / Signup
+      // Login / Signup if not already on these pages
       return(
         <nav className='session-links'>
           <Link to='/auth/login'>Log In</Link>
@@ -28,7 +32,7 @@ class Header extends React.Component {
       <header className='header-nav-wrapper'>
         <nav className='header-nav'>
           <section className='logo'>
-            CardioCarto
+            <Link to='/'></Link>
           </section>
 
           { this.sessionLinks() }

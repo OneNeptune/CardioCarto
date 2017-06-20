@@ -1,6 +1,9 @@
 import { connect } from 'react-redux';
 import { logIn } from '../../actions/session_actions';
-import LogInForm from './log_in_form';
+import FrontPage from './front_page';
+
+import { withRouter } from 'react-router';
+
 
 const mapDispatchToProps = (dispatch) => ({
   logIn: (user) => dispatch(logIn(user))
@@ -9,4 +12,4 @@ const mapDispatchToProps = (dispatch) => ({
 export default connect(
   null,
   mapDispatchToProps
-)(LogInForm);
+)(FrontPage);

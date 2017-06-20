@@ -1,0 +1,227 @@
+.hero-wrapper {
+  width: 100%;
+  height: 492px;
+  background: image-url("hero-runner3.jpg") repeat 0 0;
+  margin: 0 auto 0 auto;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.front-page-hero {
+  display: flex;
+  justify-content: flex-end;
+  width: 960px;
+  margin: 0 auto 0 auto;
+  color: white;
+}
+
+.hero-content {
+  width: 588px;
+  height: 369px;
+  padding: 50px 0px 10px 10px;
+}
+
+.hero-content-area {
+  display: flex;
+  flex-direction: column;
+}
+
+h2.hero-title-text {
+  width: 100%;
+  font-family: 'Roboto','Open Sans', sans-serif;
+  text-shadow: 2px 2px rgba(0, 0, 0, 0.5);
+  font-size: 44px;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+h3.hero-sub-title-text {
+  font-family: 'Roboto','Open Sans', sans-serif;
+  font-size: 14px;
+  font-weight: lighter;
+  text-shadow: 1px 1px rgba(0, 0, 0, 0.8);
+}
+
+a.hero-sign-up-button {
+  text-transform: uppercase;
+  text-align: center;
+  width: 200px;
+  font-family: 'Roboto','Open Sans', sans-serif;
+  line-height: 44px;
+  font-size: 16px;
+  -webkit-border-radius: 3;
+  -moz-border-radius: 3;
+  border-radius: 3px;
+  background: #ff802b;
+  text-decoration: none;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+  color: white;
+}
+
+a.hero-sign-up-button:hover {
+  background: #ff802b;
+  background-image: -webkit-linear-gradient(top, #ff802b, #db6e25);
+  background-image: -moz-linear-gradient(top, #ff802b, #db6e25);
+  background-image: -ms-linear-gradient(top, #ff802b, #db6e25);
+  background-image: -o-linear-gradient(top, #ff802b, #db6e25);
+  background-image: linear-gradient(to bottom, #ff802b, #db6e25);
+  text-decoration: none;
+}
+
+button.hero-demo-button {
+  text-transform: uppercase;
+  width: 160px;
+  font-family: 'Roboto','Open Sans', sans-serif;
+  line-height: 44px;
+  font-size: 16px;
+  background: #3cb0fd;
+  background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+  -webkit-border-radius: 3;
+  -moz-border-radius: 3;
+  border-radius: 3px;
+  text-decoration: none;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+  color: white;
+}
+
+button.hero-demo-button:hover {
+  background: #3498db;
+  background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
+  background-image: -moz-linear-gradient(top, #3498db, #2980b9);
+  background-image: -ms-linear-gradient(top, #3498db, #2980b9);
+  background-image: -o-linear-gradient(top, #3498db, #2980b9);
+  background-image: linear-gradient(to bottom, #3498db, #2980b9);
+  text-decoration: none;
+}
+.hero-session-links {
+  display: flex;
+  flex-direction: row;
+}
+
+.hero-session-links .or {
+  padding: 0 10px 0 10px;
+  text-transform: lowercase;
+  font-family: 'Roboto','Open Sans', sans-serif;
+  font-size: 12px;
+  font-weight: lighter;
+  text-shadow: 1px 1px rgba(0, 0, 0, 0.8);
+}
+
+.hero-footer {
+  display: flex;
+  height: 200px;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.hero-log-in {
+  display: flex;
+  height: 40px;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.hero-log-in p {
+  font-family: 'Roboto','Open Sans', sans-serif;
+  font-weight: lighter;
+  font-size: 14px;
+  height: 18px;
+  line-height: 18px;
+  padding-right: 10px;
+}
+
+a.hero-log-in-button {
+  text-transform: uppercase;
+  text-align: center;
+  color: white;
+  width: 90px;
+  font-family: 'Roboto','Open Sans', sans-serif;
+  font-weight: lighter;
+  line-height: 28px;
+  font-size: 14px;
+  background: #616161;
+  background-image: -webkit-linear-gradient(top, #616161, #292929);
+  background-image: -moz-linear-gradient(top, #616161, #292929);
+  background-image: -ms-linear-gradient(top, #616161, #292929);
+  background-image: -o-linear-gradient(top, #616161, #292929);
+  background-image: linear-gradient(to bottom, #616161, #292929);
+  -webkit-border-radius: 3;
+  -moz-border-radius: 3;
+  border-radius: 3px;
+  text-decoration: none;
+}
+
+a.hero-log-in-button:hover {
+  background: #4f4f4f;
+  background-image: -webkit-linear-gradient(top, #4f4f4f, #1c1c1c);
+  background-image: -moz-linear-gradient(top, #4f4f4f, #1c1c1c);
+  background-image: -ms-linear-gradient(top, #4f4f4f, #1c1c1c);
+  background-image: -o-linear-gradient(top, #4f4f4f, #1c1c1c);
+  background-image: linear-gradient(to bottom, #4f4f4f, #1c1c1c);
+  text-decoration: none;
+}
+
+.features-wrapper {
+  height: 365px;
+  width: 100%;
+  background-color: #DDDDDD;
+}
+
+.features-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  width: 960px;
+  margin: 0 auto 0 auto;
+}
+
+.features-object {
+  display: flex;
+  width: 200px;
+  margin: 40px 50px 50px 0;
+  padding: 10px;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  color: #878b94;
+}
+
+.features-object i {
+  color: #75ABD5;
+  text-shadow: -2px 2px rgba(0, 0, 0, 0.1);
+  font-size: 140px;
+  height: 120px;
+  width: 120px;
+  display: flex;
+  justify-content: center;
+}
+
+.features-object > i:last-child {
+  font-size: 130px;
+}
+
+.features-object h3 {
+  padding-top: 10px;
+  font-size: 16px;
+  font-family: 'Roboto','Open Sans', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.features-object p {
+  font-family: 'Roboto','Open Sans', sans-serif;
+  font-weight: lighter;
+  font-size: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}

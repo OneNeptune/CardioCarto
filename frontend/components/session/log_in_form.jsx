@@ -4,12 +4,12 @@ import { Link, withRouter } from 'react-router-dom';
 class LogInForm extends React.Component {
   constructor(props) {
     super(props);
-    console.log(props);
     this.state = {
       username: '',
       password: ''
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.logInGuest = this.logInGuest.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -27,17 +27,52 @@ class LogInForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const user = this.state;
-    this.props.logIn({user});
+    this.props.logIn(user);
   }
 
+  logInGuest(e) {
+    e.preventDefault();
+    const guest = {
+      email: 'guest.user@cardiocarto.com',
+      password: 'starship76'
+     };
+    this.props.logIn(guest);
+  }
 
   render() {
     return (
-      <div className="login-form-container">
-        <form onSubmit={this.handleSubmit} className="login-form-box">
-
+      <section className="session-form-wrapper">
+        <form onSubmit={this.handleSubmit} className="session-form">
+          <Link to='/auth/signup'>Sign Up</Link>
+          <button
+            onClick={ this.logInGuest }
+            className='guest'
+            type='guest'>
+            Demo Log In
+          </button>
+          <section className={'or'}>
+            <span className={'line'}></span>
+              <p>OR</p>
+            <span className={'line'}></span>
+          </section>
+          <label htmlFor={'email'}>
+            <input
+              placeholder='Email'
+              value={this.state.email}
+              onChange={this.update('email')}
+              className='session-input' />
+          </label>
+          <label htmlFor={'password'}>
+            <input
+              type='password'
+              placeholder='Password'
+              value={this.state.password}
+              onChange={this.update('password')}
+              className='session-input' />
+          </label>
+          <button className='submit' type="submit">Log In</button>
         </form>
-      </div>
+      </section>
     );
   }
 }

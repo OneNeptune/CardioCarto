@@ -4,7 +4,6 @@ import { Link, withRouter } from 'react-router-dom';
 class SignUpForm extends React.Component {
   constructor(props) {
     super(props);
-    console.log(props);
     this.state = {
       first_name: '',
       last_name: '',
@@ -12,6 +11,7 @@ class SignUpForm extends React.Component {
       password: '',
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.logInGuest = this.logInGuest.bind(this);
   }
 
 
@@ -25,42 +25,66 @@ class SignUpForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const user = this.state;
-    this.props.signUp({user});
+    this.props.signUp(user);
   }
 
+  logInGuest(e) {
+    e.preventDefault();
+    const guest = {
+      email: 'guest.user@cardiocarto.com',
+      password: 'starship76'
+     };
+    this.props.logIn(guest);
+  }
 
   render() {
     return (
-      <div className="session-form-wrapper">
-        <Link to='/auth/login'>Log In</Link>
-        OR
-        <form onSubmit={this.handleSubmit} className="sign-up-form">
+      <section className="session-form-wrapper">
+        <form onSubmit={this.handleSubmit} className="session-form">
+          <Link to='/auth/login'>Log In</Link>
+          <button
+            onClick={ this.logInGuest }
+            className='guest'
+            type='guest'>
+            Demo Log In
+          </button>
+          <section className={'or'}>
+            <span className={'line'}></span>
+              <p>OR</p>
+            <span className={'line'}></span>
+          </section>
           <label htmlFor={'first_name'}>
             <input
+              placeholder='First name'
               value={this.state.first_name}
               onChange={this.update('first_name')}
               className='session-input' />
           </label>
           <label htmlFor={'last_name'}>
             <input
+              placeholder='Last name'
               value={this.state.last_name}
               onChange={this.update('last_name')}
               className='session-input' />
           </label>
           <label htmlFor={'email'}>
             <input
+              placeholder='Email'
               value={this.state.email}
               onChange={this.update('email')}
               className='session-input' />
           </label>
           <label htmlFor={'password'}>
             <input
+              type='password'
+              placeholder='Password'
               value={this.state.password}
               onChange={this.update('password')}
               className='session-input' />
           </label>
+          <button className='submit' type="submit">Sign Up</button>
         </form>
-      </div>
+      </section>
     );
   }
 }
