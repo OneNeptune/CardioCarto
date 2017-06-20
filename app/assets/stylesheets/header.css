@@ -1,0 +1,53 @@
+.header-nav-wrapper {
+  width: 100%;
+  box-shadow: 0px 0px 10px #aaaaaa;
+  background: white;
+}
+
+.header-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 70px;
+  width: 960px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.logo {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.session-links {
+  display: flex;
+  justify-content: flex-end;
+  margin: 0 24px 0 0;
+}
+
+.session-links a {
+  text-transform: uppercase;
+  font-size: 14px;
+  font-family: 'Roboto','Open Sans', sans-serif;
+  margin: 2px 3px 0 3px;
+  padding: 0 12px;
+  line-height: 36px;
+  display: flex;
+  justify-content: flex-end;
+  color: #9297a3;
+}
+
+.session-links a:hover {
+  color: black;
+}
+
+.session-links a:last-child {
+  border-radius: 3px;
+  background-color: #97bf11;
+  color: white;
+}
+
+.session-links a:last-child:hover {
+  border-radius: 3px;
+  background-color: #92ba0e;
+}
