@@ -15,10 +15,13 @@ class Header extends React.Component {
         <button onClick={ this.props.logOut }>Log Out</button>
       );
     } else if (this.props.location.pathname.includes('auth')) {
-      return null;
+      return(
+        <nav className='session-links'>
+        </nav>
+      );
     } else {
       // Login / Signup if not already on these pages
-      
+
       return(
         <nav className='session-links'>
           <Link to='/auth/login'>Log In</Link>
