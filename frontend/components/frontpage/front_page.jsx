@@ -4,7 +4,6 @@ import { Link, withRouter } from 'react-router-dom';
 class FrontPage extends React.Component {
   constructor(props) {
     super(props);
-    console.log(props);
     this.logInGuest = this.logInGuest.bind(this);
   }
 
