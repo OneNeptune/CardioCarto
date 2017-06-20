@@ -18,6 +18,7 @@ class Header extends React.Component {
       return null;
     } else {
       // Login / Signup if not already on these pages
+      
       return(
         <nav className='session-links'>
           <Link to='/auth/login'>Log In</Link>
