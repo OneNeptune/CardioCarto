@@ -5,10 +5,10 @@
     name: "Michael",
     avatar_url: "some_url"
   },
-  forms: {
-    signUp: { errors: [] },
-    logIn: { errors: [] },
-    createRoute: { errors: [] }
+  errors: {
+    signUp: [],
+    logIn: [],
+    createRoute: []
   },
   routes: {
     entities: {

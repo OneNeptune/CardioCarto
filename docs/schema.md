@@ -8,7 +8,6 @@ first_name | string | not null, indexed
 last_name | string | not null, indexed
 password_digest | string | not null
 session_token | string | not null, indexed
-avatar_url | string
 
 ## routes
 column name | data type | details
@@ -22,7 +21,7 @@ distance | float | not null
 duration | integer | not null, default: 0
 completed | boolean | not null, default: false
 
-## relationships
+## friendships
 column name | data type | details
 ------------ | -------------| -------------
 id | integer | not null, primary key
