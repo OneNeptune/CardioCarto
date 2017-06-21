@@ -16,4 +16,6 @@
  *= require header
  *= require session-forms
  *= require front-page
+ *= require route
+ *= require map
  */

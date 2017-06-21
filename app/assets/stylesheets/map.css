@@ -1,0 +1,14 @@
+.map-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 720px;
+  height: 602px;
+}
+
+.map {
+  border: 1px solid #d3d6dc;
+  display: flex;
+  width: 700px;
+  height: 558px;
+}

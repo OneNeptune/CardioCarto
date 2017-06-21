@@ -17,7 +17,17 @@ const Protected = ({component: Component, path, loggedIn}) => (
      loggedIn ? (
       <Component {...props}/>
     ) : (
-      <Redirect to="/login"/>
+      <Redirect to="/auth/login"/>
+    )
+  )}/>
+);
+
+const Landing = ({component: Component, path, loggedIn}) => (
+  <Route path={path} render={(props) => (
+     loggedIn ? (
+      <Redirect to="/routes/create"/>
+    ) : (
+      <Component {...props}/>
     )
   )}/>
 );
@@ -27,7 +37,12 @@ const mapStateToProps = state => {
 };
 
 // connect Auth to the redux state
-export const AuthRoute = withRouter(connect(mapStateToProps, null)(Auth));
+export const AuthRoute = withRouter(
+  connect(mapStateToProps, null)(Auth));
 
 // connect Protected to the redux state
-export const ProtectedRoute = withRouter(connect(mapStateToProps, null)(Protected));
+export const ProtectedRoute = withRouter(
+  connect(mapStateToProps, null)(Protected));
+
+export const LandingRoute = withRouter(
+  connect(mapStateToProps, null)(Landing));

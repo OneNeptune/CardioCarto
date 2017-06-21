@@ -1,0 +1,154 @@
+.route-wrapper {
+  width: 100%;
+  height: 652px;
+}
+
+.route-content-wrapper {
+  width: 960px;
+  height: 652px;
+  margin: 0 auto 0 auto;
+  display: flex;
+  flex-direction: row;
+}
+
+.route-create-tools {
+  margin-top: 3px;
+  color: #a1a6af;
+  width: 240px;
+  height: 100%;
+  flex-direction: column;
+  align-items: space-between;
+}
+
+h2.route-create-tools-title {
+  font-family: 'Roboto','Open Sans', sans-serif;
+  font-size: 24px;
+  font-weight: normal;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.route-create-tools-details {
+  border: 1px solid #d3d6dc;
+  padding: 20px;
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.route-create-tools-details h3 {
+  font-family: 'Roboto','Open Sans', sans-serif;
+  border-bottom: 1px solid #d3d6dc;
+  padding: 0 25px 10px 25px;
+  font-size: 18px;
+  font-weight: normal;
+  margin: 0;
+}
+
+ul.route-details {
+  padding-top: 20px;
+  width: 100%;
+}
+
+.route-details li {
+  padding-top: 10px;
+}
+
+.route-details h4 {
+  font-family: 'Roboto','Open Sans', sans-serif;
+  font-size: 12px;
+  font-weight: normal;
+  margin: 0;
+}
+
+.route-details p {
+  display: flex;
+  font-family: 'Roboto','Open Sans', sans-serif;
+  font-size: 22px;
+  justify-content: center;
+}
+
+p.address {
+  height: 22px;
+  line-height: 18px;
+  font-size: 10px;
+  overflow: hidden;
+}
+
+.route-save-form label {
+  margin: 0 0 15px 0;
+}
+
+form.route-save-form {
+  padding-top: 20px;
+}
+
+.route-save-form input {
+  font-family: 'Roboto','Open Sans', sans-serif;
+  display: block;
+  box-sizing: border-box;
+  border-radius: 0px;
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid #d3d6dc;
+  font-size: 14px;
+  line-height: 36px;
+  height: 44px;
+  color: #a6a6a6;
+}
+
+.route-save-form input::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: #a6a6a6;
+  font-family: 'Roboto','Open Sans', sans-serif;
+}
+.route-save-form input::-moz-placeholder { /* Firefox 19+ */
+  color: #a6a6a6;
+}
+.route-save-form input:-ms-input-placeholder { /* IE 10+ */
+  color: #a6a6a6;
+}
+.route-save-form input:-moz-placeholder { /* Firefox 18- */
+  color: #a6a6a6;
+}
+
+.route-save-form select {
+  font-family: 'Roboto','Open Sans', sans-serif;
+  display: block;
+  box-sizing: border-box;
+  border-radius: 0;
+  -webkit-appearance: none;
+  width: 100%;
+  padding: 0 22px 0 22px;
+  border: 1px solid #d3d6dc;
+  font-size: 14px;
+  line-height: 36px;
+  height: 44px;
+  color: #a6a6a6;
+}
+
+.route-create-map {
+  width: 720px;
+  height: 652px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+button.create-route-button {
+  width: 100%;
+  text-transform: uppercase;
+  font-family: 'Roboto','Open Sans', sans-serif;
+  line-height: 44px;
+  font-size: 14px;
+  border-radius: 3px;
+  background-color: #97bf11;
+  color: white;
+}
+
+button.create-route-button:hover {
+  background-color: #92ba0e;
+}

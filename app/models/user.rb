@@ -8,6 +8,8 @@
 #  last_name       :string           not null
 #  password_digest :string           not null
 #  session_token   :string           not null
+#  created_at      :datetime
+#  updated_at      :datetime
 #
 
 class User < ActiveRecord::Base
@@ -19,6 +21,8 @@ class User < ActiveRecord::Base
   after_initialize :ensure_session_token
 
   attr_reader :password
+
+  has_many :routes, dependent: :destroy
 
   def self.find_by_credentials(email, password)
     user = User.find_by(email: email)
@@ -41,6 +45,7 @@ class User < ActiveRecord::Base
   end
 
   private
+
   def ensure_session_token
     self.session_token ||= SecureRandom.urlsafe_base64(16)
   end

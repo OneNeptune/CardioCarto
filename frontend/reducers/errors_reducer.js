@@ -9,6 +9,7 @@ const _defaultState =
   });
 
 const errorsReducer = (state = _defaultState, action) => {
+  Object.freeze(state);
   switch(action.type) {
     case RECEIVE_ERRORS:
       const errors = action.errors.responseJSON;
