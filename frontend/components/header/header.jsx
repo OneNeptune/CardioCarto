@@ -12,7 +12,14 @@ class Header extends React.Component {
 
     if (currentUser) {
       return (
-        <button onClick={ this.props.logOut }>Log Out</button>
+        <nav className='session-links'>
+          <i onMouseOver={this.onHover}
+            className='fa fa-user-circle-o'
+            aria-hidden="true"></i>
+          <section className='user-drop-down'>
+            <button onClick={ this.props.logOut }>Log Out</button>
+          </section>
+        </nav>
       );
     } else if (this.props.location.pathname.includes('auth')) {
       return(

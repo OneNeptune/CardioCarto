@@ -3,11 +3,9 @@ import { RECEIVE_ERRORS, CLEAR_ERRORS } from '../actions/session_actions.js';
 
 const _defaultState =
   Object.freeze({
-    errors: {
-      signUp: [],
-      logIn: [],
-      createRoute: []
-    }
+    signUp: [],
+    logIn: [],
+    createRoute: []
   });
 
 const errorsReducer = (state = _defaultState, action) => {

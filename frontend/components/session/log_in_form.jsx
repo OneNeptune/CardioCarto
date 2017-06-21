@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, withRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 class LogInForm extends React.Component {
   constructor(props) {
@@ -52,6 +52,8 @@ class LogInForm extends React.Component {
           }
         </ul>
       );
+    } else {
+      this.props.clearErrors();
     }
   }
 
@@ -94,4 +96,4 @@ class LogInForm extends React.Component {
   }
 }
 
-export default withRouter(LogInForm);
+export default LogInForm;
