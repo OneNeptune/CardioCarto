@@ -13,11 +13,14 @@ class Header extends React.Component {
     if (currentUser) {
       return (
         <nav className='session-links'>
-          <i onMouseOver={this.onHover}
-            className='fa fa-user-circle-o'
+          <i className='fa fa-user-circle-o'
             aria-hidden="true"></i>
-          <section className='user-drop-down'>
-            <button onClick={ this.props.logOut }>Log Out</button>
+          <section className='drop-down-menu'>
+            <ul>
+              <li>Friends</li>
+              <li>Settings</li>
+              <button onClick={ this.props.logOut }>Log Out</button>
+            </ul>
           </section>
         </nav>
       );
