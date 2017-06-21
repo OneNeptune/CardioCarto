@@ -56,7 +56,6 @@
   line-height: 36px;
   height: 44px;
   color: #a6a6a6;
-  font-family: 'Roboto','Open Sans', sans-serif;
 }
 
 .session-form input::-webkit-input-placeholder { /* Chrome/Opera/Safari */
@@ -100,4 +99,19 @@
 
 .session-form button.guest:hover {
   background-color: #35508c;
+}
+
+.session-errors li {
+  font-family: 'Roboto','Open Sans', sans-serif;
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid #d62000;
+  background-color: #ffdcd6;
+  font-size: 14px;
+  height: 44px;
+  color: #d62000;
 }

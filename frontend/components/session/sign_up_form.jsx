@@ -14,8 +14,6 @@ class SignUpForm extends React.Component {
     this.logInGuest = this.logInGuest.bind(this);
   }
 
-
-
   update(field) {
     return e => this.setState({
       [field]: e.currentTarget.value
@@ -37,6 +35,21 @@ class SignUpForm extends React.Component {
     this.props.logIn(guest);
   }
 
+  displayErrors() {
+    if (this.props.errors.signUp) {
+      const { signUp } = this.props.errors;
+
+      return(
+        <ul className='session-errors'>
+          {
+            signUp.map((errorMsg, idx) =>
+              <li key={ `signUpError${idx}` }>{ errorMsg }</li>)
+          }
+        </ul>
+      );
+    }
+  }
+
   render() {
     return (
       <section className="session-form-wrapper">
@@ -53,6 +66,7 @@ class SignUpForm extends React.Component {
               <p>OR</p>
             <span className={'line'}></span>
           </section>
+          { this.displayErrors() }
           <label htmlFor={'first_name'}>
             <input
               placeholder='First name'

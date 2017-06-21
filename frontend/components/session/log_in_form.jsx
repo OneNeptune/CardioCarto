@@ -5,11 +5,12 @@ class LogInForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: '',
+      email: '',
       password: ''
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.logInGuest = this.logInGuest.bind(this);
+    this.displayErrors = this.displayErrors.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -39,6 +40,21 @@ class LogInForm extends React.Component {
     this.props.logIn(guest);
   }
 
+  displayErrors() {
+    if (this.props.errors.logIn) {
+      const { logIn } = this.props.errors;
+
+      return(
+        <ul className='session-errors'>
+          {
+            logIn.map((errorMsg, idx) =>
+              <li key={ `logInError${idx}` }>{ errorMsg }</li>)
+          }
+        </ul>
+      );
+    }
+  }
+
   render() {
     return (
       <section className="session-form-wrapper">
@@ -55,6 +71,7 @@ class LogInForm extends React.Component {
               <p>OR</p>
             <span className={'line'}></span>
           </section>
+          { this.displayErrors() }
           <label htmlFor={'email'}>
             <input
               placeholder='Email'

@@ -2,6 +2,7 @@ import * as SessionUtil from '../util/session_api_util';
 
 export const RECEIVE_CURRENT_USER = 'RECEIVE_CURRENT_USER';
 export const RECEIVE_ERRORS = 'RECEIVE_ERRORS';
+export const CLEAR_ERRORS = 'CLEAR_ERRORS';
 
 export const receiveCurrentUser = currentUser => ({
   type: RECEIVE_CURRENT_USER,
@@ -14,11 +15,16 @@ export const receiveErrors = (form, errors) => ({
   errors
 });
 
+export const clearErrors = () => ({
+  type: CLEAR_ERRORS,
+});
+
 export const signUp = (user) => {
   return (dispatch) => {
     SessionUtil.createUser(user)
       .then(
         (currentUser) => {
+          dispatch(clearErrors());
           return dispatch(receiveCurrentUser(currentUser));
         },
         (errors) => {
@@ -33,6 +39,7 @@ export const logIn = (user) => {
     SessionUtil.logIn(user)
       .then(
         (currentUser) => {
+          dispatch(clearErrors());
           return dispatch(receiveCurrentUser(currentUser));
         },
         (errors) => {
@@ -47,6 +54,7 @@ export const logOut = () => {
     SessionUtil.logOut()
       .then(
         (currentUser) => {
+          dispatch(clearErrors());
           return dispatch(receiveCurrentUser(null));
         },
         (errors) => {
