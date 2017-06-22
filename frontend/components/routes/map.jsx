@@ -14,7 +14,6 @@ class Map extends React.Component {
     };
     this.locationButton = this.locationButton.bind(this);
     this.currentLocation = this.currentLocation.bind(this);
-    this.undoMarker = this.undoMarker.bind(this);
     this.clearMap = this.clearMap.bind(this);
   }
 
