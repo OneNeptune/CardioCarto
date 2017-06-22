@@ -14,6 +14,7 @@ class Map extends React.Component {
     };
     this.locationButton = this.locationButton.bind(this);
     this.currentLocation = this.currentLocation.bind(this);
+    this.undoMarker = this.undoMarker.bind(this);
     this.clearMap = this.clearMap.bind(this);
   }
 
@@ -75,8 +76,10 @@ class Map extends React.Component {
     });
 
     navigator.geolocation.getCurrentPosition(({ coords }) => {
-      this.setState( {center: new google.maps.LatLng(
-        coords.latitude, coords.longitude) });
+      if (this.state) {
+        this.setState( {center: new google.maps.LatLng(
+          coords.latitude, coords.longitude) });
+      };
     });
   }
 

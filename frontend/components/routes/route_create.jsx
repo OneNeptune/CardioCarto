@@ -8,7 +8,6 @@ class RouteCreate extends React.Component {
     this.createRoute = this.props.createRoute;
     this.handleSubmit = this.handleSubmit.bind(this);
     this.updateRoute = this.updateRoute.bind(this);
-    this.undoMarker = this.undoMarker.bind(this);
     this.state = {
       title: "",
       polylines: "",
