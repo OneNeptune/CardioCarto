@@ -1,5 +1,7 @@
 import React from 'react';
 import MapHelper from './map_helper';
+import * as MapUtil from '../../util/map_util.js';
+
 
 class Map extends React.Component {
   constructor(props) {
@@ -10,7 +12,7 @@ class Map extends React.Component {
       duration: 0,
       distance: 0,
       start_address: "N/A",
-      finish_address: "N/A"
+      finish_address: "N/A",
     };
     // this.locationButton = this.locationButton.bind(this);
     // this.currentLocation = this.currentLocation.bind(this);
@@ -18,55 +20,8 @@ class Map extends React.Component {
     this.clearMap = this.clearMap.bind(this);
   }
 
-  createMap(lat = 40.7447077, lng = -73.9948764) {
-    const mapOptions = {
-      center: {
-        lat: lat,
-        lng: lng
-      },
-      maxZoom: 18,
-      zoom: 15,
-      draggableCursor:'crosshair',
-      clickableIcons: false,
-      styles: [
-        {
-          "featureType": "landscape.man_made",
-          "elementType": "all",
-          "stylers": [
-            {
-              "visibility": "off"
-            }
-          ]
-        },
-        {
-          "featureType": "poi.business",
-          "elementType": "labels.text",
-          "stylers": [
-            {
-              "visibility": "off"
-            }
-          ]
-        },
-        {
-          "featureType": "poi.business",
-          "elementType": "labels.icon",
-          "stylers": [
-            {
-              "visibility": "off"
-            }
-          ]
-        },
-        {
-          "featureType": "road.local",
-          "elementType": "all",
-          "stylers": [
-            {
-              "visibility": "on"
-            }
-          ]
-        }
-      ]
-    };
+  createMap() {
+    const mapOptions = MapUtil.mapOptions();
     this.map = new google.maps.Map(this.refs.map, mapOptions);
     this.MapHelper = new MapHelper(this.map, this.props.updateRoute);
 
@@ -110,6 +65,7 @@ class Map extends React.Component {
 
   clearMap() {
     this.createMap();
+    this.MapHelper.directions();
   }
 
   componentDidMount() {

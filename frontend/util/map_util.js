@@ -30,7 +30,7 @@ export const defaultRoute = () => ({
   duration: 0,
   distance: 0,
   start_address: "N/A",
-  finish_address: "N/A"
+  finish_address: "N/A",
 });
 
 export const formatTime = (seconds) => {
@@ -47,3 +47,73 @@ export const formatTime = (seconds) => {
 export const formatDistance = (meters) => {
   return (meters * 0.000621371192).toFixed(1);
 };
+
+export const mapUrl = (polylines) => {
+  const staticMap = 'https://maps.googleapis.com/maps/api/staticmap';
+  const mapSize = '?size=639x354';
+  const styles = '&style=feature:landscape.man_made|element:all|visibility:off&style=feature:poi.business|element:all|visibility:off&style=feature:road.local|element:all|visibility:on'
+  const mapPath = '&path=weight:3%7Ccolor:red%7Cenc:';
+  const apiKey = "&key=AIzaSyAheUtm6hUIj8FAM0Qd1vvouvj2Y4M9_Jw";
+
+  return(
+    staticMap + mapSize + styles + mapPath + polylines + apiKey
+  );
+};
+
+export const mapOptions = (lat = 40.7447077, lng = -73.9948764) => (
+  {
+    center: {
+      lat: lat,
+      lng: lng
+    },
+    maxZoom: 18,
+    zoom: 15,
+    draggableCursor:'crosshair',
+    clickableIcons: false,
+    panControl: true,
+    zoomControl: true,
+    mapTypeControl: false,
+    scaleControl: true,
+    streetViewControl: false,
+    overviewMapControl: true,
+    rotateControl: true,
+    styles: [
+      {
+        "featureType": "landscape.man_made",
+        "elementType": "all",
+        "stylers": [
+          {
+            "visibility": "off"
+          }
+        ]
+      },
+      {
+        "featureType": "poi.business",
+        "elementType": "labels.text",
+        "stylers": [
+          {
+            "visibility": "off"
+          }
+        ]
+      },
+      {
+        "featureType": "poi.business",
+        "elementType": "labels.icon",
+        "stylers": [
+          {
+            "visibility": "off"
+          }
+        ]
+      },
+      {
+        "featureType": "road.local",
+        "elementType": "all",
+        "stylers": [
+          {
+            "visibility": "on"
+          }
+        ]
+      }
+    ]
+  }
+);

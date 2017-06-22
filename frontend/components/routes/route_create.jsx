@@ -17,7 +17,7 @@ class RouteCreate extends React.Component {
       distance: 0,
       start_address: "N/A",
       completed: false,
-      finish_address: "N/A"
+      finish_address: "N/A",
     };
   }
 

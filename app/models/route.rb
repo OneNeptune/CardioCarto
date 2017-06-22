@@ -13,6 +13,7 @@
 #  start_address  :string
 #  finish_address :string
 #  duration       :integer
+#  bounds         :string
 #
 
 class Route < ActiveRecord::Base

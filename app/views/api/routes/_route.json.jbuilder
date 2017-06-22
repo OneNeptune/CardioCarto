@@ -1,2 +1,11 @@
-json.extract! route, :id, :title, :polylines, :distance, :duration,
-  :completed
+json.extract!(
+  route,
+  :id,
+  :title,
+  :polylines,
+  :distance,
+  :duration,
+  :completed,
+  :start_address, 
+  :finish_address
+)

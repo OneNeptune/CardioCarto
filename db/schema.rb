@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170622171459) do
+ActiveRecord::Schema.define(version: 20170622193110) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20170622171459) do
     t.string   "start_address"
     t.string   "finish_address"
     t.integer  "duration"
+    t.string   "bounds"
   end
 
   add_index "routes", ["user_id"], name: "index_routes_on_user_id", using: :btree

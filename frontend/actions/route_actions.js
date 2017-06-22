@@ -27,7 +27,7 @@ export const clearErrors = () => ({
 
 export const fetchAllRoutes = () => {
   return (dispatch) => {
-    RouteUtil.fetchAllRoutes()
+    return RouteUtil.fetchAllRoutes()
       .then(
         (routes) => {
           dispatch(clearErrors());
@@ -42,7 +42,7 @@ export const fetchAllRoutes = () => {
 
 export const fetchSingleRoute = (id) => {
   return (dispatch) => {
-    RouteUtil.fetchSingleRoute(id)
+    return RouteUtil.fetchSingleRoute(id)
       .then(
         (route) => {
           dispatch(clearErrors());
@@ -57,7 +57,7 @@ export const fetchSingleRoute = (id) => {
 
 export const createRoute = (newRoute) => {
   return (dispatch) => {
-    RouteUtil.createRoute(newRoute)
+    return RouteUtil.createRoute(newRoute)
       .then(
         (route) => {
           dispatch(clearErrors());
