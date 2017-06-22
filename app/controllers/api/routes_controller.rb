@@ -24,7 +24,13 @@ class Api::RoutesController < ApplicationController
 
   def route_params
     params.require(:route).permit(
-      :title, :polylines, :distance, :duration, :completed
+      :title,
+      :polylines,
+      :distance, 
+      :duration, 
+      :completed, 
+      :start_address, 
+      :finish_address
     )
   end
 end

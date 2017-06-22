@@ -9,8 +9,8 @@ class Map extends React.Component {
       polylines: "",
       duration: 0,
       distance: 0,
-      start: "N/A",
-      finish: "N/A"
+      start_address: "N/A",
+      finish_address: "N/A"
     };
     // this.locationButton = this.locationButton.bind(this);
     // this.currentLocation = this.currentLocation.bind(this);

@@ -47,8 +47,8 @@ class MapHelper {
     this.route.polylines = routes.overview_polyline;
     this.route.duration = MapUtil.duration(routes);
     this.route.distance = MapUtil.distance(routes);
-    this.route.start = MapUtil.start(routes);
-    this.route.finish = MapUtil.finish(routes);
+    this.route.start_address = MapUtil.start(routes);
+    this.route.finish_address = MapUtil.finish(routes);
   }
 
   addMarker(position){

@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Map from './map';
+import * as MapUtil from '../../util/map_util.js';
+
 
 class RouteCreate extends React.Component {
   constructor(props) {
@@ -13,25 +15,14 @@ class RouteCreate extends React.Component {
       polylines: "",
       duration: 0,
       distance: 0,
-      start: "N/A",
+      start_address: "N/A",
       completed: false,
-      finish: "N/A"
+      finish_address: "N/A"
     };
   }
 
   updateRoute(route) {
     this.setState(route);
-  }
-
-  formatTime(seconds) {
-    const h = Math.floor(seconds / 3600);
-    const m = Math.floor((seconds % 3600) / 60);
-    const s = seconds % 60;
-    return [
-      h,
-      m > 9 ? m : '0' + m,
-      s > 9 ? s : '0' + s,
-    ].filter(s => s).join(':');
   }
 
   update(field) {
@@ -60,25 +51,25 @@ class RouteCreate extends React.Component {
                 <li>
                   <h4>Distance:</h4>
                   <p>
-                    { (this.state.distance * 0.000621371192).toFixed(1) }mi
+                    { MapUtil.formatDistance(this.state.distance) }mi
                   </p>
                 </li>
                 <li>
                   <h4>Est Duration:</h4>
                   <p>
-                    { this.formatTime(this.state.duration) }
+                    { MapUtil.formatTime(this.state.duration) }
                   </p>
                 </li>
                 <li>
                   <h4>Start:</h4>
                   <p className='address'>
-                    { this.state.start }
+                    { this.state.start_address }
                   </p>
                 </li>
                 <li>
                   <h4>Finish:</h4>
                   <p className='address'>
-                    { this.state.finish }
+                    { this.state.finish_address }
                   </p>
                 </li>
               </ul>

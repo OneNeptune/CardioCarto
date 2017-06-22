@@ -29,6 +29,21 @@ export const defaultRoute = () => ({
   polylines: "",
   duration: 0,
   distance: 0,
-  start: "N/A",
-  finish: "N/A"
+  start_address: "N/A",
+  finish_address: "N/A"
 });
+
+export const formatTime = (seconds) => {
+  const h = Math.floor(seconds / 3600);
+  const m = Math.floor((seconds % 3600) / 60);
+  const s = seconds % 60;
+  return [
+    h,
+    m > 9 ? m : '0' + m,
+    s > 9 ? s : '0' + s,
+  ].filter(s => s).join(':');
+};
+
+export const formatDistance = (meters) => {
+  return (meters * 0.000621371192).toFixed(1);
+};
