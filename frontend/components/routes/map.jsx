@@ -12,8 +12,8 @@ class Map extends React.Component {
       start: "N/A",
       finish: "N/A"
     };
-    this.locationButton = this.locationButton.bind(this);
-    this.currentLocation = this.currentLocation.bind(this);
+    // this.locationButton = this.locationButton.bind(this);
+    // this.currentLocation = this.currentLocation.bind(this);
     this.undoMarker = this.undoMarker.bind(this);
     this.clearMap = this.clearMap.bind(this);
   }
@@ -75,36 +75,34 @@ class Map extends React.Component {
       this.MapHelper.directions();
     });
 
-    navigator.geolocation.getCurrentPosition(({ coords }) => {
-      if (this.state) {
-        this.setState( {center: new google.maps.LatLng(
-          coords.latitude, coords.longitude) });
-      };
-    });
+    // navigator.geolocation.getCurrentPosition(({ coords }) => {
+    //     this.setState( {center: new google.maps.LatLng(
+    //       coords.latitude, coords.longitude) });
+    // });
   }
 
-  locationButton() {
-    if (this.state.center) {
-      return(
-        <button
-          onClick={ this.currentLocation }
-          className='location'>
-            Current Location
-        </button>
-      )
-    } else {
-      return(<button
-        disabled={true}
-        className='location-disabled'>
-          Location Unavailable
-      </button>)
-    }
-  }
+  // locationButton() {
+  //   if (this.state.center) {
+  //     return(
+  //       <button
+  //         onClick={ this.currentLocation }
+  //         className='location'>
+  //           Current Location
+  //       </button>
+  //     )
+  //   } else {
+  //     return(<button
+  //       disabled={true}
+  //       className='location-disabled'>
+  //         Location Unavailable
+  //     </button>)
+  //   }
+  // }
 
-  currentLocation() {
-    this.map.setZoom(16);
-    this.map.setCenter(this.state.center);
-  }
+  // currentLocation() {
+  //   this.map.setZoom(16);
+  //   this.map.setCenter(this.state.center);
+  // }
 
   undoMarker() {
     this.MapHelper.undoMarker();
@@ -122,7 +120,6 @@ class Map extends React.Component {
     return (
       <section className="map-wrapper">
         <section className='map-controls'>
-          { this.locationButton() }
           <button
             onClick={ this.undoMarker }
             className='undo'>
