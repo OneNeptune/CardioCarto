@@ -47,11 +47,6 @@ class RouteCreate extends React.Component {
     this.props.createRoute(route);
   }
 
-  undoMarker() {
-    debugger;
-    this.map.undoMarker();
-  }
-
   render() {
     const map = <Map updateRoute={ this.updateRoute } />;
     this.map = map;

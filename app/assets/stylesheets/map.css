@@ -45,6 +45,8 @@
   border-radius: 3px;
   background-color: #d3d6dc;
   color: white;
+  outline: none;
+  cursor: wait;
 }
 
 .map-controls button.undo {
