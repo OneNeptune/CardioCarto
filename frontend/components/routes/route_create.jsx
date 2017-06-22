@@ -8,6 +8,7 @@ class RouteCreate extends React.Component {
     this.createRoute = this.props.createRoute;
     this.handleSubmit = this.handleSubmit.bind(this);
     this.updateRoute = this.updateRoute.bind(this);
+    this.undoMarker = this.undoMarker.bind(this);
     this.state = {
       title: "",
       polylines: "",
@@ -46,7 +47,14 @@ class RouteCreate extends React.Component {
     this.props.createRoute(route);
   }
 
+  undoMarker() {
+    debugger;
+    this.map.undoMarker();
+  }
+
   render() {
+    const map = <Map updateRoute={ this.updateRoute } />;
+    this.map = map;
     return(
       <section className='route-wrapper'>
         <section className='route-content-wrapper'>
@@ -108,8 +116,7 @@ class RouteCreate extends React.Component {
             </section>
           </section>
           <section className='route-create-map'>
-
-            <Map updateRoute={ this.updateRoute } />
+            { map }
           </section>
         </section>
       </section>

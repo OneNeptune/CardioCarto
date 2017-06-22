@@ -1,14 +1,72 @@
 .map-wrapper {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: flex-start;
+  flex-direction: column;
+  padding-top: 5px;
   width: 720px;
-  height: 602px;
+  height: 652px;
 }
 
 .map {
   border: 1px solid #d3d6dc;
   display: flex;
   width: 700px;
-  height: 558px;
+  height: 556px;
+}
+
+.map-controls {
+  display: flex;
+  width: 702px;
+  align-items: flex-end;
+  justify-content: flex-end;
+  padding: 20px 0 20px 0;
+}
+
+.map-controls button.location {
+  margin-left: 20px;
+  text-transform: uppercase;
+  padding: 0 20px;
+  font-family: 'Roboto','Open Sans', sans-serif;
+  line-height: 26px;
+  font-size: 12px;
+  border-radius: 3px;
+  background-color: #5bc0de;
+  color: white;
+}
+
+.map-controls button.location-disabled {
+  margin-left: 20px;
+  text-transform: uppercase;
+  padding: 0 20px;
+  font-family: 'Roboto','Open Sans', sans-serif;
+  line-height: 26px;
+  font-size: 12px;
+  border-radius: 3px;
+  background-color: #d3d6dc;
+  color: white;
+}
+
+.map-controls button.undo {
+  margin-left: 20px;
+  text-transform: uppercase;
+  padding: 0 20px;
+  font-family: 'Roboto','Open Sans', sans-serif;
+  line-height: 26px;
+  font-size: 12px;
+  border-radius: 3px;
+  background-color: #f0ad4e;
+  color: white;
+}
+
+.map-controls button.clear {
+  margin-left: 20px;
+  text-transform: uppercase;
+  padding: 0 20px;
+  font-family: 'Roboto','Open Sans', sans-serif;
+  line-height: 26px;
+  font-size: 12px;
+  border-radius: 3px;
+  background-color: #d9534f;
+  color: white;
 }

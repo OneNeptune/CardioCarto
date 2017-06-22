@@ -54,14 +54,15 @@ ul.route-details {
   width: 100%;
 }
 
-.route-details li {
-  padding-top: 10px;
+.route-details li:not(:first-child) {
+  margin-top: 10px;
 }
 
 .route-details h4 {
   font-family: 'Roboto','Open Sans', sans-serif;
   font-size: 12px;
-  font-weight: normal;
+  text-transform: uppercase;
+  font-weight: bold;
   margin: 0;
 }
 
@@ -73,9 +74,9 @@ ul.route-details {
 }
 
 p.address {
-  height: 22px;
-  line-height: 18px;
-  font-size: 10px;
+  height: 26px;
+  line-height: 12px;
+  font-size: 12px;
   overflow: hidden;
 }
 

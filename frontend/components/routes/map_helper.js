@@ -1,16 +1,36 @@
+import * as MapUtil from '../../util/map_util.js';
+
 class MapHelper {
   constructor(map, updateRoute){
     this.map = map;
     this.routeMarkers = {};
-    this.route = { polylines: "", duration: 0, distance: 0, start: "", finish: "" }
+    this.route = MapUtil.defaultRoute();
 
-    window.map = this.map
+    this.initializeDirections();
 
     this.labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
     this.labelIndex = 0;
 
     this.updateRoute = updateRoute;
+
     this.calcRoute = this.calcRoute.bind(this);
+    this.directions = this.directions.bind(this);
+    this.extractResults = this.extractResults.bind(this);
+    this.clearMap = this.clearMap.bind(this);
+  }
+
+  initializeDirections() {
+    this.directionsDisplay = new google.maps.DirectionsRenderer();
+    this.userRoute = new google.maps.DirectionsService();
+    this.directionsDisplay.setMap(this.map);
+    this.directionsDisplay.setOptions( { suppressMarkers: true } );
+
+    google.maps.event.addListener(
+      this.directionsDisplay,
+      'directions_changed',
+      () => {
+      this.updateRoute(this.route);
+    });
   }
 
   getRoute(){
@@ -21,6 +41,16 @@ class MapHelper {
     }
   }
 
+  extractResults(resultRoutes) {
+    const routes = resultRoutes[0];
+
+    this.route.polylines = routes.overview_polyline;
+    this.route.duration = MapUtil.duration(routes);
+    this.route.distance = MapUtil.distance(routes);
+    this.route.start = MapUtil.start(routes);
+    this.route.finish = MapUtil.finish(routes);
+  }
+
   addMarker(position){
     const marker = new google.maps.Marker({
       position: position,
@@ -28,24 +58,39 @@ class MapHelper {
       map: this.map,
     });
 
-
     this.routeMarkers[marker.label] = marker;
   }
 
+  undoMarker() {
+    if (this.labelIndex > 0) {
+      const markers = this.routeMarkers;
+      const lastLabel = this.labels[this.labelIndex - 1];
+
+      this.routeMarkers[lastLabel].setMap(null);
+      delete this.routeMarkers[lastLabel];
+      this.labelIndex--;
+
+      this.directions();
+    }
+  }
+
+  clearMap() {
+    this.directionsDisplay.setDirections({routes: []});
+  }
+
   directions() {
-    if (this.routeMarkers['B']) {
-      this.directionsDisplay = new google.maps.DirectionsRenderer();
-      this.userRoute = new google.maps.DirectionsService();
-      this.directionsDisplay.setMap(this.map);
-      this.directionsDisplay.setOptions( { suppressMarkers: true } );
+    if (this.labelIndex > 1) {
       this.calcRoute();
+    } else {
+      this.clearMap();
+      this.route = MapUtil.defaultRoute();
+      this.updateRoute(this.route);
     }
   }
 
   calcRoute() {
     const start = this.routeMarkers['A'].position;
     const end = this.routeMarkers[this.labels[this.labelIndex - 1]].position;
-
     const waypoints = [];
 
     if (this.labelIndex > 1) {
@@ -57,33 +102,14 @@ class MapHelper {
       }
     }
 
-    const request = {
-      origin: start,
-      destination: end,
-      waypoints: waypoints,
-      optimizeWaypoints: false,
-      travelMode: 'WALKING'
-    };
-
-    this.userRoute.route(request, (result, status) => {
-      if (status === 'OK') {
-        const routes = result.routes[0];
-
-        const time = routes.legs.map((leg) => leg.duration.value);
-        const distance = routes.legs.map((leg) => leg.distance.value);
-        const lastIdx = routes.legs.length - 1;
-
-        this.route.polylines = routes.overview_polyline;
-        this.route.duration = time.reduce((a, b) => a + b);
-        this.route.distance = distance.reduce((a, b) => a + b);
-        this.route.start = routes.legs[0].start_address;
-        this.route.finish = routes.legs[lastIdx].end_address;
-
-        this.directionsDisplay.setDirections(result);
-
-        this.updateRoute(this.route);
-
-      }
+    const request = MapUtil.request(start, end, waypoints);
+    this.userRoute.route(
+      request,
+      (result, status) => {
+        if (status === 'OK') {
+          this.extractResults(result.routes);
+          this.directionsDisplay.setDirections(result);
+        }
     });
 
   }
