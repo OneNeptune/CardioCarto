@@ -82,7 +82,7 @@
 .drop-down-menu {
   position: absolute;
   z-index: 2;
-  display: flex;
+  display: none;
   position: absolute;
   width: 100px;
   background: white;
@@ -134,11 +134,16 @@
   color: #a1a6af;
 }
 
+.drop-down a:hover {
+  color: #333;
+}
+
 .drop-down-menu button {
   color: #a1a6af;
   font-family: 'Roboto','Open Sans', sans-serif;
   font-weight: normal;
-  font-size: 11px;
+  line-height: 12px;
+  font-size: 11px !important;
   padding: 12px 16px;
   width: 100%;
   display: flex;
@@ -147,7 +152,7 @@
 }
 
 .drop-down-menu button:hover {
-  color: black;
+  color: #333;
 }
 
 .session-links:hover {
