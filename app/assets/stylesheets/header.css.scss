@@ -42,7 +42,7 @@
   margin: 0 24px 0 0;
 }
 
-.session-links a {
+.session-links a.logged-out {
   text-transform: uppercase;
   font-size: 14px;
   font-family: 'Roboto','Open Sans', sans-serif;
@@ -54,17 +54,17 @@
   color: #9297a3;
 }
 
-.session-links a:hover {
+.session-links a.logged-out:hover {
   color: black;
 }
 
-.session-links a:last-child {
+.session-links a.sign-up-link {
   border-radius: 3px;
   background-color: #97bf11;
   color: white;
 }
 
-.session-links a:last-child:hover {
+.session-links a.sign-up-link:hover {
   border-radius: 3px;
   background-color: #92ba0e;
 }
@@ -116,6 +116,22 @@
   padding: 12px 16px;
   border-bottom: 1px solid #d3d6dc;
   color: black;
+}
+
+.drop-down a {
+  font-size: 12px;
+  font-weight: normal;
+  line-height: 12px;
+  font-family: 'Roboto','Open Sans', sans-serif;
+  padding: 0;
+  margin: 0;
+  background: none;
+  border: 0;
+  text-transform: capitalize;
+  font-size: 14px;
+  margin: 0;
+  padding: 0;
+  color: #a1a6af;
 }
 
 .drop-down-menu button {

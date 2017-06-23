@@ -14,9 +14,14 @@ class Header extends React.Component {
       return (
         <nav className='session-links'>
           <i className='fa fa-user-circle-o'
-            aria-hidden="true"></i>
+            aria-hidden='true'></i>
           <section className='drop-down-menu'>
-            <ul>
+            <ul className='drop-down'>
+              <li>
+                <Link to='/routes/create'>
+                  Create Route
+                </Link>
+              </li>
               <li>Friends</li>
               <li>Settings</li>
               <button onClick={ this.props.logOut }>Log Out</button>
@@ -35,19 +40,21 @@ class Header extends React.Component {
 
       return(
         <nav className='session-links'>
-          <Link to='/auth/login'>Log In</Link>
-          <Link to='/auth/signup'>Sign Up</Link>
+          <Link className='logged-out' to='/auth/login'>Log In</Link>
+          <Link className='logged-out sign-up-link'
+            to='/auth/signup'>Sign Up</Link>
         </nav>
       );
     }
   }
 
   render() {
+    const { currentUser } = this.props;
     return(
       <header className='header-nav-wrapper'>
         <nav className='header-nav'>
           <section className='logo'>
-            <Link to='/'></Link>
+            <Link to={ currentUser ? '/my_home/user_dashboard' : '/'}></Link>
           </section>
 
           { this.sessionLinks() }

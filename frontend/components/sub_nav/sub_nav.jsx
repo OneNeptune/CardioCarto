@@ -1,27 +1,38 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 
 class SubNav extends React.Component {
   constructor(props) {
     super(props);
     this.lastTab = this.lastTab.bind(this);
+    this.active = this.active.bind(this);
   }
 
   lastTab() {
     const { pathname } = this.props.location;
     if (pathname.includes('create')) {
       return(
-        <li>Create Route</li>
+        <li className={ this.active('routes') }>
+          <Link to='/routes/create'>
+            Create Route
+          </Link>
+        </li>
       );
     } else {
       return(
-        <li>All Routes</li>
+        <li className={ this.active('routes') }>
+          <Link to='/routes/'>
+            All Routes
+          </Link>
+        </li>
       );
     }
   }
 
-  markActive() {
-
+  active(tabName) {
+    return(
+      this.props.location.pathname.includes(tabName) ? 'active' : ''
+    );
   }
 
   render() {
@@ -30,8 +41,16 @@ class SubNav extends React.Component {
     return(
       <nav className='sub-nav-wrapper'>
         <ul className='sub-nav-bar'>
-          <li className="active">Activity Feed</li>
-          <li>My Dashboard</li>
+          <li className={ this.active('activity') }>
+            <Link to='/my_home/activity_feed'>
+              Activity Feed
+            </Link>
+          </li>
+          <li className={ this.active('dashboard') }>
+            <Link to='/my_home/user_dashboard'>
+              My Dashboard
+            </Link>
+          </li>
           { this.lastTab() }
         </ul>
       </nav>
