@@ -15,7 +15,8 @@ class RouteShow extends React.Component {
     const mapOptions = MapUtil.mapOptions();
     this.map = new google.maps.Map(this.refs.map, mapOptions);
 
-    const decodedPath = google.maps.geometry.encoding.decodePath(route.polylines);
+    const decodedPath = google.maps.geometry.encoding
+      .decodePath(route.polylines);
     const polyline = new google.maps.Polyline({
       path: decodedPath,
       strokeColor: 'red',

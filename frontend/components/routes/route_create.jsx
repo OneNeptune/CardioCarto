@@ -44,7 +44,7 @@ class RouteCreate extends React.Component {
   handleErrors() {
     const { createRoute } = this.props.errors;
 
-    if (!createRoute) return null;
+    if (!createRoute.length) return null;
 
     const errorItems = createRoute.map((error, idx) => {
       return(<li key={idx}>{error}</li>);
