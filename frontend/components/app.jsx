@@ -13,8 +13,7 @@ import SubNav from './sub_nav/sub_nav';
 const App = () => (
   <div className="main-wrapper">
     <HeaderContainer />
-    <ProtectedRoute path='/'
-      component={ SubNav } />
+    <SubNav />
     <Switch>
       <LandingRoute exact path="/"
         component={ FrontPageContainer } />

@@ -25,6 +25,8 @@ class SubNav extends React.Component {
   }
 
   render() {
+    const { pathname } = this.props.location;
+    if (pathname === '/' || pathname.includes('auth')) return null;
     return(
       <nav className='sub-nav-wrapper'>
         <ul className='sub-nav-bar'>
