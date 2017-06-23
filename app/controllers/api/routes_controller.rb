@@ -24,6 +24,27 @@ class Api::RoutesController < ApplicationController
     render :show
   end
 
+  def update
+    @route = current_user.routes.find(params[:id])
+
+    if @route.update(route_params)
+      render :show
+    else
+      render json: @route.errors.full_messages, status: 422
+    end
+  end
+
+  def destroy
+    route = current_user.routes.find(params[:id])
+    if route
+      route.destroy
+      @routes = current_user.routes
+      render :index
+    else
+      render json: 'Failed', status: 422
+    end
+  end
+
   private
 
   def route_params
@@ -34,7 +55,8 @@ class Api::RoutesController < ApplicationController
       :duration,
       :completed,
       :start_address,
-      :finish_address
+      :finish_address,
+      :completion_time
     )
   end
 end

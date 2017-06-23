@@ -20,6 +20,9 @@ class RouteCreate extends React.Component {
       start_address: 'N/A',
       completed: false,
       finish_address: 'N/A',
+      hh: '',
+      mm: '',
+      ss: '',
       completion_time: 0
     };
   }
@@ -36,11 +39,20 @@ class RouteCreate extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    const route = this.state;
-    this.props.createRoute(route)
-      .then((response) =>
+    const hoursToSecs = this.state.hh * 3600;
+    const minutesToSecs = this.state.mm * 60;
+    const completionTime = Math.floor(
+      hoursToSecs + minutesToSecs + this.state.ss);
+
+    this.setState({completion_time: completionTime }, () => {
+      const route = this.state;
+      this.props.createRoute(route)
+        .then((response) =>
         this.props.history.push(`/routes/view/${response.route.id}`));
+    });
+
   }
+
 
   handleErrors() {
     const { createRoute } = this.props.errors;
@@ -115,6 +127,8 @@ class RouteCreate extends React.Component {
                     <input
                       className='formTime'
                       disabled={ this.state.completed === 'false' }
+                      onChange={this.update('hh')}
+                      value={this.state.hh}
                       type='number'
                       min='0'
                       max='24'
@@ -123,6 +137,8 @@ class RouteCreate extends React.Component {
                     <input
                       className='formTime'
                       disabled={ this.state.completed === 'false' }
+                      onChange={this.update('mm')}
+                      value={this.state.mm}
                       type='number'
                       min='0'
                       max='60'
@@ -131,6 +147,8 @@ class RouteCreate extends React.Component {
                     <input
                       className='formTime'
                       disabled={ this.state.completed === 'false' }
+                      onChange={this.update('ss')}
+                      value={this.state.ss}
                       type='number'
                       min='0'
                       max='60'

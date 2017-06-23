@@ -19,3 +19,10 @@ export const createRoute = (route) => (
     data: { route }
   })
 );
+
+export const deleteRoute = (id) => (
+  $.ajax({
+    type: 'DELETE',
+    url: `/api/routes/${id}`,
+  })
+);

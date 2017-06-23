@@ -1,19 +1,21 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
-import { fetchSingleRoute } from '../../actions/route_actions';
+import { fetchSingleRoute, deleteRoute } from '../../actions/route_actions';
 import RouteShow from './route_show';
 
 const mapStateToProps = (state, { match }) => {
   const currentRoute = state.routes.currentRoute;
   return({
+    currentUser: state.session.currentUser,
     errors: state.errors,
-    route: state.routes.entities[currentRoute]
+    route: state.routes.entities[currentRoute],
   });
 };
 
 const mapDispatchToProps = dispatch => ({
-  fetchSingleRoute: id => dispatch(fetchSingleRoute(id))
+  fetchSingleRoute: id => dispatch(fetchSingleRoute(id)),
+  deleteRoute: id => dispatch(deleteRoute(id)),
 });
 
 export default withRouter(connect(

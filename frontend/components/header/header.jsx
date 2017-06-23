@@ -22,8 +22,8 @@ class Header extends React.Component {
                   Create Route
                 </Link>
               </li>
-              <li>Friends</li>
-              <li>Settings</li>
+              // <li>Friends</li>
+              // <li>Settings</li>
               <button onClick={ this.props.logOut }>Log Out</button>
             </ul>
           </section>

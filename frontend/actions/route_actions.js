@@ -69,3 +69,18 @@ export const createRoute = (newRoute) => {
       );
   };
 };
+
+export const deleteRoute = (id) => {
+  return (dispatch) => {
+    return RouteUtil.deleteRoute(id)
+      .then(
+        () => {
+          dispatch(clearErrors());
+          return dispatch(fetchAllRoutes());
+        },
+        (errors) => {
+          return dispatch(receiveErrors('createRoute', errors));
+        }
+      );
+  };
+};

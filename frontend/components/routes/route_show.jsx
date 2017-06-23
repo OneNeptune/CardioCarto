@@ -8,6 +8,7 @@ class RouteShow extends React.Component {
     super(props);
 
     this.createMap = this.createMap.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
   }
 
   createMap() {
@@ -67,8 +68,16 @@ class RouteShow extends React.Component {
     const startDesc = startString.replace(/[0-9]/g, '').slice(1);
   }
 
+  handleDelete() {
+    const { route } = this.props;
+    this.props.deleteRoute(route.id).then(() =>
+        this.props.history.push('/my_home/user_dashboard')
+      );
+  }
+
   render() {
     const { route } = this.props;
+    const { currentUser } = this.props;
 
     if (!route) return null;
     return(
@@ -111,8 +120,14 @@ class RouteShow extends React.Component {
             <section className='route-sidebar-tools'>
               <ul>
                 <li><Link to='/'>All Routes</Link></li>
-                <li><Link to='/'>Create A Route</Link></li>
-                <li><Link to='/'>Delete Route</Link></li>
+                <li><Link to='/routes/create'>Create A Route</Link></li>
+                { currentUser ?
+                  <li>
+                    <button
+                      onClick={ this.handleDelete }>
+                        Delete Route
+                    </button>
+                  </li> : null}
               </ul>
             </section>
             <section className='route-sidebar-comments'>

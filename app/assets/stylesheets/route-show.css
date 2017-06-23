@@ -175,9 +175,10 @@ dl.route-show-detailed {
 
 .route-sidebar-tools li:last-of-type {
   text-transform: uppercase;
+  height: 26px;
   width: 100%;
   font-family: 'Roboto','Open Sans', sans-serif;
-  line-height: 26px;
+  line-height: 23px;
   font-size: 12px;
   background: #ff802b;
   background-image: -webkit-linear-gradient(top, #ff802b, #db6e25);
@@ -195,10 +196,15 @@ dl.route-show-detailed {
 
 .route-sidebar-tools li:last-of-type:hover {
   background: #ff802b;
+  height: 26px;
   background-image: -webkit-linear-gradient(top, #ff802b, #db6e25);
   background-image: -moz-linear-gradient(top, #ff802b, #db6e25);
   background-image: -ms-linear-gradient(top, #ff802b, #db6e25);
   background-image: -o-linear-gradient(top, #ff802b, #db6e25);
   background-image: linear-gradient(to bottom, #ff802b, #db6e25);
   text-decoration: none;
+}
+
+.route-sidebar-tools button {
+  text-transform: uppercase;
 }
