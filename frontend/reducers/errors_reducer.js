@@ -13,7 +13,7 @@ const errorsReducer = (state = _defaultState, action) => {
   switch(action.type) {
     case RECEIVE_ERRORS:
       const errors = action.errors.responseJSON;
-      return merge({}, errors);
+      return merge({}, { [action.form]: errors });
     case CLEAR_ERRORS:
       return _defaultState;
     default:

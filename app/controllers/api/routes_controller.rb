@@ -6,7 +6,7 @@ class Api::RoutesController < ApplicationController
     if @route.save
       render :show
     else
-      render json: @route.errors.messages, status: 422
+      render json: @route.errors.full_messages, status: 422
     end
   end
 
@@ -26,10 +26,10 @@ class Api::RoutesController < ApplicationController
     params.require(:route).permit(
       :title,
       :polylines,
-      :distance, 
-      :duration, 
-      :completed, 
-      :start_address, 
+      :distance,
+      :duration,
+      :completed,
+      :start_address,
       :finish_address
     )
   end

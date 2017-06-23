@@ -1,5 +1,7 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import * as MapUtil from '../../util/map_util.js';
+import * as DescUtil from '../../util/route_description_util';
 
 class RouteShow extends React.Component {
   constructor(props) {
@@ -58,9 +60,15 @@ class RouteShow extends React.Component {
     }
   }
 
+  routeDescription(route) {
+    const startArray = route.start_address.split(',');
+    const startString = startArray.slice(-3,-1).join();
+    const startDesc = startString.replace(/[0-9]/g, '').slice(1);
+  }
+
   render() {
     const { route } = this.props;
-    console.log(this.props);
+
     if (!route) return null;
     return(
       <section className='route-wrapper'>
@@ -77,6 +85,20 @@ class RouteShow extends React.Component {
                 </p>
                 <sub>miles</sub>
               </section>
+              <dl className='route-show-detailed'>
+                <dt>Begins In:</dt>
+                <dd>
+                  { DescUtil.start(route) }
+                </dd>
+                <dt>Created By:</dt>
+                <dd>
+                  { route.user_name }
+                </dd>
+                <dt>Description:</dt>
+                  { DescUtil.sentence(route) }
+                <dt>Type:</dt>
+                  <dd>Run</dd>
+              </dl>
             </section>
 
             <section className='route-show-map' ref="map">
@@ -86,7 +108,11 @@ class RouteShow extends React.Component {
 
           <section className='route-show-sidebar'>
             <section className='route-sidebar-tools'>
-
+              <ul>
+                <li><Link to='/'>All Routes</Link></li>
+                <li><Link to='/'>Create A Route</Link></li>
+                <li><Link to='/'>Delete Route</Link></li>
+              </ul>
             </section>
             <section className='route-sidebar-comments'>
               <form className='route-sidebar-comment-form'>

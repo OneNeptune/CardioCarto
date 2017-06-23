@@ -8,11 +8,13 @@ import SignUpFormContainer from './session/sign_up_form_container';
 import LogInFormContainer from './session/log_in_form_container';
 import RouteCreateContainer from './routes/route_create_container';
 import RouteShowContainer from './routes/route_show_container';
-
+import SubNav from './sub_nav/sub_nav';
 
 const App = () => (
   <div className="main-wrapper">
     <HeaderContainer />
+    <ProtectedRoute path='/'
+      component={ SubNav } />
     <Switch>
       <LandingRoute exact path="/"
         component={ FrontPageContainer } />

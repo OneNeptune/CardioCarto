@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Map from './map';
+import { withRouter } from 'react-router-dom';
 import * as MapUtil from '../../util/map_util.js';
 
 
@@ -10,6 +11,7 @@ class RouteCreate extends React.Component {
     this.createRoute = this.props.createRoute;
     this.handleSubmit = this.handleSubmit.bind(this);
     this.updateRoute = this.updateRoute.bind(this);
+
     this.state = {
       title: "",
       polylines: "",
@@ -34,7 +36,24 @@ class RouteCreate extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const route = this.state;
-    this.props.createRoute(route);
+    this.props.createRoute(route)
+      .then((response) =>
+        this.props.history.push(`/routes/view/${response.route.id}`));
+  }
+
+  handleErrors() {
+    const { createRoute } = this.props.errors;
+
+    if (!createRoute) return null;
+
+    const errorItems = createRoute.map((error, idx) => {
+      return(<li key={idx}>{error}</li>);
+    });
+    return(
+      <ul className='errors'>
+        { errorItems }
+      </ul>
+    );
   }
 
   render() {
@@ -101,6 +120,7 @@ class RouteCreate extends React.Component {
             </section>
           </section>
           <section className='route-create-map'>
+            { this.handleErrors() }
             { map }
           </section>
         </section>
