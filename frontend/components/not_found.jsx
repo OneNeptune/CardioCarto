@@ -1,5 +1,11 @@
 import React from 'react';
 
-export const NotFound = (
-  <h3>Sorry, not found!</h3>
-);
+class NotFound extends React.Component {
+  render() {
+    return(
+      <h3 className='fourohfour'>Sorry, not found!</h3>
+    );
+  }
+}
+
+export default NotFound;

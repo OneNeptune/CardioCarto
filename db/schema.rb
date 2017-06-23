@@ -11,23 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170622193110) do
+ActiveRecord::Schema.define(version: 20170623181915) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "routes", force: :cascade do |t|
-    t.integer  "user_id",                        null: false
-    t.string   "title",                          null: false
-    t.string   "polylines",                      null: false
-    t.float    "distance",                       null: false
-    t.boolean  "completed",      default: false
+    t.integer  "user_id",                         null: false
+    t.string   "title",                           null: false
+    t.string   "polylines",                       null: false
+    t.float    "distance",                        null: false
+    t.boolean  "completed",       default: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "start_address"
     t.string   "finish_address"
     t.integer  "duration"
     t.string   "bounds"
+    t.integer  "completion_time"
   end
 
   add_index "routes", ["user_id"], name: "index_routes_on_user_id", using: :btree

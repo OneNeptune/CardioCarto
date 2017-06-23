@@ -52,7 +52,7 @@ h2.route-create-tools-title {
 }
 
 ul.route-details {
-  padding-top: 20px;
+  padding-top: 0.5px;
   width: 100%;
 }
 
@@ -84,7 +84,7 @@ p.address {
 }
 
 .route-save-form label {
-  margin: 0 0 15px 0;
+  margin: 0 0 12px 0;
 }
 
 form.route-save-form {
@@ -181,4 +181,24 @@ ul.errors {
   font-size: 14px;
   height: 44px;
   color: #d62000;
+}
+
+.timeSelect {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  padding-bottom: 14px;
+}
+
+input.formTime {
+  padding: 12px 14px;
+  font-size: 12px;
+  width: 50px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 import { AuthRoute, ProtectedRoute, LandingRoute } from '../util/route_util';
 
 import HeaderContainer from './header/header_container';
@@ -12,11 +12,11 @@ import SubNav from './sub_nav/sub_nav';
 import NotFound from './not_found';
 
 const App = () => (
-  <div className="main-wrapper">
+  <div className='main-wrapper'>
     <HeaderContainer />
     <SubNav />
     <Switch>
-      <LandingRoute exact path="/"
+      <LandingRoute exact path='/'
         component={ FrontPageContainer } />
       <AuthRoute path='/auth/signup'
         component={ SignUpFormContainer } />
@@ -26,8 +26,9 @@ const App = () => (
         component={ RouteCreateContainer } />
       <ProtectedRoute path='/routes/view/:routeId'
         component={ RouteShowContainer } />
+      <Route path='/404' component={ NotFound } />
+      <Redirect from='*' to='/404' />
     </Switch>
-    <Route path='*' component={ NotFound } />
   </div>
 );
 

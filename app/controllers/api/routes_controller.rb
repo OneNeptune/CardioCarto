@@ -11,8 +11,12 @@ class Api::RoutesController < ApplicationController
   end
 
   def index
-    @routes = current_user.routes
-    render :index
+    if current_user
+      @routes = current_user.routes
+      render :index
+    else
+      render json: 'Not logged in', status: 422
+    end
   end
 
   def show

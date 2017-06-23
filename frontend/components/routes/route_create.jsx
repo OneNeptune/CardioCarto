@@ -13,13 +13,14 @@ class RouteCreate extends React.Component {
     this.updateRoute = this.updateRoute.bind(this);
 
     this.state = {
-      title: "",
-      polylines: "",
+      title: '',
+      polylines: '',
       duration: 0,
       distance: 0,
-      start_address: "N/A",
+      start_address: 'N/A',
       completed: false,
-      finish_address: "N/A",
+      finish_address: 'N/A',
+      completion_time: 0
     };
   }
 
@@ -64,9 +65,8 @@ class RouteCreate extends React.Component {
         <section className='route-content-wrapper'>
           <section className='route-create-tools'>
             <h2 className='route-create-tools-title'>Create Run</h2>
-            <section className="route-create-tools-details">
-              <h3>Route Details</h3>
-              <ul className="route-details">
+            <section className='route-create-tools-details'>
+              <ul className='route-details'>
                 <li>
                   <h4>Distance:</h4>
                   <p>
@@ -93,7 +93,7 @@ class RouteCreate extends React.Component {
                 </li>
               </ul>
             </section>
-            <section className="route-create-tools-details">
+            <section className='route-create-tools-details'>
               <h3>Save Route</h3>
               <form onSubmit={this.handleSubmit} className='route-save-form'>
                 <label htmlFor={'title'}>
@@ -106,11 +106,37 @@ class RouteCreate extends React.Component {
                 <label htmlFor={'completed'}>
                   <select
                     onChange={this.update('completed')}
-                    value={this.state.completed}>
-                    <option value="false">I plan to complete</option>
-                    <option value="true">I have completed</option>
+                    value={ this.state.completed }>
+                    <option value='false'>I plan to complete</option>
+                    <option value='true'>I have completed</option>
                   </select>
                 </label>
+                <section className='timeSelect'>
+                    <input
+                      className='formTime'
+                      disabled={ this.state.completed === 'false' }
+                      type='number'
+                      min='0'
+                      max='24'
+                      placeholder='HH'
+                      />
+                    <input
+                      className='formTime'
+                      disabled={ this.state.completed === 'false' }
+                      type='number'
+                      min='0'
+                      max='60'
+                      placeholder='MM'
+                      />
+                    <input
+                      className='formTime'
+                      disabled={ this.state.completed === 'false' }
+                      type='number'
+                      min='0'
+                      max='60'
+                      placeholder='SS'
+                      />
+                </section>
                 <button
                   type='submit'
                   className='create-route-button'>
