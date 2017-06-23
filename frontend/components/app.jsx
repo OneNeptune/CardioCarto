@@ -26,10 +26,11 @@ const App = () => (
         component={ RouteCreateContainer } />
       <ProtectedRoute path='/routes/view/:routeId'
         component={ RouteShowContainer } />
-      <Route path='/404' component={ NotFound } />
-      <Redirect from='*' to='/404' />
     </Switch>
   </div>
 );
 
 export default App;
+
+// <Route path='/404' component={ NotFound } />
+// <Redirect from='*' to='/404' />
