@@ -21,7 +21,7 @@ class SubNav extends React.Component {
     } else {
       return(
         <li className={ this.active('routes') }>
-          <Link to='/routes/'>
+          <Link to='/my_home/user_routes'>
             All Routes
           </Link>
         </li>

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import * as MapUtil from '../../util/map_util.js';
-import * as DescUtil from '../../util/route_description_util';
+import * as MapUtil from '../../../util/map_util.js';
+import * as DescUtil from '../../../util/route_description_util';
 
 class RouteShow extends React.Component {
   constructor(props) {
@@ -122,7 +122,7 @@ class RouteShow extends React.Component {
           <section className='route-show-sidebar'>
             <section className='route-sidebar-tools'>
               <ul>
-                <li><Link to='/'>All Routes</Link></li>
+                <li><Link to='/my_home/user_routes'>All Routes</Link></li>
                 <li><Link to='/routes/create'>Create A Route</Link></li>
                 { currentUser ?
                   <li>

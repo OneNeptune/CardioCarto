@@ -1,6 +1,6 @@
 import React from 'react';
 import MapHelper from './map_helper';
-import * as MapUtil from '../../util/map_util.js';
+import * as MapUtil from '../../../util/map_util.js';
 
 
 class Map extends React.Component {

@@ -40,11 +40,13 @@ class User < ActiveRecord::Base
     self.routes
       .where(completed: true)
       .order(created_at: :desc)
-      .limit(3)
+      .limit(4)
   end
 
   def pending
-    self.routes.where(completed: false)
+    self.routes
+      .where(completed: false)
+      .limit(8)
   end
 
   def location

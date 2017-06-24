@@ -9,96 +9,86 @@
 User.destroy_all
 Route.destroy_all
 
-users = [User.create(
-  first_name: 'Guest',
-  last_name: 'User',
-  email: 'guest.user@cardiocarto.com',
-  password: 'starship76'
-),
-
-User.create(
-  first_name: 'Michael',
-  last_name: 'Bennett',
-  email: 'mbennett@cardiocarto.com',
-  password: 'password'
-)]
-#
-# User.create(
-#   first_name: Faker::Name.first_name,
-#   last_name: Faker::Name.last_name,
-#   email: Faker::Internet.email,
-#   password: 'password'
-# ),
-#
-# User.create(
-#   first_name: Faker::Name.first_name,
-#   last_name: Faker::Name.last_name,
-#   email: Faker::Internet.email,
-#   password: 'password'
-# ),
-#
-# User.create(
-#   first_name: Faker::Name.first_name,
-#   last_name: Faker::Name.last_name,
-#   email: Faker::Internet.email,
-#   password: 'password'
-# ),
-#
-# User.create(
-#   first_name: Faker::Name.first_name,
-#   last_name: Faker::Name.last_name,
-#   email: Faker::Internet.email,
-#   password: 'password'
-# ),
-#
-# User.create(
-#   first_name: Faker::Name.first_name,
-#   last_name: Faker::Name.last_name,
-#   email: Faker::Internet.email,
-#   password: 'password'
-# ),
-#
-# User.create(
-#   first_name: Faker::Name.first_name,
-#   last_name: Faker::Name.last_name,
-#   email: Faker::Internet.email,
-#   password: 'password'
-# ),
-#
-# User.create(
-#   first_name: Faker::Name.first_name,
-#   last_name: Faker::Name.last_name,
-#   email: Faker::Internet.email,
-#   password: 'password'
-# ),
-#
-# User.create(
-#   first_name: Faker::Name.first_name,
-#   last_name: Faker::Name.last_name,
-#   email: Faker::Internet.email,
-#   password: 'password'
-# ),
-#
-# User.create(
-#   first_name: Faker::Name.first_name,
-#   last_name: Faker::Name.last_name,
-#   email: Faker::Internet.email,
-#   password: 'password'
-# ),
-#
-# User.create(
-#   first_name: Faker::Name.first_name,
-#   last_name: Faker::Name.last_name,
-#   email: Faker::Internet.email,
-#   password: 'password'
-# ),
-#
-# User.create(
-#   first_name: Faker::Name.first_name,
-#   last_name: Faker::Name.last_name,
-#   email: Faker::Internet.email,
-#   password: 'password'
-# )]
+users = [
+  User.create(
+    first_name: 'Guest',
+    last_name: 'User',
+    email: 'guest.user@cardiocarto.com',
+    password: 'starship76'
+  ),
+  User.create(
+    first_name: 'Michael',
+    last_name: 'Bennett',
+    email: 'mbennett@cardiocarto.com',
+    password: 'password'
+  ),
+  User.create(
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
+    email: Faker::Internet.email,
+    password: 'password'
+  ),
+  User.create(
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
+    email: Faker::Internet.email,
+    password: 'password'
+  ),
+  User.create(
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
+    email: Faker::Internet.email,
+    password: 'password'
+  ),
+  User.create(
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
+    email: Faker::Internet.email,
+    password: 'password'
+  ),
+  User.create(
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
+    email: Faker::Internet.email,
+    password: 'password'
+  ),
+  User.create(
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
+    email: Faker::Internet.email,
+    password: 'password'
+  ),
+  User.create(
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
+    email: Faker::Internet.email,
+    password: 'password'
+  ),
+  User.create(
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
+    email: Faker::Internet.email,
+    password: 'password'
+  ),
+  User.create(
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
+    email: Faker::Internet.email,
+    password: 'password'
+  ),
+  User.create(
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
+    email: Faker::Internet.email,
+    password: 'password'
+  ),
+  User.create(
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
+    email: Faker::Internet.email,
+    password: 'password'
+  )
+]
 
 
 time_mods = (1..48).to_a

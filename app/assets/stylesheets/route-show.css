@@ -1,6 +1,7 @@
 .route-show-wrapper {
   width: 639px;
   padding-left: 20px;
+  padding-top: 20px;
 }
 
 .route-show-details {
@@ -110,7 +111,7 @@ dl.route-show-detailed {
 .route-show-sidebar {
   width: 260px;
   margin-left: 20px;
-  margin-top: 10px;
+  margin-top: 20px;
 }
 
 .route-sidebar-tools {

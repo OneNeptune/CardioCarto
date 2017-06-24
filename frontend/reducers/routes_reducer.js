@@ -3,7 +3,10 @@ import { RECEIVE_ROUTES, RECEIVE_ROUTE } from '../actions/route_actions.js';
 
 const _defaultState =
   Object.freeze({
-    entities: {},
+    entities: {
+      completed: [],
+      pending: [],
+    },
     currentRoute: null
   });
 
@@ -11,7 +14,8 @@ const routesReducer = (state = _defaultState, action) => {
   switch(action.type) {
     case RECEIVE_ROUTES:
       const { routes } = action;
-      return merge({}, { entities: { routes } });
+      const { completed, pending } = routes;
+      return merge({}, state, { entities: { completed, pending } });
     case RECEIVE_ROUTE:
       const { route } = action;
       const addedRoute = {

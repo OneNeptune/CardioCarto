@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
-import { fetchSingleRoute, deleteRoute } from '../../actions/route_actions';
+import { fetchSingleRoute, deleteRoute } from '../../../actions/route_actions';
 import RouteShow from './route_show';
 
 const mapStateToProps = (state, { match }) => {

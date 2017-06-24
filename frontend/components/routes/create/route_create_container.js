@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { createRoute } from '../../actions/route_actions';
+import { createRoute } from '../../../actions/route_actions';
 import RouteCreate from './route_create';
 
 const mapStateToProps = ({ errors }) => ({

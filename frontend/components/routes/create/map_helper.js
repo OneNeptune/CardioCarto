@@ -1,4 +1,4 @@
-import * as MapUtil from '../../util/map_util.js';
+import * as MapUtil from '../../../util/map_util.js';
 
 class MapHelper {
   constructor(map, updateRoute){

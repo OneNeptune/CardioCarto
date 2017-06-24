@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Map from './map';
 import { withRouter } from 'react-router-dom';
-import * as MapUtil from '../../util/map_util.js';
+import * as MapUtil from '../../../util/map_util.js';
 
 
 class RouteCreate extends React.Component {
@@ -18,7 +18,7 @@ class RouteCreate extends React.Component {
       duration: 0,
       distance: 0,
       start_address: 'N/A',
-      completed: false,
+      completed: 'false',
       finish_address: 'N/A',
       hh: '',
       mm: '',

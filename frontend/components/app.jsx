@@ -8,8 +8,9 @@ import FrontPageContainer from './frontpage/front_page_container';
 import SignUpFormContainer from './session/sign_up_form_container';
 import LogInFormContainer from './session/log_in_form_container';
 import DashboardContainer from './dashboard/dashboard_container';
-import RouteCreateContainer from './routes/route_create_container';
-import RouteShowContainer from './routes/route_show_container';
+import RoutesIndexContainer from './routes/index/routes_index_container';
+import RouteCreateContainer from './routes/create/route_create_container';
+import RouteShowContainer from './routes/show/route_show_container';
 import NotFound from './not_found';
 
 const App = () => (
@@ -25,6 +26,8 @@ const App = () => (
         component={ LogInFormContainer } />
       <ProtectedRoute path='/my_home/user_dashboard'
         component={ DashboardContainer } />
+      <ProtectedRoute path='/my_home/user_routes'
+        component={ RoutesIndexContainer } />
       <ProtectedRoute path='/routes/create'
         component={ RouteCreateContainer } />
       <ProtectedRoute path='/routes/view/:routeId'

@@ -1,17 +1,19 @@
 import React from 'react';
 
+export const cityName = (string) => {
+  if (!string) return 'Location unknown';
+  const cityArray = string.split(',');
+  const cityString = cityArray.slice(-3,-1).join();
+  const cityDesc = cityString.replace(/[0-9]/g, '').slice(1,-1);
+  return cityDesc;
+};
+
 export const start = (route) => {
-  const startArray = route.start_address.split(',');
-  const startString = startArray.slice(-3,-1).join();
-  const startDesc = startString.replace(/[0-9]/g, '').slice(1,-1);
-  return startDesc;
+  return cityName(route.start_address);
 };
 
 export const end = (route) => {
-  const endArray = route.finish_address.split(',');
-  const endString = endArray.slice(-3,-1).join();
-  const endDesc = endString.replace(/[0-9]/g, '').slice(1,-1);
-  return endDesc;
+  return cityName(route.finish_address);
 };
 
 export const distance = (route) => {
