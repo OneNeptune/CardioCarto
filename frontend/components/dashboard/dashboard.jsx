@@ -16,7 +16,9 @@ class Dashboard extends React.Component {
   }
 
   componentDidMount() {
-    if (!this.props.dashboard.loaded) {
+    const { dashboard, currentUser } = this.props
+    if (!dashboard.loaded ||
+      dashboard.user_id !== currentUser.id ) {
       this.props.fetchDashboard();
     }
   }

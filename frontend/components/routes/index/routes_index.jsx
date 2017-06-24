@@ -166,7 +166,7 @@ class RoutesIndex extends React.Component {
               <h5> { DescUtil.cityName(dashboard.location) }</h5>
             </section>
             <ul>
-              <li><Link to='/route/create/'>Create Route</Link></li>
+              <li><Link to='/routes/create/'>Create Route</Link></li>
               <li><Link to=''>Find Friends</Link></li>
             </ul>
           </section>
