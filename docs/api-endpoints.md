@@ -5,18 +5,26 @@
 # JSON API
 ## Users
 * `POST /api/users`
+    * Create new user
 * `PATCH /api/users`
-
+* `GET /api/users`
+    * Returns necessary `dashboard` info of current_user.
+* `GET /api/users/:id`
+    * Returns first_name, last_name, id.
+    
 ## Session
 * `POST /api/session`
 * `DELETE /api/session`
 
 ## Routes
 * `GET /api/routes`
-    * Retrieves ID / Title / Distance / Preview Image
+    * Retrieves * columns of routes belonging to current_user, returns two arrays completed & pending.
 * `POST /api/routes`
+    * Create new route.
 * `GET /api/routes/:id`
+    * Returns a single route.
 * `DELETE /api/routes/:id`
+    * Delete a route.
 
 ## Friends
 * `GET /api/friends`

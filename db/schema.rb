@@ -11,10 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170623181915) do
+ActiveRecord::Schema.define(version: 20170624213104) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "friendships", force: :cascade do |t|
+    t.integer "initiator_id",                 null: false
+    t.integer "receiver_id",                  null: false
+    t.boolean "status",       default: false
+  end
+
+  add_index "friendships", ["initiator_id", "receiver_id"], name: "index_friendships_on_initiator_id_and_receiver_id", unique: true, using: :btree
 
   create_table "routes", force: :cascade do |t|
     t.integer  "user_id",                         null: false
@@ -27,7 +35,6 @@ ActiveRecord::Schema.define(version: 20170623181915) do
     t.string   "start_address"
     t.string   "finish_address"
     t.integer  "duration"
-    t.string   "bounds"
     t.integer  "completion_time"
   end
 

@@ -3,8 +3,8 @@
   session: {
     currentUser: {
       id: 1,
-      name: "Michael",
-      avatar_url: "some_url"
+      first_name: "Michael",
+      last_name: "Bennett"
     }
   },
   errors: {
@@ -18,7 +18,6 @@
         id: 1,
         title: "Central Park Jog",
         distance: 2.4,
-        preview_url: "some_url",
         duration: 23429384234,
         completed: true
       },
@@ -34,6 +33,14 @@
       }
     },
     currentRoute: 2
+  },
+  dashboard: {
+    most_recent: [],
+    pending: [],
+    total_duration: 0,
+    total_distance: 0,
+    location: '',
+    loaded: false
   },
   friends: {
     1: {
