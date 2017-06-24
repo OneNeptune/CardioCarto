@@ -1,5 +1,5 @@
 import * as DashboardUtil from '../util/dashboard_util';
-import { clearErrors, receiveErrors } from './errors_actions';
+import { clearErrors, receiveErrors } from './error_actions';
 
 export const RECEIVE_DASHBOARD = 'RECEIVE_DASHBOARD';
 export const RECEIVE_ERRORS = 'RECEIVE_ERRORS';
@@ -10,7 +10,7 @@ export const receiveDashboard = dashboard => ({
   dashboard
 });
 
-export const signUp = (user) => {
+export const fetchDashboard = (user) => {
   return (dispatch) => {
     DashboardUtil.fetchDashboard()
       .then(

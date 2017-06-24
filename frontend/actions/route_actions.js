@@ -1,5 +1,5 @@
 import * as RouteUtil from '../util/route_api_util';
-import { clearErrors, receiveErrors } from './errors_actions';
+import { clearErrors, receiveErrors } from './error_actions';
 
 export const RECEIVE_ROUTES = 'RECEIVE_ROUTES';
 export const RECEIVE_ROUTE = 'RECEIVE_ROUTE';
