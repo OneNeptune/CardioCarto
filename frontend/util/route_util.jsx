@@ -25,7 +25,7 @@ const Protected = ({component: Component, path, loggedIn}) => (
 const Landing = ({component: Component, path, loggedIn}) => (
   <Route path={path} render={(props) => (
      loggedIn ? (
-      <Redirect to="/routes/create"/>
+      <Redirect to="/my_home/user_dashboard"/>
     ) : (
       <Component {...props}/>
     )

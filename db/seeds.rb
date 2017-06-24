@@ -21,84 +21,84 @@ User.create(
   last_name: 'Bennett',
   email: 'mbennett@cardiocarto.com',
   password: 'password'
-),
-
-User.create(
-  first_name: Faker::Name.first_name,
-  last_name: Faker::Name.last_name,
-  email: Faker::Internet.email,
-  password: 'password'
-),
-
-User.create(
-  first_name: Faker::Name.first_name,
-  last_name: Faker::Name.last_name,
-  email: Faker::Internet.email,
-  password: 'password'
-),
-
-User.create(
-  first_name: Faker::Name.first_name,
-  last_name: Faker::Name.last_name,
-  email: Faker::Internet.email,
-  password: 'password'
-),
-
-User.create(
-  first_name: Faker::Name.first_name,
-  last_name: Faker::Name.last_name,
-  email: Faker::Internet.email,
-  password: 'password'
-),
-
-User.create(
-  first_name: Faker::Name.first_name,
-  last_name: Faker::Name.last_name,
-  email: Faker::Internet.email,
-  password: 'password'
-),
-
-User.create(
-  first_name: Faker::Name.first_name,
-  last_name: Faker::Name.last_name,
-  email: Faker::Internet.email,
-  password: 'password'
-),
-
-User.create(
-  first_name: Faker::Name.first_name,
-  last_name: Faker::Name.last_name,
-  email: Faker::Internet.email,
-  password: 'password'
-),
-
-User.create(
-  first_name: Faker::Name.first_name,
-  last_name: Faker::Name.last_name,
-  email: Faker::Internet.email,
-  password: 'password'
-),
-
-User.create(
-  first_name: Faker::Name.first_name,
-  last_name: Faker::Name.last_name,
-  email: Faker::Internet.email,
-  password: 'password'
-),
-
-User.create(
-  first_name: Faker::Name.first_name,
-  last_name: Faker::Name.last_name,
-  email: Faker::Internet.email,
-  password: 'password'
-),
-
-User.create(
-  first_name: Faker::Name.first_name,
-  last_name: Faker::Name.last_name,
-  email: Faker::Internet.email,
-  password: 'password'
 )]
+#
+# User.create(
+#   first_name: Faker::Name.first_name,
+#   last_name: Faker::Name.last_name,
+#   email: Faker::Internet.email,
+#   password: 'password'
+# ),
+#
+# User.create(
+#   first_name: Faker::Name.first_name,
+#   last_name: Faker::Name.last_name,
+#   email: Faker::Internet.email,
+#   password: 'password'
+# ),
+#
+# User.create(
+#   first_name: Faker::Name.first_name,
+#   last_name: Faker::Name.last_name,
+#   email: Faker::Internet.email,
+#   password: 'password'
+# ),
+#
+# User.create(
+#   first_name: Faker::Name.first_name,
+#   last_name: Faker::Name.last_name,
+#   email: Faker::Internet.email,
+#   password: 'password'
+# ),
+#
+# User.create(
+#   first_name: Faker::Name.first_name,
+#   last_name: Faker::Name.last_name,
+#   email: Faker::Internet.email,
+#   password: 'password'
+# ),
+#
+# User.create(
+#   first_name: Faker::Name.first_name,
+#   last_name: Faker::Name.last_name,
+#   email: Faker::Internet.email,
+#   password: 'password'
+# ),
+#
+# User.create(
+#   first_name: Faker::Name.first_name,
+#   last_name: Faker::Name.last_name,
+#   email: Faker::Internet.email,
+#   password: 'password'
+# ),
+#
+# User.create(
+#   first_name: Faker::Name.first_name,
+#   last_name: Faker::Name.last_name,
+#   email: Faker::Internet.email,
+#   password: 'password'
+# ),
+#
+# User.create(
+#   first_name: Faker::Name.first_name,
+#   last_name: Faker::Name.last_name,
+#   email: Faker::Internet.email,
+#   password: 'password'
+# ),
+#
+# User.create(
+#   first_name: Faker::Name.first_name,
+#   last_name: Faker::Name.last_name,
+#   email: Faker::Internet.email,
+#   password: 'password'
+# ),
+#
+# User.create(
+#   first_name: Faker::Name.first_name,
+#   last_name: Faker::Name.last_name,
+#   email: Faker::Internet.email,
+#   password: 'password'
+# )]
 
 
 time_mods = (1..48).to_a
@@ -109,7 +109,7 @@ distances = [2883.0, 5334.0, 11381.0, 4121.0, 19092.0, 1906.0, 15389.0, 2609.0, 
 
 durations = [891, 1642, 3448, 1240, 5722, 590, 4782, 815, 182, 1564, 1071, 248, 1814, 1276, 2197, 14680, 678, 1060, 2596, 1442, 894, 830, 707575, 8250, 1582, 609, 3792, 55839, 2959, 464, 898, 1836, 905, 835, 2026, 258, 678, 241, 536, 1765, 473]
 
-completion_times = [9240, 252036, 378011, 120033, 744030, 48002, 378022, 90009, 12058, 144009, 132015, 4202, 252044, 0, 0, 1920015, 90028, 126028, 378022, 168017, 180017, 54022, 9000060, 810059, 0, 0, 0, 0, 0, 0, 840, 162023, 780, 900, 0, 180, 0, 24005, 0, 156044, 540]
+completion_times =[924, 2529, 3782, 1206, 7443, 482, 3784, 909, 123, 1449, 0876, 222, 2528, 0, 0, 13325, 928, 1228, 2722, 1617, 1817, 5422, 90060, 8159, 0, 0, 0, 0, 0, 0, 840, 1623, 780, 900, 0, 180, 0, 245, 0, 1544, 540]
 
 completeds = [true, true, true, true, true, true, true, false, false, true, true, true, true, false, false, true, true, true, false, true, true, true, true, true, false, false, false, false, false, false, true, true, true, true, false, true, false, true, false, true, true]
 

@@ -1,6 +1,8 @@
 import React from 'react';
 import * as MapUtil from '../../util/map_util.js';
 import RecentIndexItem from './recent_index_item';
+import PendingIndexItem from './pending_index_item';
+
 class Dashboard extends React.Component {
   constructor(props) {
     super(props);
@@ -19,15 +21,22 @@ class Dashboard extends React.Component {
 
     const recentIndexItems = dashboard.most_recent.map((route) => {
       return(
-        <RecentIndexItem route={ route } />
+        <RecentIndexItem key={'RecentIndex' + route.id} route={ route } />
       );
     });
+
+    const pendingIndexItems = dashboard.pending.map((route) => {
+      return(
+        <PendingIndexItem key={'RecentIndex' + route.id} route={ route } />
+      );
+    });
+
     return(
       <section className='route-content-wrapper'>
         <section className='route-show-wrapper'>
           <section className='dashboard-section'>
-            <section className='dashboard-section-header'>
-              <h3>Lifetime Stats</h3>
+            <section className='route-show-details-header'>
+              <h3 className='route-details-label'>MY LIFETIME STATS</h3>
             </section>
             <section className='user-lifetime-stats'>
               <ul>
@@ -60,11 +69,20 @@ class Dashboard extends React.Component {
           </section>
 
           <section className='dashboard-section'>
-            <section className='dashboard-section-header'>
-              <h3>Recent Completed</h3>
+            <section className='route-show-details-header'>
+              <h3 className='route-details-label'>RECENT ROUTES</h3>
             </section>
             <ul>
               { recentIndexItems }
+            </ul>
+          </section>
+
+          <section className='dashboard-section'>
+            <section className='route-show-details-header'>
+              <h3 className='route-details-label'>PENDING ROUTES</h3>
+            </section>
+            <ul className='pending-index-items'>
+              { pendingIndexItems }
             </ul>
           </section>
         </section>

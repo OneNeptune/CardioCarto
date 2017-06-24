@@ -23,12 +23,12 @@ const App = () => (
         component={ SignUpFormContainer } />
       <AuthRoute path='/auth/login'
         component={ LogInFormContainer } />
+      <ProtectedRoute path='/my_home/user_dashboard'
+        component={ DashboardContainer } />
       <ProtectedRoute path='/routes/create'
         component={ RouteCreateContainer } />
       <ProtectedRoute path='/routes/view/:routeId'
         component={ RouteShowContainer } />
-      <ProtectedRoute path='/my_home/user_dashboard'
-        component={ DashboardContainer } />
     </Switch>
   </div>
 );
