@@ -154,7 +154,7 @@ ul.pending-index-items {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: flex-start;
 }
 
 li.pending-index-item {
@@ -162,9 +162,12 @@ li.pending-index-item {
   width: 142px;
   height: 142px;
   color: #444;
-  margin: 20px 0px 0 0px;
-  position: relative;
+  margin: 20px 20px 0 0px;
   border: 1px rgba(0, 0, 0, 0.3) solid;
+}
+
+li.pending-index-item:nth-child(4n) {
+  margin: 20px 0px 0 0px;
 }
 
 section.route-pending-details {
