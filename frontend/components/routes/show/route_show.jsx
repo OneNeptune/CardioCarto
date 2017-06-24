@@ -65,12 +65,6 @@ class RouteShow extends React.Component {
     }
   }
 
-  routeDescription(route) {
-    const startArray = route.start_address.split(',');
-    const startString = startArray.slice(-3,-1).join();
-    const startDesc = startString.replace(/[0-9]/g, '').slice(1);
-  }
-
   handleDelete() {
     const { route } = this.props;
     this.props.deleteRoute(route.id).then(() =>

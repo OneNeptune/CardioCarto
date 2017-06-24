@@ -79,7 +79,7 @@ class Dashboard extends React.Component {
                 <li>
                   DURATION
                   <p>
-                    { MapUtil.formatTime(dashboard.total_duration).slice(0,-3) }
+                    { (dashboard.total_duration / 3600).toFixed(2) }
                   </p>
                   hours
                 </li>
