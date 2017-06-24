@@ -1,9 +1,8 @@
 import * as RouteUtil from '../util/route_api_util';
+import { clearErrors, receiveErrors } from './errors_actions';
 
 export const RECEIVE_ROUTES = 'RECEIVE_ROUTES';
 export const RECEIVE_ROUTE = 'RECEIVE_ROUTE';
-export const RECEIVE_ERRORS = 'RECEIVE_ERRORS';
-export const CLEAR_ERRORS = 'CLEAR_ERRORS';
 
 export const receiveRoutes = routes => ({
   type: RECEIVE_ROUTES,
@@ -13,16 +12,6 @@ export const receiveRoutes = routes => ({
 export const receiveSingleRoute = (route) => ({
   type: RECEIVE_ROUTE,
   route
-});
-
-export const receiveErrors = (form, errors) => ({
-  type: RECEIVE_ERRORS,
-  form,
-  errors
-});
-
-export const clearErrors = () => ({
-  type: CLEAR_ERRORS,
 });
 
 export const fetchAllRoutes = () => {

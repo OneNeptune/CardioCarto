@@ -10,13 +10,18 @@ class Api::UsersController < ApplicationController
     end
   end
 
+  def index
+    @user = current_user
+    render :index
+  end
+
   def show
     @user = current_user
     render :show
   end
 
   def update
-    @user = User.find(params[:id])
+    @user = current_user
 
     if @user.update(user_params)
       render :show

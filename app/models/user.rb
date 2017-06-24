@@ -25,6 +25,33 @@ class User < ActiveRecord::Base
   has_many :routes, dependent: :destroy
 
   def total_duration
+    self.routes
+      .where(completed: true)
+      .sum(:duration)
+  end
+
+  def total_distance
+    self.routes
+      .where(completed: true)
+      .sum(:distance)
+  end
+
+  def most_recent_routes
+    self.routes
+      .where(completed: true)
+      .order(created_at: :desc)
+      .limit(3)
+  end
+
+  def pending
+    self.routes.where(completed: false)
+  end
+
+  def location
+    self.routes
+      .order(created_at: :desc)
+      .pluck(:finish_address)
+      .first
   end
 
   def self.find_by_credentials(email, password)

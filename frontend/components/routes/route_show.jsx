@@ -50,15 +50,18 @@ class RouteShow extends React.Component {
 
   componentDidMount() {
     const routeId = this.props.match.params.routeId;
-    this.props.fetchSingleRoute(routeId)
+    if (!this.props.route || this.props.route.id !== routeId) {
+      this.props.fetchSingleRoute(routeId)
       .then(() => this.createMap());
+    }
   }
 
   componentWillReceiveProps(nextProps) {
     const currentRouteId = this.props.match.params.routeId;
     const nextRouteId = nextProps.match.params.routeId;
     if (currentRouteId !== nextRouteId) {
-      this.props.fetchSingleRoute(nextRouteId);
+      this.props.fetchSingleRoute(nextRouteId)
+        .then(() => this.createMap());
     }
   }
 
