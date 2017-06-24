@@ -6,7 +6,6 @@ import PendingIndexItem from './pending_index_item';
 class Dashboard extends React.Component {
   constructor(props) {
     super(props);
-    console.log(props);
   }
 
   componentDidMount() {
