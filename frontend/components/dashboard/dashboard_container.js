@@ -3,7 +3,7 @@ import { fetchDashboard } from '../../actions/dashboard_actions';
 
 import Dashboard from './dashboard';
 
-const mapStateToProps = ({ state }) => ({
+const mapStateToProps = (state) => ({
   currentUser: state.session.currentUser,
   dashboard: state.dashboard,
 });

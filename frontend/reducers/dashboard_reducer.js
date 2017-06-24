@@ -8,16 +8,18 @@ const _defaultState =
     total_duration: 0,
     total_distance: 0,
     location: '',
+    loaded: false,
   });
 
 const dashboardReducer = (state = _defaultState, action) => {
   Object.freeze(state);
   switch(action.type) {
     case RECEIVE_DASHBOARD:
+      action.dashboard.loaded = true;
       return action.dashboard;
     default:
       return state;
   }
 };
 
-export default errorsReducer;
+export default dashboardReducer;

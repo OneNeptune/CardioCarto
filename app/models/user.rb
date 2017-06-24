@@ -54,6 +54,18 @@ class User < ActiveRecord::Base
       .first
   end
 
+  def total_completed
+    self.routes
+      .where(completed: true)
+      .count(:all)
+  end
+
+  def total_created
+    self.routes
+      .where(completed: false)
+      .count(:all)
+  end
+
   def self.find_by_credentials(email, password)
     user = User.find_by(email: email)
     return user if user && user.is_password?(password)

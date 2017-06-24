@@ -26,11 +26,17 @@ export const finish = (routes) => {
 };
 
 export const defaultRoute = () => ({
-  polylines: "",
+  title: '',
+  polylines: '',
   duration: 0,
   distance: 0,
-  start_address: "N/A",
-  finish_address: "N/A",
+  start_address: 'N/A',
+  completed: false,
+  finish_address: 'N/A',
+  hh: '',
+  mm: '',
+  ss: '',
+  completion_time: 0
 });
 
 export const formatTime = (seconds) => {
@@ -48,10 +54,10 @@ export const formatDistance = (meters) => {
   return (meters * 0.000621371192).toFixed(1);
 };
 
-export const mapUrl = (polylines) => {
+export const imgUrl = (polylines, x, y) => {
   const staticMap = 'https://maps.googleapis.com/maps/api/staticmap';
-  const mapSize = '?size=639x354';
-  const styles = '&style=feature:landscape.man_made|element:all|visibility:off&style=feature:poi.business|element:all|visibility:off&style=feature:road.local|element:all|visibility:on'
+  const mapSize = `?size=${x}x${y}`;
+  const styles = '&style=feature:landscape.man_made|element:all|visibility:off&style=feature:administrative.locality|element:labels.text|visibility:off&style=feature:poi.business|element:all|visibility:off&style=feature:road.local|element:all|visibility:on'
   const mapPath = '&path=weight:3%7Ccolor:red%7Cenc:';
   const apiKey = "&key=AIzaSyAheUtm6hUIj8FAM0Qd1vvouvj2Y4M9_Jw";
 
