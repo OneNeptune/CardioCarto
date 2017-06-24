@@ -1,5 +1,5 @@
 import { merge } from 'lodash';
-import { RECEIVE_ERRORS, CLEAR_ERRORS } from '../actions/session_actions.js';
+import { RECEIVE_ERRORS, CLEAR_ERRORS } from '../actions/error_actions';
 
 const _defaultState =
   Object.freeze({
