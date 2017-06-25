@@ -12,7 +12,6 @@ import RoutesIndexContainer from './routes/index/routes_index_container';
 import RouteCreateContainer from './routes/create/route_create_container';
 import RouteShowContainer from './routes/show/route_show_container';
 
-import LoadingScreen from './loading/loading';
 import NotFound from './not_found';
 
 const App = () => (
@@ -34,8 +33,6 @@ const App = () => (
         component={ RouteCreateContainer } />
       <ProtectedRoute path='/routes/view/:routeId'
         component={ RouteShowContainer } />
-      <ProtectedRoute path='/loading'
-        component={ LoadingScreen } />
     </Switch>
   </div>
 );
