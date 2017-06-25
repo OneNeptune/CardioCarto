@@ -24,10 +24,7 @@ class RoutesIndex extends React.Component {
   }
 
   componentDidMount() {
-    const { completed, pending } = this.props.routes;
-    if (!completed.length && !pending.length) {
-      this.props.fetchAllRoutes();
-    }
+    this.props.fetchAllRoutes();
   }
 
   detailIndexItems(routes) {

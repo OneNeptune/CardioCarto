@@ -16,11 +16,7 @@ class Dashboard extends React.Component {
   }
 
   componentDidMount() {
-    const { dashboard, currentUser } = this.props
-    if (!dashboard.loaded ||
-      dashboard.user_id !== currentUser.id ) {
-      this.props.fetchDashboard();
-    }
+    this.props.fetchDashboard();
   }
 
   recentIndexItems() {
@@ -58,7 +54,8 @@ class Dashboard extends React.Component {
   render() {
     const { currentUser, dashboard } = this.props;
 
-    if (!dashboard) return null;
+    if (!dashboard.loaded || dashboard.user_id !== currentUser.id )
+      return null;
 
     return(
       <section className='route-content-wrapper'>

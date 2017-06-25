@@ -1,7 +1,11 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
-import { fetchSingleRoute, deleteRoute } from '../../../actions/route_actions';
+import {
+  fetchSingleRoute,
+  updateRoute,
+  deleteRoute } from '../../../actions/route_actions';
+
 import RouteShow from './route_show';
 
 const mapStateToProps = (state, { match }) => {
@@ -15,6 +19,7 @@ const mapStateToProps = (state, { match }) => {
 
 const mapDispatchToProps = dispatch => ({
   fetchSingleRoute: id => dispatch(fetchSingleRoute(id)),
+  updateRoute: updatedRoute => dispatch(updateRoute(updatedRoute)),
   deleteRoute: id => dispatch(deleteRoute(id)),
 });
 

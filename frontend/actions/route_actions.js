@@ -59,6 +59,21 @@ export const createRoute = (newRoute) => {
   };
 };
 
+export const updateRoute = (updatedRoute) => {
+  return (dispatch) => {
+    return RouteUtil.updateRoute(updatedRoute)
+      .then(
+        (route) => {
+          dispatch(clearErrors());
+          return dispatch(receiveSingleRoute(route));
+        },
+        (errors) => {
+          return dispatch(receiveErrors('updateRoute', errors));
+        }
+      );
+  };
+};
+
 export const deleteRoute = (id) => {
   return (dispatch) => {
     return RouteUtil.deleteRoute(id)

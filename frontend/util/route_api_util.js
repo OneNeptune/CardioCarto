@@ -20,6 +20,15 @@ export const createRoute = (route) => (
   })
 );
 
+export const updateRoute = (updatedRoute) => (
+  $.ajax({
+    type: 'PATCH',
+    url: `/api/routes/${updatedRoute.id}`,
+    data: { route: updatedRoute },
+  })
+);
+
+
 export const deleteRoute = (id) => (
   $.ajax({
     type: 'DELETE',

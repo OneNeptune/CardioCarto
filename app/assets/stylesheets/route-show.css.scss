@@ -122,6 +122,10 @@ dl.route-show-detailed {
 }
 
 .route-sidebar-tools a {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  width: 100%;
   color: #fbf9f9;
 }
 
@@ -151,11 +155,9 @@ dl.route-show-detailed {
   line-height: 26px;
   font-size: 12px;
   background: #818181;
-  background-image: -webkit-linear-gradient(top, #818181, #494949);
-  background-image: -moz-linear-gradient(top, #818181, #494949);
-  background-image: -ms-linear-gradient(top, #818181, #494949);
-  background-image: -o-linear-gradient(top, #818181, #494949);
-  background-image: linear-gradient(to bottom, #818181, #494949);
+  &:hover {
+    background: darken(#818181, 10%);
+  }
   -webkit-border-radius: 3;
   -moz-border-radius: 3;
   border-radius: 3px;
@@ -164,15 +166,7 @@ dl.route-show-detailed {
   color: white;
 }
 
-.route-sidebar-tools li:hover {
-  background: #7f7f7f;
-  background-image: -webkit-linear-gradient(top, #7f7f7f, #3c3c3c);
-  background-image: -moz-linear-gradient(top, #7f7f7f, #3c3c3c);
-  background-image: -ms-linear-gradient(top, #7f7f7f, #3c3c3c);
-  background-image: -o-linear-gradient(top, #7f7f7f, #3c3c3c);
-  background-image: linear-gradient(to bottom, #7f7f7f, #3c3c3c);
-  text-decoration: none;
-}
+
 
 .route-sidebar-tools li:last-of-type {
   text-transform: uppercase;
@@ -182,11 +176,9 @@ dl.route-show-detailed {
   line-height: 23px;
   font-size: 12px;
   background: #ff802b;
-  background-image: -webkit-linear-gradient(top, #ff802b, #db6e25);
-  background-image: -moz-linear-gradient(top, #ff802b, #db6e25);
-  background-image: -ms-linear-gradient(top, #ff802b, #db6e25);
-  background-image: -o-linear-gradient(top, #ff802b, #db6e25);
-  background-image: linear-gradient(to bottom, #ff802b, #db6e25);
+  &:hover {
+    background: darken(#ff802b, 10%);
+  }
   -webkit-border-radius: 3;
   -moz-border-radius: 3;
   border-radius: 3px;
@@ -195,17 +187,39 @@ dl.route-show-detailed {
   color: white;
 }
 
-.route-sidebar-tools li:last-of-type:hover {
-  background: #ff802b;
-  height: 26px;
-  background-image: -webkit-linear-gradient(top, #ff802b, #db6e25);
-  background-image: -moz-linear-gradient(top, #ff802b, #db6e25);
-  background-image: -ms-linear-gradient(top, #ff802b, #db6e25);
-  background-image: -o-linear-gradient(top, #ff802b, #db6e25);
-  background-image: linear-gradient(to bottom, #ff802b, #db6e25);
-  text-decoration: none;
-}
-
 .route-sidebar-tools button {
   text-transform: uppercase;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.route-sidebar-tools li:nth-child(3n) {
+  height: 26px;
+  background: #337ab7;
+  &:hover {
+    background: darken(#337ab7, 10%);
+  }
+}
+
+.hidden-modal {
+  display: none;
+}
+
+.modal {
+  z-index: 9001;
+  top: 0px;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(51,51,51,0.7);
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  height: 348px;
+  width: 240px;
+  background: white;
+  z-index: 9002;
 }

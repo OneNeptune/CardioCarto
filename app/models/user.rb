@@ -24,6 +24,16 @@ class User < ActiveRecord::Base
 
   has_many :routes, dependent: :destroy
 
+  has_many :initiated_friendships,
+    class_name: :Friendship,
+    primary_key: :id,
+    foreign_key: :initiator_id
+
+  has_many :received_friendships,
+    class_name: :Friendship,
+    primary_key: :id,
+    foreign_key: :receiver_id
+
   def total_duration
     self.routes
       .where(completed: true)
