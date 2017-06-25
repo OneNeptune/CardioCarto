@@ -29,7 +29,13 @@ class RouteShow extends React.Component {
 
     if (!route) return null;
 
-    const ssMmHh = MapUtil.formatTime(route.completion_time).split(':').reverse();
+    if (!route.completion_time) {
+      const ssMmHh = ''
+    } else {
+      const ssMmHh = MapUtil.formatTime(route.completion_time)
+        .split(':').reverse();
+    }
+    console.log(ssMmHh);
     this.setState({
       id: route.id,
       title: route.title,
