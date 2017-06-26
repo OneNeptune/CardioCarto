@@ -43,16 +43,8 @@
     loaded: false
   },
   friends: {
-    1: {
-      id: 2,
-      first_name: "John Doe",
-      avatar_url: "some_url"
-    },
-    2: {
-      id: 3,
-      first_name: "Jane Doe",
-      avatar_url: "some_url"
-    }
+    potential_friends: [],
+    active_friends: []
   },
   comments: {
     1: {

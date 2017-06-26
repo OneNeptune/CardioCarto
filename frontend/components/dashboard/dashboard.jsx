@@ -88,7 +88,7 @@ class Dashboard extends React.Component {
                 <li>
                   ROUTES
                   <p>{ dashboard.total_created || 0 }</p>
-                  created
+                  pending
                 </li>
               </ul>
             </section>
@@ -123,7 +123,7 @@ class Dashboard extends React.Component {
             </section>
             <ul>
               <li><Link to='/routes/create/'>Create Route</Link></li>
-              <li><Link to=''>Find Friends</Link></li>
+              <li><Link to='/friends/find'>Find Friends</Link></li>
             </ul>
           </section>
         </section>

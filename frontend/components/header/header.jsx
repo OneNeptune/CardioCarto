@@ -18,11 +18,16 @@ class Header extends React.Component {
           <section className='drop-down-menu'>
             <ul className='drop-down'>
               <li>
+                <Link to='/friends/view'>
+                  Friends
+                </Link>
+              </li>
+              <li>
                 <Link to='/routes/create'>
                   Create Route
                 </Link>
               </li>
-              <button onClick={ this.props.logOut }>Log Out</button>
+                <button onClick={ this.props.logOut }>Log Out</button>
             </ul>
           </section>
         </nav>

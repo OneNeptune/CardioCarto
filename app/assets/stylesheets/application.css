@@ -22,4 +22,6 @@
  *= require sub-nav
  *= require dashboard
  *= require route-index
+ *= require search
+ *= require friends
  */

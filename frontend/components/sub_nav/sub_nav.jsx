@@ -38,6 +38,24 @@ class SubNav extends React.Component {
   render() {
     const { pathname } = this.props.location;
     if (pathname === '/' || pathname.includes('auth')) return null;
+    if (pathname.includes('friends')) {
+      return (
+        <nav className='sub-nav-wrapper'>
+          <ul className='sub-nav-bar short'>
+            <li className={ this.active('find') }>
+              <Link to='/friends/find'>
+                Find Friends
+              </Link>
+            </li>
+            <li className={ this.active('view') }>
+              <Link to='/friends/view'>
+                View Friends
+              </Link>
+            </li>
+          </ul>
+        </nav>
+      )
+    }
     return(
       <nav className='sub-nav-wrapper'>
         <ul className='sub-nav-bar'>

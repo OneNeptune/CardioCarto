@@ -45,7 +45,7 @@
 .session-links a.logged-out {
   text-transform: uppercase;
   font-size: 14px;
-  font-family: 'Roboto','Open Sans', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   margin: 2px 3px 0 3px;
   padding: 0 12px;
   line-height: 36px;
@@ -97,38 +97,42 @@
 }
 
 .drop-down-menu li {
-  font-size: 11px;
-  font-family: 'Roboto','Open Sans', sans-serif;
+  font-size: 12px;
+  font-family: 'Open Sans', sans-serif;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 12px 16px;
+  box-sizing: border-box;
   border-bottom: 1px solid #d3d6dc;
+  height: 36px;
   color: #a1a6af;
 }
 
 .drop-down-menu li:hover {
-  font-size: 11px;
-  font-family: 'Roboto','Open Sans', sans-serif;
+  font-size: 12px;
+  font-family: 'Open Sans', sans-serif;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 12px 16px;
   border-bottom: 1px solid #d3d6dc;
   color: black;
 }
 
 .drop-down a {
-  font-size: 11px !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  font-size: 12px;
   font-weight: normal;
-  line-height: 12px;
-  font-family: 'Roboto','Open Sans', sans-serif;
+  line-height: 14px;
+  font-family: 'Open Sans', sans-serif;
   padding: 0;
   margin: 0;
   background: none;
   border: 0;
   text-transform: capitalize;
-  font-size: 14px;
   margin: 0;
   padding: 0;
   color: #a1a6af;
@@ -140,10 +144,10 @@
 
 .drop-down-menu button {
   color: #a1a6af;
-  font-family: 'Roboto','Open Sans', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   font-weight: normal;
-  line-height: 12px;
-  font-size: 11px !important;
+  line-height: 14px;
+  font-size: 12px;
   padding: 12px 16px;
   width: 100%;
   display: flex;

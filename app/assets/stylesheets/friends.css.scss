@@ -1,0 +1,27 @@
+.friends-container {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding: 20px;
+  width: 960px;
+  margin-left: auto;
+  margin-right: auto;
+
+  .friends-content-header {
+    padding: 20px 0 0 0;
+    text-transform: uppercase;
+    font-family: 'Open Sans', sans-serif;
+    color: #333333;
+    font-size: 18px;
+    font-weight: normal;
+    border-bottom: 1px solid #d3d6dc;
+    line-height: 45px;
+  }
+}
+
+.friends-content {
+  ul {
+    display: flex;
+    flex-direction: row;
+  }
+}

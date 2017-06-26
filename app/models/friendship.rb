@@ -9,8 +9,17 @@
 #
 
 class Friendship < ActiveRecord::Base
-  validate :initiator, :receiver
+  validates :initiator, :receiver, presence: true
+  validates :initiator_id, uniqueness: { scope: :receiver_id }
+  validates :receiver_id, uniqueness: { scope: :initiator_id }
 
-  belongs_to :initiator
-  belongs_to :receiver
+  belongs_to :initiator,
+    class_name: :User,
+    primary_key: :id,
+    foreign_key: :initiator_id
+
+  belongs_to :receiver,
+    class_name: :User,
+    primary_key: :id,
+    foreign_key: :receiver_id
 end

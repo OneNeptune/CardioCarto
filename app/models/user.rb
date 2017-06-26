@@ -24,15 +24,61 @@ class User < ActiveRecord::Base
 
   has_many :routes, dependent: :destroy
 
-  has_many :initiated_friendships,
+  has_many :pending_initiated_friendships, -> { where status: false },
     class_name: :Friendship,
     primary_key: :id,
     foreign_key: :initiator_id
 
-  has_many :received_friendships,
+  has_many :pending_received_friendships, -> { where status: false },
     class_name: :Friendship,
     primary_key: :id,
     foreign_key: :receiver_id
+
+  has_many :approved_initiated_friendships, -> { where status: true },
+    class_name: :Friendship,
+    primary_key: :id,
+    foreign_key: :initiator_id
+
+  has_many :approved_received_friendships, -> { where status: true },
+    class_name: :Friendship,
+    primary_key: :id,
+    foreign_key: :receiver_id
+
+  has_many :pending_initiated_friends,
+    through: :pending_initiated_friendships,
+    source: :receiver
+
+  has_many :pending_received_friends,
+    through: :pending_received_friendships,
+    source: :initiator
+
+  has_many :approved_initiated_friends,
+    through: :approved_initiated_friendships,
+    source: :receiver
+
+  has_many :approved_received_friends,
+    through: :approved_received_friendships,
+    source: :initiator
+
+  def friends
+    self.approved_received_friends + self.approved_initiated_friends
+  end
+
+  def approved_friendships
+    self.approved_received_friendships + self.approved_initiated_friendships
+  end
+
+  def pending_friends
+    self.pending_received_friends + self.pending_initiated_friends
+  end
+
+  def pending_requests
+    self.pending_received_friendships
+  end
+
+  def pending_response
+    self.pending_initiated_friendships
+  end
 
   def total_duration
     self.routes

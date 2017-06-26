@@ -11,7 +11,8 @@ import DashboardContainer from './dashboard/dashboard_container';
 import RoutesIndexContainer from './routes/index/routes_index_container';
 import RouteCreateContainer from './routes/create/route_create_container';
 import RouteShowContainer from './routes/show/route_show_container';
-
+import FriendshipSearchContainer from './friendships/friendship_search_container';
+import FriendshipViewContainer from './friendships/friendship_view_container';
 import NotFound from './not_found';
 
 const App = () => (
@@ -33,6 +34,10 @@ const App = () => (
         component={ RouteCreateContainer } />
       <ProtectedRoute path='/routes/view/:routeId'
         component={ RouteShowContainer } />
+      <ProtectedRoute path='/friends/find'
+        component={ FriendshipSearchContainer } />
+      <ProtectedRoute path='/friends/view'
+        component={ FriendshipViewContainer } />
     </Switch>
   </div>
 );
