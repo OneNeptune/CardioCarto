@@ -8,6 +8,7 @@
 
 User.destroy_all
 Route.destroy_all
+Friendship.destroy_all
 
 users = [
   User.create(
@@ -69,25 +70,25 @@ users = [
     last_name: Faker::Name.last_name,
     email: Faker::Internet.email,
     password: 'password'
-  ),
-  User.create(
-    first_name: Faker::Name.first_name,
-    last_name: Faker::Name.last_name,
-    email: Faker::Internet.email,
-    password: 'password'
-  ),
-  User.create(
-    first_name: Faker::Name.first_name,
-    last_name: Faker::Name.last_name,
-    email: Faker::Internet.email,
-    password: 'password'
-  ),
-  User.create(
-    first_name: Faker::Name.first_name,
-    last_name: Faker::Name.last_name,
-    email: Faker::Internet.email,
-    password: 'password'
   )
+  # User.create(
+  #   first_name: Faker::Name.first_name,
+  #   last_name: Faker::Name.last_name,
+  #   email: Faker::Internet.email,
+  #   password: 'password'
+  # ),
+  # User.create(
+  #   first_name: Faker::Name.first_name,
+  #   last_name: Faker::Name.last_name,
+  #   email: Faker::Internet.email,
+  #   password: 'password'
+  # ),
+  # User.create(
+  #   first_name: Faker::Name.first_name,
+  #   last_name: Faker::Name.last_name,
+  #   email: Faker::Internet.email,
+  #   password: 'password'
+  # )
 ]
 
 
@@ -124,3 +125,12 @@ polylines = ['uvuwFjatbMqDcC}BwArFaQfLq^jMaa@fBqFZeAOKj@^RLhEpCvBxAcCtHI\XdAJnBC
     completion_time: completion_times.pop
   )
 end
+
+
+
+Friendship.create(initiator: users[0], receiver: users[1],  status: true)
+Friendship.create(initiator: users[0], receiver: users[2],  status: true)
+Friendship.create(initiator: users[0], receiver: users[4],  status: false)
+Friendship.create(initiator: users[0], receiver: users[5],  status: false)
+Friendship.create(initiator: users[6], receiver: users[0],  status: false)
+Friendship.create(initiator: users[7], receiver: users[0],  status: false)
