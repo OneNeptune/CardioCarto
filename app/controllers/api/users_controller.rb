@@ -22,7 +22,6 @@ class Api::UsersController < ApplicationController
 
   def update
     @user = current_user
-    puts params[:user]
     if @user.update(user_params)
       render :show
     else
