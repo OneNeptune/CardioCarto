@@ -14,7 +14,7 @@ const FriendCard = ({
    : '' ;
   return(
     <li className='friend-card'>
-      <img src='' className='friend-avatar' />
+      <img src={ friend.image_url } className='friend-avatar' />
       <p className='friend-name'>{ friend.full_name ||
           `${friend.first_name} ${friend.last_name}` }</p>
       <button

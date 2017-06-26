@@ -6,6 +6,8 @@
 #  initiator_id :integer          not null
 #  receiver_id  :integer          not null
 #  status       :boolean          default("false")
+#  created_at   :datetime
+#  updated_at   :datetime
 #
 
 class Friendship < ActiveRecord::Base

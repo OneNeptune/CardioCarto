@@ -107,7 +107,10 @@
   height: 36px;
   color: #a1a6af;
 }
-
+img.header-avatar {
+  width: 40px;
+  height: 40px;
+}
 .drop-down-menu li:hover {
   font-size: 12px;
   font-family: 'Open Sans', sans-serif;
@@ -159,9 +162,107 @@
   color: #333;
 }
 
+button.bordered-item {
+  border-bottom: 1px solid #d3d6dc;
+}
+
 .session-links:hover {
 
   .drop-down-menu {
     display: flex;
   }
+}
+
+[hidden] {
+  display: none !important;
+}
+
+.users-modal {
+  z-index: 9001;
+  top: 0px;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(51,51,51,0.7);
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.update-user-details {
+  border: 1px solid #d3d6dc;
+  padding: 20px;
+  margin: 20px;
+  height: 266px;
+  display: flex;
+  flex-direction: column;
+}
+
+h3.add-avatar {
+  color: #a1a6af;
+  box-sizing: border-box;
+  width: 100%;
+  font-family: 'Roboto','Open Sans', sans-serif;
+  border-bottom: 1px solid #d3d6dc;
+  padding: 0 25px 10px 25px;
+  font-size: 18px;
+  font-weight: normal;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+section.update-user-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 250px;
+  align-items: center;
+  width: 158px;
+}
+
+label.add-file {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+  align-items: center;
+  width: 100%;
+  text-transform: uppercase;
+  font-family: 'Roboto','Open Sans', sans-serif;
+  line-height: 34px;
+  font-size: 14px;
+  border-radius: 3px;
+  background: #2BA5EF;
+  color: white;
+}
+
+label.add-file:hover {
+  background: darken(#2BA5EF, 10%);
+}
+
+.update-user-content img {
+  max-height: 140px;
+  max-width: 140px;
+  min-height: 140px;
+  min-width: 140px;
+}
+
+button.upload {
+  margin-top: 10px;
+  justify-self: flex-end;
+  align-self: flex-end;
+  width: 100%;
+  text-transform: uppercase;
+  font-family: 'Roboto','Open Sans', sans-serif;
+  line-height: 34px;
+  font-size: 14px;
+  border-radius: 3px;
+  background-color: #97bf11;
+  color: white;
+}
+
+button.upload:hover {
+  background-color: #92ba0e;
 }

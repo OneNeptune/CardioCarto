@@ -2,14 +2,18 @@
 #
 # Table name: users
 #
-#  id              :integer          not null, primary key
-#  email           :string           not null
-#  first_name      :string           not null
-#  last_name       :string           not null
-#  password_digest :string           not null
-#  session_token   :string           not null
-#  created_at      :datetime
-#  updated_at      :datetime
+#  id                 :integer          not null, primary key
+#  email              :string           not null
+#  first_name         :string           not null
+#  last_name          :string           not null
+#  password_digest    :string           not null
+#  session_token      :string           not null
+#  created_at         :datetime
+#  updated_at         :datetime
+#  image_file_name    :string
+#  image_content_type :string
+#  image_file_size    :integer
+#  image_updated_at   :datetime
 #
 
 class User < ActiveRecord::Base
@@ -18,9 +22,13 @@ class User < ActiveRecord::Base
   validates :email, uniqueness: true
   validates :password, length: { minimum: 6, allow_nil: true }
 
+
   after_initialize :ensure_session_token
 
   attr_reader :password
+
+  has_attached_file :image, default_url: "https://s3.us-east-2.amazonaws.com/cardio-carto-dev/avatar.jpg"
+  validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
 
   has_many :routes, dependent: :destroy
 

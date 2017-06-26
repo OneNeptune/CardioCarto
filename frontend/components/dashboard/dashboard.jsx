@@ -115,7 +115,7 @@ class Dashboard extends React.Component {
         <section className='route-show-sidebar'>
           <section className='sidebar-user-panel'>
             <section className='sidebar-user-avatar'>
-
+              <img src={ currentUser.image_url } />
             </section>
             <section className='sidebar-user-info'>
               <h4> { currentUser.first_name } { currentUser.last_name }</h4>

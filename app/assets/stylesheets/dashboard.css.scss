@@ -245,6 +245,13 @@ a.pending-index-link:hover, a.pending-index-link:focus {
   .sidebar-user-avatar {
     width: 100px;
     height: 100px;
+
+    img {
+      min-width: 101px;
+      min-height: 101px;
+      max-width: 101px;
+      max-height: 101px;
+    }
   }
 
   .sidebar-user-info {

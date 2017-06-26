@@ -22,7 +22,7 @@ class Api::UsersController < ApplicationController
 
   def update
     @user = current_user
-
+    puts params[:user]
     if @user.update(user_params)
       render :show
     else
@@ -37,7 +37,8 @@ class Api::UsersController < ApplicationController
       :email,
       :first_name,
       :last_name,
-      :password
+      :password,
+      :image
     )
   end
 end

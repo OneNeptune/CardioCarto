@@ -1,10 +1,21 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router';
+import OptionsContainer from '../user/options_container';
 
 class Header extends React.Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      modal: false
+    };
+
+    this.toggleModal = this.toggleModal.bind(this);
+  }
+
+  toggleModal() {
+    this.setState({ modal: !this.state.modal });
   }
 
   sessionLinks() {
@@ -13,10 +24,14 @@ class Header extends React.Component {
     if (currentUser) {
       return (
         <nav className='session-links'>
-          <i className='fa fa-user-circle-o'
-            aria-hidden='true'></i>
+          <img className='header-avatar' src={currentUser.image_url} />
           <section className='drop-down-menu'>
             <ul className='drop-down'>
+              <button
+                className='bordered-item'
+                onClick={ this.toggleModal }>
+                Edit Avatar
+              </button>
               <li>
                 <Link to='/friends/view'>
                   Friends
@@ -62,6 +77,12 @@ class Header extends React.Component {
 
           { this.sessionLinks() }
         </nav>
+        { (currentUser) ?
+        <OptionsContainer
+          toggleModal={ this.toggleModal }
+          modal={ this.state.modal }/>
+        :
+        '' }
       </header>
     );
   }

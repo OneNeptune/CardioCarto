@@ -12,85 +12,118 @@ Friendship.destroy_all
 
 users = [
   User.create(
-    first_name: 'Guest',
-    last_name: 'User',
+    first_name: 'Usain',
+    last_name: 'Bolt',
     email: 'guest.user@cardiocarto.com',
-    password: 'starship76'
+    password: 'starship76',
+    image: 'https://s3.us-east-2.amazonaws.com/cardio-carto-dev/seedavas/usain-bolt-1.jpg'
   ),
   User.create(
     first_name: 'Michael',
     last_name: 'Bennett',
     email: 'mbennett@cardiocarto.com',
-    password: 'password'
+    password: 'password',
+    image: 'https://s3.us-east-2.amazonaws.com/cardio-carto-dev/seedavas/101.png'
+  ),
+  User.create(
+    first_name: 'Isabel',
+    last_name: 'Robers',
+    email: Faker::Internet.email,
+    password: 'password',
+    image: 'https://s3.us-east-2.amazonaws.com/cardio-carto-dev/seedavas/23.jpg'
+  ),
+  User.create(
+    first_name: 'Elsie',
+    last_name: 'Hamm',
+    email: Faker::Internet.email,
+    password: 'password',
+    image: 'https://s3.us-east-2.amazonaws.com/cardio-carto-dev/seedavas/30.jpg'
+  ),
+  User.create(
+    first_name: 'Jasmine',
+    last_name: 'Marshall',
+    email: Faker::Internet.email,
+    password: 'password',
+    image: 'https://s3.us-east-2.amazonaws.com/cardio-carto-dev/seedavas/35.jpg'
+  ),
+  User.create(
+    first_name: 'Johanna',
+    last_name: 'Flor',
+    email: Faker::Internet.email,
+    password: 'password',
+    image: 'https://s3.us-east-2.amazonaws.com/cardio-carto-dev/seedavas/45.jpg'
+  ),
+  User.create(
+    first_name: 'Douglas',
+    last_name: 'Temme',
+    email: Faker::Internet.email,
+    password: 'password',
+    image: 'https://s3.us-east-2.amazonaws.com/cardio-carto-dev/seedavas/54.jpg'
+  ),
+  User.create(
+    first_name: 'Robert',
+    last_name: 'Turner',
+    email: Faker::Internet.email,
+    password: 'password',
+    image: 'https://s3.us-east-2.amazonaws.com/cardio-carto-dev/seedavas/55.jpg'
+  ),
+  User.create(
+    first_name: 'Elizabeth',
+    last_name: 'Carpenter',
+    email: Faker::Internet.email,
+    password: 'password',
+    image: 'https://s3.us-east-2.amazonaws.com/cardio-carto-dev/seedavas/89.jpg'
+  ),
+  User.create(
+    first_name: 'Ricky',
+    last_name: 'Valentin',
+    email: Faker::Internet.email,
+    password: 'password',
+    image: 'https://s3.us-east-2.amazonaws.com/cardio-carto-dev/seedavas/90.jpg'
   ),
   User.create(
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
     email: Faker::Internet.email,
-    password: 'password'
+    password: 'password',
+    image: 'https://s3.us-east-2.amazonaws.com/cardio-carto-dev/seedavas/2j323.png'
   ),
   User.create(
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
     email: Faker::Internet.email,
-    password: 'password'
+    password: 'password',
+    image: 'https://s3.us-east-2.amazonaws.com/cardio-carto-dev/seedavas/demo.png'
   ),
   User.create(
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
     email: Faker::Internet.email,
-    password: 'password'
+    password: 'password',
+    image: 'https://s3.us-east-2.amazonaws.com/cardio-carto-dev/seedavas/sdfsdf23r2.png'
   ),
   User.create(
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
     email: Faker::Internet.email,
-    password: 'password'
+    password: 'password',
+    image: 'https://s3.us-east-2.amazonaws.com/cardio-carto-dev/seedavas/sdfsdf23r2.png'
   ),
   User.create(
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
     email: Faker::Internet.email,
-    password: 'password'
+    password: 'password',
+    image: 'https://s3.us-east-2.amazonaws.com/cardio-carto-dev/seedavas/testing.png'
   ),
   User.create(
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
     email: Faker::Internet.email,
-    password: 'password'
-  ),
-  User.create(
-    first_name: Faker::Name.first_name,
-    last_name: Faker::Name.last_name,
-    email: Faker::Internet.email,
-    password: 'password'
-  ),
-  User.create(
-    first_name: Faker::Name.first_name,
-    last_name: Faker::Name.last_name,
-    email: Faker::Internet.email,
-    password: 'password'
+    password: 'password',
+    image: 'https://s3.us-east-2.amazonaws.com/cardio-carto-dev/seedavas/we.png'
   )
-  # User.create(
-  #   first_name: Faker::Name.first_name,
-  #   last_name: Faker::Name.last_name,
-  #   email: Faker::Internet.email,
-  #   password: 'password'
-  # ),
-  # User.create(
-  #   first_name: Faker::Name.first_name,
-  #   last_name: Faker::Name.last_name,
-  #   email: Faker::Internet.email,
-  #   password: 'password'
-  # ),
-  # User.create(
-  #   first_name: Faker::Name.first_name,
-  #   last_name: Faker::Name.last_name,
-  #   email: Faker::Internet.email,
-  #   password: 'password'
-  # )
 ]
-
 
 time_mods = (1..48).to_a
 
@@ -112,7 +145,7 @@ polylines = ['uvuwFjatbMqDcC}BwArFaQfLq^jMaa@fBqFZeAOKj@^RLhEpCvBxAcCtHI\XdAJnBC
 
 41.times do
   Route.create(
-    user_id: users.sample.id,
+    user_id: users[0..7].sample.id,
     title: titles.pop,
     polylines: polylines.pop,
     distance: distances.pop,
