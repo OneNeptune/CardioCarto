@@ -145,7 +145,7 @@ polylines = ['uvuwFjatbMqDcC}BwArFaQfLq^jMaa@fBqFZeAOKj@^RLhEpCvBxAcCtHI\XdAJnBC
 
 41.times do
   Route.create(
-    user_id: users[0..7].sample.id,
+    user_id: users[0..5].sample.id,
     title: titles.pop,
     polylines: polylines.pop,
     distance: distances.pop,
