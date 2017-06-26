@@ -43,12 +43,10 @@ export const createFriendship = (friendship) => {
     return FriendUtil.createFriendship(friendship)
       .then(
         (success) => {
-          console.log('success!');
           dispatch(clearErrors());
           return dispatch(fetchAllFriendships());
         },
         (errors) => {
-          console.log('error!');
           return dispatch(receiveErrors('friendships', errors));
         }
       );

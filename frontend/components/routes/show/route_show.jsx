@@ -35,7 +35,6 @@ class RouteShow extends React.Component {
       const ssMmHh = MapUtil.formatTime(route.completion_time)
         .split(':').reverse();
     }
-    console.log(ssMmHh);
     this.setState({
       id: route.id,
       title: route.title,
