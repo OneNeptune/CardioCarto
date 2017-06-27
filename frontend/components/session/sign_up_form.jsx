@@ -55,19 +55,20 @@ class SignUpForm extends React.Component {
   render() {
     return (
       <section className="session-form-wrapper">
-        <form onSubmit={this.handleSubmit} className="session-form">
+        <section className="demo-buttons">
           <Link to='/auth/login'>Log In</Link>
           <button
             onClick={ this.logInGuest }
-            className='guest'
-            type='guest'>
+            className='guest'>
             Demo Log In
           </button>
           <section className={'or'}>
             <span className={'line'}></span>
-              <p>OR</p>
+            <p>OR</p>
             <span className={'line'}></span>
           </section>
+        </section>
+        <form onSubmit={this.handleSubmit} className="session-form">
           { this.displayErrors() }
           <label htmlFor={'first_name'}>
             <input

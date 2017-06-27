@@ -10,7 +10,7 @@ const rootReducer = combineReducers({
   errors: errorsReducer,
   routes: routesReducer,
   dashboard: dashboardReducer,
-  friends: friendsReducer,
+  friends: friendsReducer
 });
 
 export default rootReducer;

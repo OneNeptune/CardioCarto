@@ -3,7 +3,7 @@ import { RECEIVE_CURRENT_USER } from '../actions/session_actions.js';
 
 const _defaultState =
   Object.freeze({
-    currentUser: null,
+    currentUser: null
   });
 
 const sessionReducer = (state = _defaultState, action) => {

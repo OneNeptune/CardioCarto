@@ -13,8 +13,7 @@ const errorsReducer = (state = _defaultState, action) => {
   switch(action.type) {
     case RECEIVE_ERRORS:
       if (action.errors.status === 404) return _defaultState;
-      const errors = action.errors.responseJSON;
-      return merge({}, { [action.form]: errors });
+      return merge({}, { [action.form]: action.errors.responseJSON });
     case CLEAR_ERRORS:
       return _defaultState;
     default:

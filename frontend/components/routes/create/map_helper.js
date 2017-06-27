@@ -55,7 +55,7 @@ class MapHelper {
     const marker = new google.maps.Marker({
       position: position,
       label: this.labels[this.labelIndex++ % this.labels.length],
-      map: this.map,
+      map: this.map
     });
 
     this.routeMarkers[marker.label] = marker;

@@ -5,11 +5,11 @@ import Dashboard from './dashboard';
 
 const mapStateToProps = (state) => ({
   currentUser: state.session.currentUser,
-  dashboard: state.dashboard,
+  dashboard: state.dashboard
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchDashboard: () => dispatch(fetchDashboard()),
+  fetchDashboard: () => dispatch(fetchDashboard())
 });
 
 export default connect(

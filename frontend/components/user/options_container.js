@@ -5,11 +5,11 @@ import Options from './options';
 
 const mapStateToProps = (state, ownProps) => ({
   currentUser: state.session.currentUser,
-  modal: ownProps.modal,
+  modal: ownProps.modal
 });
 
 const mapDispatchToProps = dispatch => ({
-  updateUser: (formData, id) => dispatch(updateUser(formData, id)),
+  updateUser: (formData, id) => dispatch(updateUser(formData, id))
 });
 
 export default connect(

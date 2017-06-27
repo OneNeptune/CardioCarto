@@ -9,7 +9,7 @@ const _defaultState =
     total_distance: 0,
     location: '',
     loaded: false,
-    user_id: null,
+    user_id: null
   });
 
 const dashboardReducer = (state = _defaultState, action) => {

@@ -23,7 +23,7 @@
   padding: 20px 0 20px 0;
 }
 
-.map-controls button.location {
+.map-controls .location {
   margin-left: 20px;
   text-transform: uppercase;
   padding: 0 20px;
@@ -35,7 +35,7 @@
   color: white;
 }
 
-.map-controls button.location-disabled {
+.map-controls .location-disabled {
   margin-left: 20px;
   text-transform: uppercase;
   padding: 0 20px;
@@ -49,7 +49,7 @@
   cursor: wait;
 }
 
-.map-controls button.undo {
+.map-controls .undo {
   margin-left: 20px;
   text-transform: uppercase;
   padding: 0 20px;
@@ -61,7 +61,7 @@
   color: white;
 }
 
-.map-controls button.clear {
+.map-controls .clear {
   margin-left: 20px;
   text-transform: uppercase;
   padding: 0 20px;

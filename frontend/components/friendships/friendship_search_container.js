@@ -7,12 +7,12 @@ import FriendshipSearch from './friendship_search';
 
 const mapStateToProps = (state) => ({
   currentUser: state.session.currentUser,
-  potential_friends: state.friends.potential_friends,
+  potential_friends: state.friends.potential_friends
 });
 
 const mapDispatchToProps = dispatch => ({
   fetchAllFriendships: () => dispatch(fetchAllFriendships()),
-  createFriendship: (friendship) => dispatch(createFriendship(friendship)),
+  createFriendship: (friendship) => dispatch(createFriendship(friendship))
 });
 
 export default connect(

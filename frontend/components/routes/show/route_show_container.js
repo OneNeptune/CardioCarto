@@ -13,14 +13,14 @@ const mapStateToProps = (state, { match }) => {
   return({
     currentUser: state.session.currentUser,
     errors: state.errors,
-    route: state.routes.entities[currentRoute],
+    route: state.routes.entities[currentRoute]
   });
 };
 
 const mapDispatchToProps = dispatch => ({
   fetchSingleRoute: id => dispatch(fetchSingleRoute(id)),
   updateRoute: updatedRoute => dispatch(updateRoute(updatedRoute)),
-  deleteRoute: id => dispatch(deleteRoute(id)),
+  deleteRoute: id => dispatch(deleteRoute(id))
 });
 
 export default withRouter(connect(

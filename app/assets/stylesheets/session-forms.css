@@ -8,7 +8,7 @@
   flex-direction: column;
   font-family: 'Roboto','Open Sans', sans-serif;
   width: 320px;
-  margin: 70px auto 0 auto;
+  margin: 0 auto 0 auto;
 }
 
 .or {
@@ -31,18 +31,6 @@
   height: 1px;
   flex: 1;
   border-bottom: 1px solid #d3d6dc;
-}
-
-.session-form a {
-  text-transform: uppercase;
-  font-size: 14px;
-  font-family: 'Roboto','Open Sans', sans-serif;
-  margin: 2px 3px 0 3px;
-  padding: 0;
-  line-height: 36px;
-  display: flex;
-  justify-content: flex-end;
-  color: #9297a3;
 }
 
 .session-form input {
@@ -87,19 +75,6 @@
 .session-form button.submit:hover {
   background-color: #92ba0e;
 }
-.session-form button.guest {
-  text-transform: uppercase;
-  font-family: 'Roboto','Open Sans', sans-serif;
-  line-height: 44px;
-  font-size: 14px;
-  border-radius: 3px;
-  background-color: #3b5998;
-  color: white;
-}
-
-.session-form button.guest:hover {
-  background-color: #35508c;
-}
 
 .session-errors li {
   font-family: 'Roboto','Open Sans', sans-serif;
@@ -114,4 +89,59 @@
   font-size: 14px;
   height: 44px;
   color: #d62000;
+}
+
+.demo-buttons {
+  display: flex;
+  flex-direction: column;
+  font-family: 'Roboto','Open Sans', sans-serif;
+  width: 320px;
+  margin: 70px auto 0 auto;
+
+}
+button.guest {
+  text-transform: uppercase;
+  font-family: 'Roboto','Open Sans', sans-serif;
+  line-height: 44px;
+  font-size: 14px;
+  border-radius: 3px;
+  background-color: #3b5998;
+  color: white;
+}
+
+button.guest:hover {
+  background-color: #35508c;
+}
+.or {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.demo-buttons > .or > p {
+  line-height: 44px;
+  font-size: 12px;
+  padding: 0 15px;
+  justify-content: center;
+  color: #a6a6a6;
+}
+
+.demo-buttons .line {
+  display: block;
+  width: 140px;
+  height: 1px;
+  flex: 1;
+  border-bottom: 1px solid #d3d6dc;
+}
+
+.demo-buttons a {
+  text-transform: uppercase;
+  font-size: 14px;
+  font-family: 'Roboto','Open Sans', sans-serif;
+  margin: 2px 3px 0 3px;
+  padding: 0;
+  line-height: 36px;
+  display: flex;
+  justify-content: flex-end;
+  color: #9297a3;
 }

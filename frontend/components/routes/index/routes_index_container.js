@@ -6,11 +6,11 @@ import RoutesIndex from './routes_index';
 const mapStateToProps = (state) => ({
   currentUser: state.session.currentUser,
   dashboard: state.dashboard,
-  routes: state.routes.entities,
+  routes: state.routes.entities
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchAllRoutes: () => dispatch(fetchAllRoutes()),
+  fetchAllRoutes: () => dispatch(fetchAllRoutes())
 });
 
 export default connect(

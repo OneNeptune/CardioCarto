@@ -5,7 +5,7 @@ const _defaultState =
   Object.freeze({
     entities: {
       completed: [],
-      pending: [],
+      pending: []
     },
     currentRoute: null
   });
