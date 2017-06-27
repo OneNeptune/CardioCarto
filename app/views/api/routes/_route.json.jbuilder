@@ -18,4 +18,5 @@ json.set! :user_name, "#{route.user.first_name} #{route.user.last_name}"
 json.comments route.comments do |comment|
   json.extract! comment, :id, :body, :author_id
   json.image_url comment.author.image.url
+  json.author_name "#{comment.author.first_name} #{comment.author.last_name}"
 end

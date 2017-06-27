@@ -16,9 +16,7 @@ class RouteShow extends React.Component {
       mm: '',
       ss: '',
       completion_time: 0,
-      comment: {
-        body: ''
-      }
+      body: ''
     };
 
     this.preFillForm = this.preFillForm.bind(this);
@@ -147,14 +145,14 @@ class RouteShow extends React.Component {
 
   addComment(e) {
     e.preventDefault();
-    let comment = this.state.comment;
-
-    comment['route_id'] = this.props.route.id;
+    const comment = {
+      body: this.state.body,
+      route_id: this.props.route.id
+    };
 
     CommentUtil.createComment(comment)
-      .then(
-        () => this.props.fetchSingleRoute(this.props.route.id)
-      ).then(this.setState({comment: { body: '' } }));
+      .then(() => this.props.fetchSingleRoute(this.props.route.id))
+      .then(this.setState({body: '' }));
   }
 
   deleteComment(e) {
@@ -296,9 +294,9 @@ class RouteShow extends React.Component {
               </section>
               <section className='route-sidebar-comments'>
                 <form className='route-sidebar-comment-form'>
-                  <input value={this.state.comment.body}
+                  <input value={this.state.body}
                     placeholder='Add Comment'
-                    onChange={this.update('comment', 'body')} />
+                    onChange={this.update('body')} />
                   <button onClick={ this.addComment }>
                     <i className="fa fa-commenting-o" aria-hidden="true"></i>
                   </button>
@@ -306,13 +304,19 @@ class RouteShow extends React.Component {
                 <ul className='sidebar-comments'>
                   { route.comments.map((comment) => (
                     <li key={'comment'+comment.id}>
-                      <img src={comment.image_url}/>
+                      <img
+                        src={comment.image_url}
+                        title={ comment.author_name }/>
                       <p>
                         { comment.body }
                       </p>
                       { (comment.author_id === currentUser.id) ?
-                        <button value={ comment.id } onClick={ this.deleteComment }>
-                          <i className="fa fa-times-circle" aria-hidden="true" />
+                        <button
+                          value={ comment.id }
+                          onClick={ this.deleteComment }>
+                          <i
+                            className="fa fa-times-circle"
+                            aria-hidden="true" />
                         </button> : ''
                       }
                     </li>
