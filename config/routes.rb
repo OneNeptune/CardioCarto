@@ -6,5 +6,6 @@ Rails.application.routes.draw do
     resource :session, only: %i[create destroy]
     resources :routes, except: %i[new edit]
     resources :friendships, except: %i[new edit]
+    resources :comments, only: %i[create destroy]
   end
 end

@@ -32,6 +32,11 @@ class User < ActiveRecord::Base
 
   has_many :routes, dependent: :destroy
 
+  has_many :comments, dependent: :destroy,
+    class_name: :Comment,
+    primary_key: :id,
+    foreign_key: :author_id
+
   has_many :pending_initiated_friendships, -> { where status: false },
     class_name: :Friendship,
     primary_key: :id,

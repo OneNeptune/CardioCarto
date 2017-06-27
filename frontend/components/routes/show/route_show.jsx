@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import * as MapUtil from '../../../util/map_util.js';
 import * as DescUtil from '../../../util/route_description_util';
+import * as CommentUtil from '../../../util/comment_api_util';
 
 class RouteShow extends React.Component {
   constructor(props) {
@@ -9,19 +10,26 @@ class RouteShow extends React.Component {
 
     this.state = {
       modal: false,
-      title: '',
-      completed: 'false',
-      hh: '',
-      mm: '',
-      ss: '',
-      completion_time: 0
-    }
+      route: {
+        title: '',
+        completed: 'false',
+        hh: '',
+        mm: '',
+        ss: '',
+        completion_time: 0
+      },
+      comment: {
+        body: ''
+      }
+    };
 
     this.preFillForm = this.preFillForm.bind(this);
     this.createMap = this.createMap.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.addComment = this.addComment.bind(this);
+    this.deleteComment = this.deleteComment.bind(this);
   }
 
   preFillForm() {
@@ -29,26 +37,30 @@ class RouteShow extends React.Component {
 
     if (!route) return null;
 
-    if (!route.completion_time) {
-      const ssMmHh = ''
-    } else {
-      const ssMmHh = MapUtil.formatTime(route.completion_time)
-        .split(':').reverse();
+    let ssMmHh = '';
+    if (route.completion_time) {
+      ssMmHh = MapUtil.formatTime(route.completion_time)
+      .split(':').reverse();
     }
+
     this.setState({
-      id: route.id,
-      title: route.title,
-      completed: route.completed,
-      hh: ssMmHh[2] || '',
-      mm: ssMmHh[1] || '',
-      ss: ssMmHh[0] || '',
-      completion_time: route.completion_time
+      route: {
+        id: route.id,
+        title: route.title,
+        completed: route.completed,
+        hh: ssMmHh[2] || '',
+        mm: ssMmHh[1] || '',
+        ss: ssMmHh[0] || '',
+        completion_time: route.completion_time
+      }
     });
   }
 
-  update(field) {
+  update(type, field) {
     return e => this.setState({
-      [field]: e.currentTarget.value
+      [type]: {
+        [field]: e.currentTarget.value
+      }
     });
   }
 
@@ -57,10 +69,10 @@ class RouteShow extends React.Component {
     const hoursToSecs = this.state.hh * 3600;
     const minutesToSecs = this.state.mm * 60;
     const completionTime = hoursToSecs + minutesToSecs + parseInt(this.state.ss);
-    this.setState({completion_time: completionTime }, () => {
-      const route = this.state;
+    this.setState({ route: {completion_time: completionTime } }, () => {
+      const route = this.state.route;
       this.props.updateRoute(route)
-        .then(() => this.setState({ modal: false }));
+      .then(() => this.setState({ modal: false }));
     });
 
   }
@@ -107,12 +119,13 @@ class RouteShow extends React.Component {
 
     if (!this.props.route || this.props.route.id !== routeId) {
       this.props.fetchSingleRoute(routeId)
-      .then(() => this.createMap())
-      .then(() => this.preFillForm());
+        .then(() => this.createMap())
+        .then(() => this.preFillForm());
     }
   }
 
   componentWillReceiveProps(nextProps) {
+    console.log(nextProps);
     const currentRouteId = this.props.match.params.routeId;
     const nextRouteId = nextProps.match.params.routeId;
     if (currentRouteId !== nextRouteId) {
@@ -126,19 +139,40 @@ class RouteShow extends React.Component {
     e.preventDefault();
     const { route } = this.props;
     this.props.deleteRoute(route.id).then(() =>
-        this.props.history.push('/my_home/user_dashboard')
-      );
+      this.props.history.push('/my_home/user_dashboard')
+    );
   }
 
   handleClick(e) {
     e.preventDefault();
-    const targetClass = e.currentTarget.className
+    const targetClass = e.currentTarget.className;
     if (targetClass !== 'modal' && targetClass !== 'edit-route') {
       e.stopPropagation();
       return null;
     }
     const { modal } = this.state;
     this.setState({ modal: !modal });
+  }
+
+  addComment(e) {
+    e.preventDefault();
+    let comment = this.state.comment;
+
+    comment['route_id'] = this.props.route.id;
+
+    CommentUtil.createComment(comment)
+      .then(
+        () => this.props.fetchSingleRoute(this.props.route.id)
+      );
+  }
+
+  deleteComment(e) {
+    e.preventDefault();
+
+    CommentUtil.deleteComment(e.currentTarget.value)
+      .then(
+        () => this.props.fetchSingleRoute(this.props.route.id)
+      );
   }
 
   render() {
@@ -161,49 +195,49 @@ class RouteShow extends React.Component {
                 <label htmlFor={'title'}>
                   <input
                     placeholder='Title'
-                    onChange={this.update('title')}
-                    value={this.state.title}
+                    onChange={this.update('route', 'title')}
+                    value={this.state.route.title}
                     className='session-input' />
                 </label>
                 <label htmlFor={'completed'}>
                   <select
-                    onChange={this.update('completed')}
-                    value={ this.state.completed }>
+                    onChange={this.update('route', 'completed')}
+                    value={ this.state.route.completed }>
                     <option value='false'>I plan to complete</option>
                     <option value='true'>I have completed</option>
                   </select>
                 </label>
                 <section className='timeSelect'>
-                    <input
-                      className='formTime'
-                      disabled={ this.state.completed === 'false' }
-                      onChange={this.update('hh')}
-                      value={this.state.hh}
-                      type='number'
-                      min='0'
-                      max='24'
-                      placeholder='HH'
-                      />
-                    <input
-                      className='formTime'
-                      disabled={ this.state.completed === 'false' }
-                      onChange={this.update('mm')}
-                      value={this.state.mm}
-                      type='number'
-                      min='0'
-                      max='60'
-                      placeholder='MM'
-                      />
-                    <input
-                      className='formTime'
-                      disabled={ this.state.completed === 'false' }
-                      onChange={this.update('ss')}
-                      value={this.state.ss}
-                      type='number'
-                      min='0'
-                      max='60'
-                      placeholder='SS'
-                      />
+                  <input
+                    className='formTime'
+                    disabled={ this.state.route.completed === 'false' }
+                    onChange={this.update('route', 'hh')}
+                    value={this.state.route.hh}
+                    type='number'
+                    min='0'
+                    max='24'
+                    placeholder='HH'
+                    />
+                  <input
+                    className='formTime'
+                    disabled={ this.state.route.completed === 'false' }
+                    onChange={this.update('route', 'mm')}
+                    value={this.state.route.mm}
+                    type='number'
+                    min='0'
+                    max='60'
+                    placeholder='MM'
+                    />
+                  <input
+                    className='formTime'
+                    disabled={ this.state.route.completed === 'false' }
+                    onChange={this.update('route', 'ss')}
+                    value={this.state.route.ss}
+                    type='number'
+                    min='0'
+                    max='60'
+                    placeholder='SS'
+                    />
                 </section>
                 <button
                   type='submit'
@@ -238,9 +272,9 @@ class RouteShow extends React.Component {
                   { route.user_name }
                 </dd>
                 <dt>Description:</dt>
-                  { DescUtil.sentence(route) }
+                { DescUtil.sentence(route) }
                 <dt>Type:</dt>
-                  <dd>Run</dd>
+                <dd>Run</dd>
               </dl>
             </section>
 
@@ -265,17 +299,34 @@ class RouteShow extends React.Component {
                   <li>
                     <button
                       onClick={ this.handleDelete }>
-                        Delete Route
+                      Delete Route
                     </button>
                   </li> : null}
-              </ul>
-            </section>
-            <section className='route-sidebar-comments'>
-              <form className='route-sidebar-comment-form'>
-
-              </form>
-              <ul className='sidebar-comments'>
-
+                </ul>
+              </section>
+              <section className='route-sidebar-comments'>
+                <form className='route-sidebar-comment-form'>
+                  <input value={this.state.comment.body}
+                    placeholder='Add Comment'
+                    onChange={this.update('comment', 'body')} />
+                  <button onClick={ this.addComment }>
+                    <i className="fa fa-commenting-o" aria-hidden="true"></i>
+                  </button>
+                </form>
+                <ul className='sidebar-comments'>
+                  { route.comments.map((comment) => (
+                    <li key={'comment'+comment.id}>
+                      <img src={comment.image_url}/>
+                      <p>
+                        { comment.body }
+                      </p>
+                      { (comment.author_id === currentUser.id) ?
+                        <button value={ comment.id } onClick={ this.deleteComment }>
+                          <i className="fa fa-times-circle" aria-hidden="true" />
+                        </button> : ''
+                      }
+                    </li>
+                  ))}
               </ul>
             </section>
           </section>

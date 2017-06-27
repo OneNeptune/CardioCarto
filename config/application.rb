@@ -44,9 +44,3 @@ module CardioCarto
     }
   end
 end
-
-
-# bucket: ENV["cardio-carto-dev"],
-# access_key_id: ENV["AKIAJ2JQOX2PCWAYGCVA"],
-# secret_access_key: ENV["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"],
-# s3_region: ENV["us-east-2"]

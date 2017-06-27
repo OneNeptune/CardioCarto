@@ -20,5 +20,9 @@ class Route < ActiveRecord::Base
   validates :user, :title, :polylines, :distance, presence: true
 
   belongs_to :user
+  has_many :comments, dependent: :destroy,
+    class_name: :Comment,
+    primary_key: :id,
+    foreign_key: :route_id
 
 end
