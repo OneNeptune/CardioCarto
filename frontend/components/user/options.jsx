@@ -58,7 +58,8 @@ class Options extends React.Component {
     let formData = new FormData();
     formData.append("user[image]", this.state.imageFile);
 
-    UserAPI.updateUser(formData, this.props.currentUser.id);
+    this.props.updateUser(formData, this.props.currentUser.id)
+      .then(() => this.props.toggleModal());
   }
 
   render() {

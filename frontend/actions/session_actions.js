@@ -1,4 +1,5 @@
 import * as SessionUtil from '../util/session_api_util';
+import * as UserAPI from '../util/user_util';
 import { clearErrors, receiveErrors } from './error_actions';
 
 export const RECEIVE_CURRENT_USER = 'RECEIVE_CURRENT_USER';
@@ -50,5 +51,20 @@ export const logOut = () => {
           return dispatch(receiveErrors('logOut', errors));
         }
       );
+  };
+};
+
+export const updateUser = (formData, id) => {
+  return (dispatch) => {
+    return UserAPI.updateUser(formData, id)
+    .then(
+      (currentUser) => {
+        dispatch(clearErrors());
+        return dispatch(receiveCurrentUser(currentUser));
+      },
+      (errors) => {
+        return dispatch(receiveErrors('logIn', errors));
+      }
+    );
   };
 };
