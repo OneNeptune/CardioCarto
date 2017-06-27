@@ -27,7 +27,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = dispatch => ({
   fetchAllFriendships: () => dispatch(fetchAllFriendships()),
   updateFriendship: (friendship) => dispatch(updateFriendship(friendship)),
-  destroyFriendship: (id) => dispatch(destroyFriendship(id
+  destroyFriendship: (id) => dispatch(destroyFriendship(id))
 });
 
 export default connect(
