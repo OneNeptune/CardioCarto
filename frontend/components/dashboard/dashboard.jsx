@@ -4,8 +4,10 @@ import { Link } from 'react-router-dom';
 import * as MapUtil from '../../util/map_util.js';
 import * as DescUtil from '../../util/route_description_util';
 
-import RecentIndexItem from './recent_index_item';
-import PendingIndexItem from './pending_index_item';
+import {
+  DetailIndexItem, ThumbnailIndexItem
+} from '../routes/index/route_index_item';
+
 import UserInfo from '../user/user_sidebar';
 
 
@@ -26,7 +28,7 @@ class Dashboard extends React.Component {
     if (dashboard.most_recent.length) {
       return dashboard.most_recent.map((route) => {
         return(
-          <RecentIndexItem key={'RecentIndex' + route.id} route={ route } />
+          <DetailIndexItem key={'RecentIndex' + route.id} route={ route } />
         );
       });
     } else {
@@ -43,7 +45,7 @@ class Dashboard extends React.Component {
     if (dashboard.pending.length) {
       return dashboard.pending.map((route) => {
         return(
-          <PendingIndexItem key={'PendingIndex' + route.id} route={ route } />
+          <ThumbnailIndexItem key={'PendingIndex' + route.id} route={ route } />
         );
       });
     } else {
