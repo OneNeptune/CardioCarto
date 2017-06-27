@@ -21,11 +21,8 @@ const routesReducer = (state = _defaultState, action) => {
       const addedRoute = {
           entities: { [route.id]: route }, currentRoute: route.id
         };
-
       let newState = merge({}, state);
-
       delete newState.entities[route.id];
-
       return merge({}, newState, addedRoute);
     default:
       return state;
