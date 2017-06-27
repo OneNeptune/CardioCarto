@@ -10,14 +10,12 @@ class RouteShow extends React.Component {
 
     this.state = {
       modal: false,
-      route: {
-        title: '',
-        completed: 'false',
-        hh: '',
-        mm: '',
-        ss: '',
-        completion_time: 0
-      },
+      title: '',
+      completed: 'false',
+      hh: '',
+      mm: '',
+      ss: '',
+      completion_time: 0,
       comment: {
         body: ''
       }
@@ -42,9 +40,7 @@ class RouteShow extends React.Component {
       ssMmHh = MapUtil.formatTime(route.completion_time)
       .split(':').reverse();
     }
-
     this.setState({
-      route: {
         id: route.id,
         title: route.title,
         completed: route.completed,
@@ -52,29 +48,25 @@ class RouteShow extends React.Component {
         mm: ssMmHh[1] || '',
         ss: ssMmHh[0] || '',
         completion_time: route.completion_time
-      }
     });
   }
 
-  update(type, field) {
+  update(field) {
     return e => this.setState({
-      [type]: {
-        [field]: e.currentTarget.value
-      }
+      [field]: e.currentTarget.value,
     });
   }
 
   handleSubmit(e) {
     e.preventDefault();
-    const hoursToSecs = this.state.hh * 3600;
-    const minutesToSecs = this.state.mm * 60;
-    const completionTime = hoursToSecs + minutesToSecs + parseInt(this.state.ss);
-    this.setState({ route: {completion_time: completionTime } }, () => {
-      const route = this.state.route;
+    const completionTime = (this.state.hh * 3600) + (this.state.mm * 60) +
+      Number(this.state.ss);
+
+    this.setState({completion_time: completionTime}, () => {
+      const route = this.state;
       this.props.updateRoute(route)
       .then(() => this.setState({ modal: false }));
     });
-
   }
 
   createMap() {
@@ -125,7 +117,6 @@ class RouteShow extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    console.log(nextProps);
     const currentRouteId = this.props.match.params.routeId;
     const nextRouteId = nextProps.match.params.routeId;
     if (currentRouteId !== nextRouteId) {
@@ -182,7 +173,6 @@ class RouteShow extends React.Component {
     const routeId = this.props.match.params.routeId;
 
     if (!route || route.id !== parseInt(routeId)) return null;
-
     return(
       <section className='route-wrapper'>
         <section
@@ -195,14 +185,14 @@ class RouteShow extends React.Component {
                 <label htmlFor={'title'}>
                   <input
                     placeholder='Title'
-                    onChange={this.update('route', 'title')}
-                    value={this.state.route.title}
+                    onChange={this.update('title')}
+                    value={this.state.title}
                     className='session-input' />
                 </label>
                 <label htmlFor={'completed'}>
                   <select
-                    onChange={this.update('route', 'completed')}
-                    value={ this.state.route.completed }>
+                    onChange={this.update('completed')}
+                    value={ this.state.completed }>
                     <option value='false'>I plan to complete</option>
                     <option value='true'>I have completed</option>
                   </select>
@@ -210,9 +200,9 @@ class RouteShow extends React.Component {
                 <section className='timeSelect'>
                   <input
                     className='formTime'
-                    disabled={ this.state.route.completed === 'false' }
-                    onChange={this.update('route', 'hh')}
-                    value={this.state.route.hh}
+                    disabled={ this.state.completed === 'false' }
+                    onChange={this.update('hh')}
+                    value={this.state.hh}
                     type='number'
                     min='0'
                     max='24'
@@ -220,9 +210,9 @@ class RouteShow extends React.Component {
                     />
                   <input
                     className='formTime'
-                    disabled={ this.state.route.completed === 'false' }
-                    onChange={this.update('route', 'mm')}
-                    value={this.state.route.mm}
+                    disabled={ this.state.completed === 'false' }
+                    onChange={this.update('mm')}
+                    value={this.state.mm}
                     type='number'
                     min='0'
                     max='60'
@@ -230,9 +220,9 @@ class RouteShow extends React.Component {
                     />
                   <input
                     className='formTime'
-                    disabled={ this.state.route.completed === 'false' }
-                    onChange={this.update('route', 'ss')}
-                    value={this.state.route.ss}
+                    disabled={ this.state.completed === 'false' }
+                    onChange={this.update('ss')}
+                    value={this.state.ss}
                     type='number'
                     min='0'
                     max='60'

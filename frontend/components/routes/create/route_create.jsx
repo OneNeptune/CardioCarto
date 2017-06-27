@@ -28,28 +28,32 @@ class RouteCreate extends React.Component {
   }
 
   updateRoute(route) {
-    this.setState(route);
+    this.setState({
+      polylines: route.polylines,
+      distance: route.distance,
+      duration: route.duration,
+      start_address: route.start_address,
+      finish_address: route.finish_address
+    });
   }
 
   update(field) {
     return e => this.setState({
-      [field]: e.currentTarget.value
+      [field]: e.currentTarget.value,
     });
   }
 
   handleSubmit(e) {
     e.preventDefault();
-    const hoursToSecs = this.state.hh * 3600;
-    const minutesToSecs = this.state.mm * 60;
-    const completionTime = hoursToSecs + minutesToSecs + parseInt(this.state.ss);
+    const completionTime = (this.state.hh * 3600) + (this.state.mm * 60) +
+      Number(this.state.ss);
 
-    this.setState({completion_time: completionTime }, () => {
-      const route = this.state;
-      this.props.createRoute(route)
-        .then((response) =>
-        this.props.history.push(`/routes/view/${response.route.id}`));
-    });
+    this.setState({completion_time: completionTime});
+    const route = this.state;
 
+    this.props.createRoute(route)
+      .then((response) =>
+      this.props.history.push(`/routes/view/${response.route.id}`));
   }
 
 

@@ -14,77 +14,54 @@ export const receiveSingleRoute = (route) => ({
   route
 });
 
-export const fetchAllRoutes = () => {
-  return (dispatch) => {
-    return RouteUtil.fetchAllRoutes()
-      .then(
-        (routes) => {
-          dispatch(clearErrors());
-          return dispatch(receiveRoutes(routes));
-        },
-        (errors) => {
-          return dispatch(receiveErrors('createRoute', errors));
-        }
-      );
-  };
-};
+export const fetchAllRoutes = () => dispatch => (
+  RouteUtil.fetchAllRoutes().then((routes) => {
+      dispatch(clearErrors());
+      return dispatch(receiveRoutes(routes));
+    },
+    (errors) => (
+      dispatch(receiveErrors('createRoute', errors))
+    )
+  )
+);
 
-export const fetchSingleRoute = (id) => {
-  return (dispatch) => {
-    return RouteUtil.fetchSingleRoute(id)
-      .then(
-        (route) => {
-          dispatch(clearErrors());
-          return dispatch(receiveSingleRoute(route));
-        },
-        (errors) => {
-          return dispatch(receiveErrors('createRoute', errors));
-        }
-      );
-  };
-};
+export const fetchSingleRoute = id => dispatch => (
+  RouteUtil.fetchSingleRoute(id).then((route) => {
+      dispatch(clearErrors());
+      return dispatch(receiveSingleRoute(route));
+    },
+    (errors) => (
+      dispatch(receiveErrors('createRoute', errors))
+    )
+  )
+);
 
-export const createRoute = (newRoute) => {
-  return (dispatch) => {
-    return RouteUtil.createRoute(newRoute)
-      .then(
-        (route) => {
-          dispatch(clearErrors());
-          return dispatch(receiveSingleRoute(route));
-        },
-        (errors) => {
-          return dispatch(receiveErrors('createRoute', errors));
-        }
-      );
-  };
-};
+export const createRoute = newRoute => dispatch => (
+  RouteUtil.createRoute(newRoute).then((route) => {
+      dispatch(clearErrors());
+      return dispatch(receiveSingleRoute(route));
+    },
+    (errors) => (
+      dispatch(receiveErrors('createRoute', errors))
+    )
+  )
+);
 
-export const updateRoute = (updatedRoute) => {
-  return (dispatch) => {
-    return RouteUtil.updateRoute(updatedRoute)
-      .then(
-        (route) => {
-          dispatch(clearErrors());
-          return dispatch(receiveSingleRoute(route));
-        },
-        (errors) => {
-          return dispatch(receiveErrors('updateRoute', errors));
-        }
-      );
-  };
-};
+export const updateRoute = updatedRoute => dispatch => (
+  RouteUtil.updateRoute(updatedRoute).then((route) => {
+      dispatch(clearErrors());
+      return dispatch(receiveSingleRoute(route));
+    },
+    (errors) => (
+      dispatch(receiveErrors('updateRoute', errors))
+    )
+  )
+);
 
-export const deleteRoute = (id) => {
-  return (dispatch) => {
-    return RouteUtil.deleteRoute(id)
-      .then(
-        () => {
-          dispatch(clearErrors());
-          return dispatch(fetchAllRoutes());
-        },
-        (errors) => {
-          return dispatch(receiveErrors('createRoute', errors));
-        }
-      );
-  };
-};
+export const deleteRoute = id => dispatch => (
+  RouteUtil.deleteRoute(id).then(() => {
+      dispatch(clearErrors());
+      return dispatch(fetchAllRoutes());
+    }
+  )
+);
