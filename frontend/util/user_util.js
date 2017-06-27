@@ -5,6 +5,6 @@ export const updateUser = (formData, id) => {
     dataType: "json",
     contentType: false,
     processData: false,
-    data: formData,
+    data: formData
   });
 };

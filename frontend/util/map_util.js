@@ -46,7 +46,7 @@ export const formatTime = (seconds) => {
   return [
     h,
     m > 9 ? m : '0' + m,
-    s > 9 ? s : '0' + s,
+    s > 9 ? s : '0' + s
   ].filter(s => s).join(':');
 };
 

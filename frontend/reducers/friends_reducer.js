@@ -13,7 +13,7 @@ const _defaultState = () => (
       pending_friends: {},
       pending_requests: {},
       pending_response: {}
-    },
+    }
   }
 );
 
