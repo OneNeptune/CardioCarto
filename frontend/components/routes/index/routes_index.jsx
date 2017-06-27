@@ -5,8 +5,8 @@ import { merge } from 'lodash';
 import * as MapUtil from '../../../util/map_util.js';
 import * as DescUtil from '../../../util/route_description_util';
 
-import DetailIndexItem from './detail_index_item';
-import ThumbnailIndexItem from './thumbnail_index_item';
+import { DetailIndexItem, ThumbnailIndexItem } from './route_index_item';
+import UserInfo from '../../user/user_sidebar';
 
 class RoutesIndex extends React.Component {
   constructor(props) {
@@ -89,7 +89,7 @@ class RoutesIndex extends React.Component {
   }
 
   render() {
-    const { currentUser, dashboard } = this.props;
+    const { currentUser, location } = this.props;
     const { completed, pending } = this.props.routes;
     const { view, group } = this.state;
 
@@ -154,19 +154,7 @@ class RoutesIndex extends React.Component {
 
         </section>
         <section className='route-show-sidebar'>
-          <section className='sidebar-user-panel'>
-            <section className='sidebar-user-avatar'>
-              <img src={ currentUser.image_url } />
-            </section>
-            <section className='sidebar-user-info'>
-              <h4> { currentUser.first_name } { currentUser.last_name }</h4>
-              <h5> { DescUtil.cityName(dashboard.location) }</h5>
-            </section>
-            <ul>
-              <li><Link to='/routes/create/'>Create Route</Link></li>
-              <li><Link to='/friends/find'>Find Friends</Link></li>
-            </ul>
-          </section>
+          <UserInfo currentUser={currentUser} location={location} />
         </section>
       </section>
     );

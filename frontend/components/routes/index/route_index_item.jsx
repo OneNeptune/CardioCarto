@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import * as MapUtil from '../../../util/map_util.js';
 
-const RecentIndexItem = ({ route }) => {
+export const DetailIndexItem = ({ route }) => {
   const date = new Date(route.created_at);
   return(
     <li className='recent-index-item'>
@@ -35,4 +35,19 @@ const RecentIndexItem = ({ route }) => {
   );
 };
 
-export default RecentIndexItem;
+export const ThumbnailIndexItem = ({ route }) => {
+  const date = new Date(route.created_at);
+  return(
+    <li className='pending-index-item'>
+      <Link className='pending-index-link' to={`/routes/view/${route.id}`}>
+        <img
+          src={ MapUtil.imgUrl(route.polylines, 142, 142)}
+          alt={route.title} />
+        <section className='route-pending-details'>
+          <h4>{route.title}</h4>
+          <p>{ MapUtil.formatDistance(route.distance) }</p> mi
+        </section>
+      </Link>
+    </li>
+  );
+};

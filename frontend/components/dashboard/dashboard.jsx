@@ -6,6 +6,8 @@ import * as DescUtil from '../../util/route_description_util';
 
 import RecentIndexItem from './recent_index_item';
 import PendingIndexItem from './pending_index_item';
+import UserInfo from '../user/user_sidebar';
+
 
 class Dashboard extends React.Component {
   constructor(props) {
@@ -113,19 +115,7 @@ class Dashboard extends React.Component {
           </section>
         </section>
         <section className='route-show-sidebar'>
-          <section className='sidebar-user-panel'>
-            <section className='sidebar-user-avatar'>
-              <img src={ currentUser.image_url } />
-            </section>
-            <section className='sidebar-user-info'>
-              <h4> { currentUser.first_name } { currentUser.last_name }</h4>
-              <h5> { DescUtil.cityName(dashboard.location) }</h5>
-            </section>
-            <ul>
-              <li><Link to='/routes/create/'>Create Route</Link></li>
-              <li><Link to='/friends/find'>Find Friends</Link></li>
-            </ul>
-          </section>
+          <UserInfo currentUser={currentUser} location={ dashboard.location } />
         </section>
       </section>
     );

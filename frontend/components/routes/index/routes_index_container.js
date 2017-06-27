@@ -5,7 +5,7 @@ import RoutesIndex from './routes_index';
 
 const mapStateToProps = (state) => ({
   currentUser: state.session.currentUser,
-  dashboard: state.dashboard,
+  location: state.dashboard.location,
   routes: state.routes.entities
 });
 
