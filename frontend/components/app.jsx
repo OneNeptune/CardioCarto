@@ -5,8 +5,7 @@ import { AuthRoute, ProtectedRoute, LandingRoute } from '../util/route_util';
 import HeaderContainer from './header/header_container';
 import SubNav from './sub_nav/sub_nav';
 import FrontPageContainer from './frontpage/front_page_container';
-import SignUpFormContainer from './session/sign_up_form_container';
-import LogInFormContainer from './session/log_in_form_container';
+import SessionFormContainer from './session/session_form_container';
 import DashboardContainer from './dashboard/dashboard_container';
 import RoutesIndexContainer from './routes/index/routes_index_container';
 import RouteCreateContainer from './routes/create/route_create_container';
@@ -23,9 +22,9 @@ const App = () => (
       <LandingRoute exact path='/'
         component={ FrontPageContainer } />
       <AuthRoute path='/auth/signup'
-        component={ SignUpFormContainer } />
+        component={ SessionFormContainer } />
       <AuthRoute path='/auth/login'
-        component={ LogInFormContainer } />
+        component={ SessionFormContainer } />
       <ProtectedRoute path='/my_home/user_dashboard'
         component={ DashboardContainer } />
       <ProtectedRoute path='/my_home/user_routes'

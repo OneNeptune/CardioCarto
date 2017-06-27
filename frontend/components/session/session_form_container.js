@@ -3,10 +3,11 @@ import { withRouter } from 'react-router-dom';
 import { signUp, logIn } from '../../actions/session_actions';
 import { clearErrors } from '../../actions/error_actions';
 
-import SignUpForm from './sign_up_form';
+import SessionForm from './session_form';
 
-const mapStateToProps = ({ errors }) => ({
-  errors
+const mapStateToProps = ({ errors }, ownProps) => ({
+  errors,
+  formType: ownProps.location.pathname.split('/').slice(-1)[0]
 });
 
 // logIn is here for the guest login
@@ -19,4 +20,4 @@ const mapDispatchToProps = (dispatch) => ({
 export default withRouter(connect(
   mapStateToProps,
   mapDispatchToProps
-)(SignUpForm));
+)(SessionForm));
