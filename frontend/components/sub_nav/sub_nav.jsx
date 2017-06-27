@@ -10,23 +10,15 @@ class SubNav extends React.Component {
 
   lastTab() {
     const { pathname } = this.props.location;
-    if (pathname.includes('create')) {
-      return(
-        <li className={ this.active('routes') }>
-          <Link to='/routes/create'>
-            Create Route
-          </Link>
-        </li>
-      );
-    } else {
-      return(
-        <li className={ this.active('routes') }>
-          <Link to='/my_home/user_routes'>
-            All Routes
-          </Link>
-        </li>
-      );
-    }
+    const create = pathname.includes('create');
+
+    return(
+      <li className={ this.active('routes') }>
+        <Link to={`${ create ? '/routes/create' : '/my_home/user_routes' }`}>
+          { create ? 'Create Route' : 'All Routes' }
+        </Link>
+      </li>
+    );
   }
 
   active(tabName) {
@@ -38,42 +30,30 @@ class SubNav extends React.Component {
   render() {
     const { pathname } = this.props.location;
     if (pathname === '/' || pathname.includes('auth')) return null;
-    if (pathname.includes('friends')) {
+    const stub = pathname.includes('friends') ?
+      'friends' : 'my_home';
+    const links = pathname.includes('friends') ?
+      ['find' , 'view'] : ['activity_feed' , 'user_dashboard'];
+    const desc = pathname.includes('friends') ?
+      ['Find Friends' , 'View Friends'] : ['Activity Feed' , 'My Dashboard'];
       return (
         <nav className='sub-nav-wrapper'>
-          <ul className='sub-nav-bar short'>
-            <li className={ this.active('find') }>
-              <Link to='/friends/find'>
-                Find Friends
+          <ul className={`sub-nav-bar ${stub === 'friends' ? ' short' : ''}`}>
+            <li className={ this.active(links[0]) }>
+              <Link to={ `/${stub}/${links[0]}` }>
+                { desc[0] }
               </Link>
             </li>
-            <li className={ this.active('view') }>
-              <Link to='/friends/view'>
-                View Friends
+            <li className={ this.active([links[1]]) }>
+              <Link to={ `/${stub}/${links[1]}` }>
+                { desc[1] }
               </Link>
             </li>
+            { (stub === 'my_home') ? this.lastTab() : '' }
           </ul>
         </nav>
-      )
+      );
     }
-    return(
-      <nav className='sub-nav-wrapper'>
-        <ul className='sub-nav-bar'>
-          <li className={ this.active('activity') }>
-            <Link to='/my_home/activity_feed'>
-              Activity Feed
-            </Link>
-          </li>
-          <li className={ this.active('dashboard') }>
-            <Link to='/my_home/user_dashboard'>
-              My Dashboard
-            </Link>
-          </li>
-          { this.lastTab() }
-        </ul>
-      </nav>
-    );
-  }
 }
 
 export default withRouter(SubNav);
