@@ -163,7 +163,7 @@ class RouteShow extends React.Component {
     CommentUtil.createComment(comment)
       .then(
         () => this.props.fetchSingleRoute(this.props.route.id)
-      );
+      ).then(this.setState({comment: { body: '' } }));
   }
 
   deleteComment(e) {
