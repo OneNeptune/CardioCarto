@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Map from './map';
+import RouteForm from '../route_form';
 import { withRouter } from 'react-router-dom';
 import * as MapUtil from '../../../util/map_util.js';
 
@@ -11,6 +12,7 @@ class RouteCreate extends React.Component {
     this.createRoute = this.props.createRoute;
     this.handleSubmit = this.handleSubmit.bind(this);
     this.updateRoute = this.updateRoute.bind(this);
+    this.update = this.update.bind(this);
 
     this.state = {
       title: '',
@@ -47,7 +49,7 @@ class RouteCreate extends React.Component {
     e.preventDefault();
     const completionTime = (this.state.hh * 3600) + (this.state.mm * 60) +
       Number(this.state.ss);
-
+      console.log(completionTime);
     this.setState({completion_time: completionTime}, () => {
       const route = this.state;
 
@@ -111,60 +113,12 @@ class RouteCreate extends React.Component {
             </section>
             <section className='route-create-tools-details'>
               <h3>Save Route</h3>
-              <form onSubmit={this.handleSubmit} className='route-save-form'>
-                <label htmlFor={'title'}>
-                  <input
-                    placeholder='Title'
-                    onChange={this.update('title')}
-                    value={this.state.title}
-                    className='session-input' />
-                </label>
-                <label htmlFor={'completed'}>
-                  <select
-                    onChange={this.update('completed')}
-                    value={ this.state.completed }>
-                    <option value='false'>I plan to complete</option>
-                    <option value='true'>I have completed</option>
-                  </select>
-                </label>
-                <section className='timeSelect'>
-                    <input
-                      className='formTime'
-                      disabled={ this.state.completed === 'false' }
-                      onChange={this.update('hh')}
-                      value={this.state.hh}
-                      type='number'
-                      min='0'
-                      max='24'
-                      placeholder='HH'
-                      />
-                    <input
-                      className='formTime'
-                      disabled={ this.state.completed === 'false' }
-                      onChange={this.update('mm')}
-                      value={this.state.mm}
-                      type='number'
-                      min='0'
-                      max='60'
-                      placeholder='MM'
-                      />
-                    <input
-                      className='formTime'
-                      disabled={ this.state.completed === 'false' }
-                      onChange={this.update('ss')}
-                      value={this.state.ss}
-                      type='number'
-                      min='0'
-                      max='60'
-                      placeholder='SS'
-                      />
-                </section>
-                <button
-                  type='submit'
-                  className='create-route-button'>
-                  Create Route
-                </button>
-              </form>
+              <RouteForm
+                route={ this.state }
+                update={ this.update }
+                handleSubmit={ this.handleSubmit }
+                buttonText='Create Route'
+                />
             </section>
           </section>
           <section className='route-create-map'>

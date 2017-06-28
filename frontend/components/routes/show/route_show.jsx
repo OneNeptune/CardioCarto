@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import RouteForm from '../route_form';
+
 import * as MapUtil from '../../../util/map_util.js';
 import * as DescUtil from '../../../util/route_description_util';
 import * as CommentUtil from '../../../util/comment_api_util';
@@ -7,7 +9,6 @@ import * as CommentUtil from '../../../util/comment_api_util';
 class RouteShow extends React.Component {
   constructor(props) {
     super(props);
-
     this.state = {
       modal: false,
       title: '',
@@ -24,6 +25,7 @@ class RouteShow extends React.Component {
     this.handleDelete = this.handleDelete.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.update = this.update.bind(this);
     this.addComment = this.addComment.bind(this);
     this.deleteComment = this.deleteComment.bind(this);
   }
@@ -137,6 +139,7 @@ class RouteShow extends React.Component {
     const targetClass = e.currentTarget.className;
     if (targetClass !== 'modal' && targetClass !== 'edit-route') {
       e.stopPropagation();
+      console.log(e.currentTarget.className);
       return null;
     }
     const { modal } = this.state;
@@ -179,61 +182,12 @@ class RouteShow extends React.Component {
           <section onClick={ this.handleClick } className='modal-content'>
             <section className='route-create-tools-details'>
               <h3>Edit Route</h3>
-              <form onSubmit={this.handleSubmit} className='route-save-form'>
-                <label htmlFor={'title'}>
-                  <input
-                    placeholder='Title'
-                    onChange={this.update('title')}
-                    value={this.state.title}
-                    className='session-input' />
-                </label>
-                <label htmlFor={'completed'}>
-                  <select
-                    onChange={this.update('completed')}
-                    value={ this.state.completed }>
-                    <option value='false'>I plan to complete</option>
-                    <option value='true'>I have completed</option>
-                  </select>
-                </label>
-                <section className='timeSelect'>
-                  <input
-                    className='formTime'
-                    disabled={ this.state.completed === 'false' }
-                    onChange={this.update('hh')}
-                    value={this.state.hh}
-                    type='number'
-                    min='0'
-                    max='24'
-                    placeholder='HH'
-                    />
-                  <input
-                    className='formTime'
-                    disabled={ this.state.completed === 'false' }
-                    onChange={this.update('mm')}
-                    value={this.state.mm}
-                    type='number'
-                    min='0'
-                    max='60'
-                    placeholder='MM'
-                    />
-                  <input
-                    className='formTime'
-                    disabled={ this.state.completed === 'false' }
-                    onChange={this.update('ss')}
-                    value={this.state.ss}
-                    type='number'
-                    min='0'
-                    max='60'
-                    placeholder='SS'
-                    />
-                </section>
-                <button
-                  type='submit'
-                  onClick={ this.handleSubmit }
-                  className='create-route-button'>
-                  Edit Route
-                </button>
-              </form>
+                <RouteForm
+                  route={ this.state }
+                  update={ this.update }
+                  handleSubmit={ this.handleSubmit }
+                  buttonText='Edit Route'
+                  />
             </section>
           </section>
         </section>
