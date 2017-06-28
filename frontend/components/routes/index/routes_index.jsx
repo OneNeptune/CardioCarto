@@ -19,7 +19,7 @@ class RoutesIndex extends React.Component {
     this.detailIndexItems = this.detailIndexItems.bind(this);
     this.thumbnailIndexItems = this.thumbnailIndexItems.bind(this);
     this.showIndexItems = this.showIndexItems.bind(this);
-
+    this.checkActive = this.checkActive.bind(this);
     this.handleClick = this.handleClick.bind(this);
   }
 
@@ -88,10 +88,13 @@ class RoutesIndex extends React.Component {
     this.setState({[type]: value});
   }
 
+  checkActive(key, value) {
+    return( this.state[key] === value ? 'active' : '');
+  }
+
   render() {
     const { currentUser, location } = this.props;
     const { completed, pending } = this.props.routes;
-    const { view, group } = this.state;
 
     if (!completed) return null;
 
@@ -105,7 +108,7 @@ class RoutesIndex extends React.Component {
             <section className='button-row'>
               <section className='detail-buttons'>
                 <button
-                  className={ view === 'list' ? 'active' : ''}
+                  className={ this.checkActive('view', 'list')}
                   value='list'
                   onClick={ this.handleClick }>
                   <i
@@ -113,7 +116,7 @@ class RoutesIndex extends React.Component {
                     aria-hidden='true'></i> Detail List
                 </button>
                 <button
-                  className={ view === 'thumb' ? 'active' : ''}
+                  className={ this.checkActive('view', 'thumb')}
                   value='thumb'
                   onClick={ this.handleClick }>
                   <i
@@ -124,19 +127,19 @@ class RoutesIndex extends React.Component {
 
               <section className='detail-buttons'>
                 <button
-                  className={ group === 'all' ? 'active' : ''}
+                  className={ this.checkActive('group', 'all')}
                   value='all'
                   onClick={ this.handleClick }>
                   All
                 </button>
                 <button
-                  className={ group === 'completed' ? 'active' : ''}
+                  className={ this.checkActive('group', 'completed')}
                   value='completed'
                   onClick={ this.handleClick }>
                   Completed
                 </button>
                 <button
-                  className={ group === 'pending' ? 'active' : ''}
+                  className={ this.checkActive('group', 'pending')}
                   value='pending'
                   onClick={ this.handleClick }>
                   Pending
@@ -146,7 +149,10 @@ class RoutesIndex extends React.Component {
           </section>
 
           <section className='dashboard-section index-section'>
-            <ul className={ view === 'thumb' ? 'pending-index-items' : '' }>
+            <ul
+              className={
+                this.state.view === 'thumb' ? 'pending-index-items' : ''
+              }>
               { this.showIndexItems() }
             </ul>
           </section>
