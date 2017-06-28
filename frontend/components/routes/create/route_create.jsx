@@ -83,30 +83,20 @@ class RouteCreate extends React.Component {
             <h2 className='route-create-tools-title'>Create Run</h2>
             <section className='route-create-tools-details'>
               <ul className='route-details'>
-                <li>
-                  <h4>Distance:</h4>
-                  <p>
-                    { MapUtil.formatDistance(this.state.distance) }mi
-                  </p>
-                </li>
-                <li>
-                  <h4>Est Duration:</h4>
-                  <p>
-                    { MapUtil.formatTime(this.state.duration) }
-                  </p>
-                </li>
-                <li>
-                  <h4>Start:</h4>
-                  <p className='address'>
-                    { this.state.start_address }
-                  </p>
-                </li>
-                <li>
-                  <h4>Finish:</h4>
-                  <p className='address'>
-                    { this.state.finish_address }
-                  </p>
-                </li>
+                {[
+                  ['Distance:', `${MapUtil.formatDistance(this.state.distance)} mi`],
+                  ['Est Duration:', MapUtil.formatTime(this.state.duration)],
+                  ['Start:', this.state.start_address],
+                  ['Finish:', this.state.finish_address],
+                ].map((listItem) => (
+                  <li key={listItem[0]}>
+                    <h4>{listItem[0]}</h4>
+                    <p
+                      className={listItem[0].length < 8 ? 'address' : ''}>
+                      {listItem[1]}
+                    </p>
+                  </li>
+                ))}
               </ul>
             </section>
             <section className='route-create-tools-details'>
