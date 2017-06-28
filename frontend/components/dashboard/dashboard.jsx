@@ -14,43 +14,30 @@ import UserInfo from '../user/user_sidebar';
 class Dashboard extends React.Component {
   constructor(props) {
     super(props);
-
-    this.recentIndexItems = this.recentIndexItems.bind(this);
-    this.pendingIndexItems = this.pendingIndexItems.bind(this);
   }
 
   componentDidMount() {
     this.props.fetchDashboard();
   }
 
-  recentIndexItems() {
-    const { dashboard } = this.props;
-    if (dashboard.most_recent.length) {
-      return dashboard.most_recent.map((route) => {
-        return(
-          <DetailIndexItem key={'RecentIndex' + route.id} route={ route } />
-        );
-      });
-    } else {
-      return(
-        <li className='recent-index-item'>
-          <p className='empty-index'>No recent routes.</p>
-        </li>
+  createIndexItems(type) {
+    const routes = this.props.dashboard[type];
+    const DetailItem = ({ component: Component, route }) => (
+      <Component route={ route }/>
+    );
+    if (routes.length) {
+      return routes.map((route) => (
+          <DetailItem
+            component={
+              type === 'most_recent' ? DetailIndexItem : ThumbnailIndexItem
+            }
+            key={`${type}` + route.id}
+            route={ route } />
+        )
       );
-    }
-  }
-
-  pendingIndexItems() {
-    const { dashboard } = this.props;
-    if (dashboard.pending.length) {
-      return dashboard.pending.map((route) => {
-        return(
-          <ThumbnailIndexItem key={'PendingIndex' + route.id} route={ route } />
-        );
-      });
     } else {
       return(
-         <p className='empty-index'>No pending routes.</p>
+          <p className='empty-index'>No routes to show.</p>
       );
     }
   }
@@ -60,7 +47,6 @@ class Dashboard extends React.Component {
 
     if (!dashboard.loaded || dashboard.user_id !== currentUser.id )
       return null;
-
     return(
       <section className='route-content-wrapper'>
         <section className='route-show-wrapper'>
@@ -103,7 +89,7 @@ class Dashboard extends React.Component {
               <h3 className='route-details-label'>RECENT ROUTES</h3>
             </section>
             <ul>
-              { this.recentIndexItems() }
+              { this.createIndexItems('most_recent') }
             </ul>
           </section>
 
@@ -112,7 +98,7 @@ class Dashboard extends React.Component {
               <h3 className='route-details-label'>PENDING ROUTES</h3>
             </section>
             <ul className='pending-index-items'>
-              { this.pendingIndexItems() }
+              { this.createIndexItems('pending') }
             </ul>
           </section>
         </section>
