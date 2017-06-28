@@ -71,23 +71,24 @@ class SessionForm extends React.Component {
     if (this.props.formType === 'signup') {
       return(
         <span>
-          <label htmlFor={'first_name'}>
-            <input
-              placeholder='First name'
-              value={this.state.first_name}
-              onChange={this.update('first_name')}
-              className='session-input' />
-          </label>
-          <label htmlFor={'last_name'}>
-            <input
-              placeholder='Last name'
-              value={this.state.last_name}
-              onChange={this.update('last_name')}
-              className='session-input' />
-          </label>
+          { this.createInput('first_name', 'First name') }
+          { this.createInput('last_name', 'Last name') }
         </span>
       );
     }
+  }
+
+  createInput(key, placeholder) {
+    return(
+      <label htmlFor={key}>
+        <input
+          type={ key === 'password' ? 'password' : 'text' }
+          placeholder={placeholder}
+          value={this.state[key]}
+          onChange={this.update(`${key}`)}
+          className='session-input' />
+      </label>
+    );
   }
 
   render() {
@@ -113,21 +114,9 @@ class SessionForm extends React.Component {
         <form onSubmit={this.handleSubmit} className="session-form">
           { this.displayErrors() }
           { this.nameInput() }
-          <label htmlFor={'email'}>
-          <input
-            placeholder='Email'
-            value={this.state.email}
-            onChange={this.update('email')}
-            className='session-input' />
-          </label>
-          <label htmlFor={'password'}>
-          <input
-            type='password'
-            placeholder='Password'
-            value={this.state.password}
-            onChange={this.update('password')}
-            className='session-input' />
-          </label>
+
+          { this.createInput('email', 'Email') }
+          { this.createInput('password', 'Password') }
           <button className='submit' type="submit">{ buttonText }</button>
         </form>
       </section>

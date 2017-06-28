@@ -20,6 +20,10 @@ export const start = (routes) => {
   return routes.legs[0].start_address;
 };
 
+export const completionTime = (hh, mm, ss) => (
+  (hh*3600) + (mm*60) + Number(ss)
+);
+
 export const finish = (routes) => {
   const lastIdx = routes.legs.length - 1;
   return routes.legs[lastIdx].end_address;

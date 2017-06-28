@@ -47,9 +47,8 @@ class RouteCreate extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    const completionTime = (this.state.hh * 3600) + (this.state.mm * 60) +
-      Number(this.state.ss);
-    this.setState({completion_time: completionTime}, () => {
+    const { hh, mm, ss } = this.state;
+    this.setState({completion_time: MapUtil.completionTime(hh,mm,ss)}, () => {
       const route = this.state;
 
       this.props.createRoute(route)
