@@ -10,17 +10,14 @@ export const receiveDashboard = dashboard => ({
   dashboard
 });
 
-export const fetchDashboard = (user) => {
-  return (dispatch) => {
-    DashboardUtil.fetchDashboard()
-      .then(
-        (dashboard) => {
-          dispatch(clearErrors());
-          return dispatch(receiveDashboard(dashboard));
-        },
-        (errors) => {
-          return dispatch(receiveErrors('dashboard', errors));
-        }
-      );
-  };
-};
+export const fetchDashboard = user => dispatch => (
+  DashboardUtil.fetchDashboard().then(
+    (dashboard) => {
+      dispatch(clearErrors());
+      return dispatch(receiveDashboard(dashboard));
+    },
+    (errors) => {
+      return dispatch(receiveErrors('dashboard', errors));
+    }
+  )
+);

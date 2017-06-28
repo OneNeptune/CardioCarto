@@ -139,7 +139,6 @@ class RouteShow extends React.Component {
     const targetClass = e.currentTarget.className;
     if (targetClass !== 'modal' && targetClass !== 'edit-route') {
       e.stopPropagation();
-      console.log(e.currentTarget.className);
       return null;
     }
     const { modal } = this.state;
