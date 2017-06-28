@@ -48,12 +48,13 @@ class RouteCreate extends React.Component {
     const completionTime = (this.state.hh * 3600) + (this.state.mm * 60) +
       Number(this.state.ss);
 
-    this.setState({completion_time: completionTime});
-    const route = this.state;
+    this.setState({completion_time: completionTime}, () => {
+      const route = this.state;
 
-    this.props.createRoute(route)
+      this.props.createRoute(route)
       .then((response) =>
       this.props.history.push(`/routes/view/${response.route.id}`));
+    });
   }
 
 

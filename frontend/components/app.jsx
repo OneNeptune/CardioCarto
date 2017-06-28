@@ -8,6 +8,7 @@ import FrontPageContainer from './frontpage/front_page_container';
 import SessionFormContainer from './session/session_form_container';
 import DashboardContainer from './dashboard/dashboard_container';
 import RoutesIndexContainer from './routes/index/routes_index_container';
+import ActivityFeedContainer from './activity_feed/activity_feed_container';
 import RouteCreateContainer from './routes/create/route_create_container';
 import RouteShowContainer from './routes/show/route_show_container';
 import FriendshipSearchContainer from './friendships/friendship_search_container';
@@ -29,6 +30,8 @@ const App = () => (
         component={ DashboardContainer } />
       <ProtectedRoute path='/my_home/user_routes'
         component={ RoutesIndexContainer } />
+      <ProtectedRoute path='/my_home/activity_feed'
+        component={ ActivityFeedContainer} />
       <ProtectedRoute path='/routes/create'
         component={ RouteCreateContainer } />
       <ProtectedRoute path='/routes/view/:routeId'

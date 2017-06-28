@@ -8,3 +8,10 @@ export const updateUser = (formData, id) => {
     data: formData
   });
 };
+
+export const fetchFeed = () => (
+  $.ajax({
+    type: 'GET',
+    url: '/api/feed'
+  })
+);

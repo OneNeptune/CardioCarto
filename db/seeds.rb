@@ -150,7 +150,7 @@ polylines = ['uvuwFjatbMqDcC}BwArFaQfLq^jMaa@fBqFZeAOKj@^RLhEpCvBxAcCtHI\XdAJnBC
     polylines: polylines.pop,
     distance: distances.pop,
     completed: completeds.pop,
-    created_at: (Time.now - time_mods.sample.hours),
+    created_at: (Time.now - time_mods.sample.hours - time_mods.sample.minutes - time_mods.sample.seconds),
     updated_at: Time.now,
     start_address: start_addresses.pop,
     finish_address: finish_addresses.pop,
@@ -159,11 +159,10 @@ polylines = ['uvuwFjatbMqDcC}BwArFaQfLq^jMaa@fBqFZeAOKj@^RLhEpCvBxAcCtHI\XdAJnBC
   )
 end
 
-
-
 Friendship.create(initiator: users[0], receiver: users[1],  status: true)
 Friendship.create(initiator: users[0], receiver: users[2],  status: true)
-Friendship.create(initiator: users[0], receiver: users[4],  status: false)
-Friendship.create(initiator: users[0], receiver: users[5],  status: false)
-Friendship.create(initiator: users[6], receiver: users[0],  status: false)
-Friendship.create(initiator: users[7], receiver: users[0],  status: false)
+Friendship.create(initiator: users[0], receiver: users[3],  status: true)
+Friendship.create(initiator: users[0], receiver: users[4],  status: true)
+Friendship.create(initiator: users[0], receiver: users[6],  status: false)
+Friendship.create(initiator: users[6], receiver: users[7],  status: false)
+Friendship.create(initiator: users[7], receiver: users[8],  status: false)

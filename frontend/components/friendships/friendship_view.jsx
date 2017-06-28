@@ -83,7 +83,7 @@ class FriendshipView extends React.Component {
           Friends
         </section>
         <section className='friends-content'>
-          <ul>
+          <ul className='friend-cards'>
             { this.friendsCards(0) }
           </ul>
         </section>

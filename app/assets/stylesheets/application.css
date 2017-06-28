@@ -24,4 +24,5 @@
  *= require route-index
  *= require search
  *= require friends
+ *= require activity-feed
  */
