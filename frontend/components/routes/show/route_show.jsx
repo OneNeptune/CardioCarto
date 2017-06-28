@@ -104,13 +104,17 @@ class RouteShow extends React.Component {
     polyline.setMap(this.map);
   }
 
+  fetchSingleRoute(routeId) {
+    return this.props.fetchSingleRoute(routeId)
+    .then(() => this.createMap())
+    .then(() => this.preFillForm());
+  }
+
   componentDidMount() {
     const routeId = this.props.match.params.routeId;
 
     if (!this.props.route || this.props.route.id !== routeId) {
-      this.props.fetchSingleRoute(routeId)
-        .then(() => this.createMap())
-        .then(() => this.preFillForm());
+      return this.fetchSingleRoute(routeId);
     }
   }
 
@@ -118,9 +122,7 @@ class RouteShow extends React.Component {
     const currentRouteId = this.props.match.params.routeId;
     const nextRouteId = nextProps.match.params.routeId;
     if (currentRouteId !== nextRouteId) {
-      this.props.fetchSingleRoute(nextRouteId)
-        .then(() => this.createMap())
-        .then(() => this.preFillForm());
+      return this.fetchSingleRoute(nextRouteId);
     }
   }
 
@@ -179,12 +181,7 @@ class RouteShow extends React.Component {
           <section onClick={ this.handleClick } className='modal-content'>
             <section className='route-create-tools-details'>
               <h3>Edit Route</h3>
-                <RouteForm
-                  route={ this.state }
-                  update={ this.update }
-                  handleSubmit={ this.handleSubmit }
-                  buttonText='Edit Route'
-                  />
+                <RouteForm route={ this.state } update={ this.update } handleSubmit={ this.handleSubmit } buttonText='Edit Route' />
             </section>
           </section>
         </section>
