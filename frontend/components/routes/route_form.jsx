@@ -3,6 +3,23 @@ import React from 'react';
 class RouteForm extends React.Component {
   constructor(props) {
     super(props);
+
+    this.createTimeInput = this.createTimeInput.bind(this);
+  }
+
+  createTimeInput(tt, max) {
+    return(
+      <input
+        className='formTime'
+        disabled={ this.props.route.completed === 'false' }
+        onChange={this.props.update(tt)}
+        value={this.props.route[tt]}
+        type='number'
+        min='0'
+        max={`${max}`}
+        placeholder={`${tt}`}
+        />
+    );
   }
 
   render() {
@@ -24,36 +41,9 @@ class RouteForm extends React.Component {
           </select>
         </label>
         <section className='timeSelect'>
-            <input
-              className='formTime'
-              disabled={ this.props.route.completed === 'false' }
-              onChange={this.props.update('hh')}
-              value={this.props.route.hh}
-              type='number'
-              min='0'
-              max='24'
-              placeholder='HH'
-              />
-            <input
-              className='formTime'
-              disabled={ this.props.route.completed === 'false' }
-              onChange={this.props.update('mm')}
-              value={this.props.route.mm}
-              type='number'
-              min='0'
-              max='60'
-              placeholder='MM'
-              />
-            <input
-              className='formTime'
-              disabled={ this.props.route.completed === 'false' }
-              onChange={this.props.update('ss')}
-              value={this.props.route.ss}
-              type='number'
-              min='0'
-              max='60'
-              placeholder='SS'
-              />
+            { this.createTimeInput('hh', 24) }
+            { this.createTimeInput('mm', 60) }
+            { this.createTimeInput('ss', 60) }
         </section>
         <button
           type='submit'
