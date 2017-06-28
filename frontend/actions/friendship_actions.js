@@ -8,77 +8,49 @@ export const receiveFriendships = friendships => ({
   friendships
 });
 
-export const fetchAllFriendships = () => {
-  return (dispatch) => {
-    return FriendUtil.fetchAllFriendships()
-      .then(
-        (friendships) => {
-          dispatch(clearErrors());
-          return dispatch(receiveFriendships(friendships));
-        },
-        (errors) => {
-          return dispatch(receiveErrors('friendships', errors));
-        }
-      );
-  };
-};
+export const fetchAllFriendships = () => dispatch => (
+  FriendUtil.fetchAllFriendships().then((friendships) => {
+      dispatch(clearErrors());
+      return dispatch(receiveFriendships(friendships));
+    }, (errors) => (dispatch(receiveErrors('friendships', errors)))
+  )
+);
 
-export const fetchSingleFriendships = (id) => {
-  return (dispatch) => {
-    return FriendUtil.fetchSingleFriendships(id)
-      .then(
-        () => {
-          dispatch(clearErrors());
-          return dispatch(fetchAllFriendships());
-        },
-        (errors) => {
-          return dispatch(receiveErrors('friendships', errors));
-        }
-      );
-  };
-};
+export const fetchSingleFriendship = id => dispatch => (
+  FriendUtil.fetchSingleFriendship(id)
+    .then(() => {
+        dispatch(clearErrors());
+        return dispatch(fetchAllFriendships());
+      }, (errors) => dispatch(receiveErrors('friendships', errors))
+    )
+);
 
-export const createFriendship = (friendship) => {
-  return (dispatch) => {
-    return FriendUtil.createFriendship(friendship)
-      .then(
-        (success) => {
-          dispatch(clearErrors());
-          return dispatch(fetchAllFriendships());
-        },
-        (errors) => {
-          return dispatch(receiveErrors('friendships', errors));
-        }
-      );
-  };
-};
+export const createFriendship = friendship => dispatch => (
+  FriendUtil.createFriendship(friendship)
+    .then((success) => {
+        dispatch(clearErrors());
+        return dispatch(fetchAllFriendships());
+      },
+      (errors) => dispatch(receiveErrors('friendships', errors))
+    )
+);
 
-export const updateFriendship = (friendship) => {
-  return (dispatch) => {
-    return FriendUtil.updateFriendship(friendship)
-      .then(
-        () => {
-          dispatch(clearErrors());
-          return dispatch(fetchAllFriendships());
-        },
-        (errors) => {
-          return dispatch(receiveErrors('friendships', errors));
-        }
-      );
-  };
-};
+export const updateFriendship = friendship => dispatch => (
+  FriendUtil.updateFriendship(friendship)
+    .then((success) => {
+        dispatch(clearErrors());
+        return dispatch(fetchAllFriendships());
+      },
+      (errors) => dispatch(receiveErrors('friendships', errors))
+    )
+);
 
-export const destroyFriendship = (id) => {
-  return (dispatch) => {
-    return FriendUtil.destroyFriendship(id)
-      .then(
-        () => {
-          dispatch(clearErrors());
-          return dispatch(fetchAllFriendships());
-        },
-        (errors) => {
-          return dispatch(receiveErrors('friendships', errors));
-        }
-      );
-  };
-};
+export const destroyFriendship = id => dispatch => (
+  FriendUtil.destroyFriendship(id)
+    .then((success) => {
+        dispatch(clearErrors());
+        return dispatch(fetchAllFriendships());
+      },
+      (errors) => dispatch(receiveErrors('friendships', errors))
+    )
+);
