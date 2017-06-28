@@ -230,14 +230,15 @@ class RouteShow extends React.Component {
               <ul>
                 <li><Link to='/my_home/user_routes'>All Routes</Link></li>
                 <li><Link to='/routes/create'>Create A Route</Link></li>
-                <li>
-                  <button
-                    className='edit-route'
-                    onClick={ this.handleClick }>
-                    { route.completed ? 'Mark Incomplete' : 'Mark Completed' }
-                  </button>
-                </li>
-                { currentUser ?
+                { currentUser.id === route.user_id ?
+                  <li>
+                    <button
+                      className='edit-route'
+                      onClick={ this.handleClick }>
+                      { route.completed ? 'Mark Incomplete' : 'Mark Completed' }
+                    </button>
+                  </li> : null}
+                { currentUser.id === route.user_id ?
                   <li>
                     <button
                       onClick={ this.handleDelete }>
