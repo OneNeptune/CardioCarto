@@ -16,9 +16,6 @@ class RoutesIndex extends React.Component {
       group: 'all'
     };
 
-    this.detailIndexItems = this.detailIndexItems.bind(this);
-    this.thumbnailIndexItems = this.thumbnailIndexItems.bind(this);
-    this.showIndexItems = this.showIndexItems.bind(this);
     this.checkActive = this.checkActive.bind(this);
     this.handleClick = this.handleClick.bind(this);
   }
@@ -27,32 +24,21 @@ class RoutesIndex extends React.Component {
     this.props.fetchAllRoutes();
   }
 
-  detailIndexItems(routes) {
+  createIndexItems(type, routes) {
+    const DetailItem = ({ component: Component, route }) => (
+      <Component route={ route }/>
+    );
     if (routes.length) {
-      return routes.map((route) => {
-        return(
-          <DetailIndexItem key={'DetailIndex' + route.id} route={ route } />
-        );
-      });
-    } else {
-      return(
-        <li className='recent-index-item'>
-          <p className='empty-index'>No routes to show.</p>
-        </li>
+      return routes.map((route) => (
+          <DetailItem
+            component={ type }
+            key={`${type}` + route.id}
+            route={ route } />
+        )
       );
-    }
-  }
-
-  thumbnailIndexItems(routes) {
-    if (routes.length) {
-      return routes.map((route) => {
-        return(
-          <ThumbnailIndexItem key={'ThumbIndex' + route.id} route={ route } />
-        );
-      });
     } else {
       return(
-         <p className='empty-index'>No routes to show.</p>
+          <p className='empty-index'>No routes to show.</p>
       );
     }
   }
@@ -74,11 +60,21 @@ class RoutesIndex extends React.Component {
         routes = completed.concat(pending);
     }
 
-    if (view === 'list') {
-      return this.detailIndexItems(routes);
-    } else {
-      return this.thumbnailIndexItems(routes);
-    }
+    const type = (view === 'list') ? DetailIndexItem : ThumbnailIndexItem;
+    return this.createIndexItems(type, routes);
+  }
+
+  generateButton(key, value, faClass, text) {
+    return(
+      <button
+        className={this.checkActive(key, value)}
+        value={value}
+        onClick={this.handleClick}>
+        <i
+          className={`fa ${faClass}`}
+          aria-hidden='true'></i> { text }
+      </button>
+    );
   }
 
   handleClick(e) {
@@ -107,43 +103,14 @@ class RoutesIndex extends React.Component {
             </section>
             <section className='button-row'>
               <section className='detail-buttons'>
-                <button
-                  className={ this.checkActive('view', 'list')}
-                  value='list'
-                  onClick={ this.handleClick }>
-                  <i
-                    className='fa fa-th-list'
-                    aria-hidden='true'></i> Detail List
-                </button>
-                <button
-                  className={ this.checkActive('view', 'thumb')}
-                  value='thumb'
-                  onClick={ this.handleClick }>
-                  <i
-                    className='fa fa-th'
-                    aria-hidden='true'></i> Thumbnail
-                </button>
+                { this.generateButton('view', 'list', 'fa-th-list', 'Detail List') }
+                { this.generateButton('view', 'thumb', 'fa-th', 'Thumbnail') }
               </section>
 
               <section className='detail-buttons'>
-                <button
-                  className={ this.checkActive('group', 'all')}
-                  value='all'
-                  onClick={ this.handleClick }>
-                  All
-                </button>
-                <button
-                  className={ this.checkActive('group', 'completed')}
-                  value='completed'
-                  onClick={ this.handleClick }>
-                  Completed
-                </button>
-                <button
-                  className={ this.checkActive('group', 'pending')}
-                  value='pending'
-                  onClick={ this.handleClick }>
-                  Pending
-                </button>
+                { this.generateButton('group', 'all', 'fa-th', 'All') }
+                { this.generateButton('group', 'completed', 'fa-th', 'Completed') }
+                { this.generateButton('group', 'pending', 'fa-th', 'Pending') }
               </section>
             </section>
           </section>
