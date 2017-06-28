@@ -49,7 +49,6 @@ class RouteCreate extends React.Component {
     e.preventDefault();
     const completionTime = (this.state.hh * 3600) + (this.state.mm * 60) +
       Number(this.state.ss);
-      console.log(completionTime);
     this.setState({completion_time: completionTime}, () => {
       const route = this.state;
 
