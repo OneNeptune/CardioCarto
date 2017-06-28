@@ -13,7 +13,6 @@ class SessionForm extends React.Component {
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.logInGuest = this.logInGuest.bind(this);
     this.displayErrors = this.displayErrors.bind(this);
     this.nameInput = this.nameInput.bind(this);
   }
@@ -39,15 +38,6 @@ class SessionForm extends React.Component {
     } else {
      this.props.signUp(user);
     }
-  }
-
-  logInGuest(e) {
-    e.preventDefault();
-    const guest = {
-      email: 'guest.user@cardiocarto.com',
-      password: 'starship76'
-     };
-    this.props.logIn(guest);
   }
 
   displayErrors() {
@@ -101,7 +91,7 @@ class SessionForm extends React.Component {
         <section className="demo-buttons">
           <Link to={`/auth/${link[0]}`}>{ link[1] }</Link>
           <button
-            onClick={ this.logInGuest }
+            onClick={ this.props.logInGuest }
             className='guest'>
             Demo Log In
           </button>

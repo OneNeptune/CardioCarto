@@ -10,12 +10,16 @@ const mapStateToProps = ({ errors }, ownProps) => ({
   formType: ownProps.location.pathname.split('/').slice(-1)[0]
 });
 
-// logIn is here for the guest login
-const mapDispatchToProps = (dispatch) => ({
-  signUp: (user) => dispatch(signUp(user)),
-  logIn: (user) => dispatch(logIn(user)),
-  clearErrors: () => dispatch(clearErrors())
-});
+const mapDispatchToProps = (dispatch) => {
+  return({
+    signUp: (user) => dispatch(signUp(user)),
+    logIn: (user) => dispatch(logIn(user)),
+    logInGuest: () => dispatch(logIn({
+      email: 'guest.user@cardiocarto.com', password: 'starship76'
+    })),
+    clearErrors: () => dispatch(clearErrors())
+  });
+};
 
 export default withRouter(connect(
   mapStateToProps,

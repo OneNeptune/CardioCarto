@@ -6,7 +6,9 @@ import { withRouter } from 'react-router';
 
 
 const mapDispatchToProps = (dispatch) => ({
-  logIn: (user) => dispatch(logIn(user))
+  logInGuest: () => dispatch(logIn({
+    email: 'guest.user@cardiocarto.com',password: 'starship76'
+  }))
 });
 
 export default connect(
