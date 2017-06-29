@@ -3,7 +3,7 @@ URL: [www.cardiocarto.com](https://www.cardiocarto.com/)
 
 ![cardiocarto-frontpage]
 
-**Cardio**vascular **Carto**graphy draws inspiration from MapMyRun and allows users to map and document their running routes. When a route is documented it allows the user to keep track of the route's distance and duration - for created maps that have not been logged as complete, it provides an estimated duration.
+**Cardio**vascular **Carto**graphy draws inspiration from MapMyRun and allows users to map and document their running routes. When a route is documented it allows the user to keep track of the route's distance and duration and for created maps that have not been logged as complete, provides an estimated duration. Each user also has a dashboard that displays their most recent completed routes and provides their total distance and duration across all completed routes.
 
 Included are social features which allow users to upload and display an avatar, search for friends, create friendships, and view a feed of recent activity from friends.
 
