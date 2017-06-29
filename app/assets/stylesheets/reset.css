@@ -13,6 +13,11 @@ section, p, footer, small {
   /*background: transparent;*/
 }
 
+html { height: 100% }
+body { min-height: 100% }
+div.main-wrapper {
+  min-height: 100vh;
+}
 header, nav, main, section,
 footer, small {
   display: block;

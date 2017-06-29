@@ -11,7 +11,6 @@ const Root = ({ store }) => (
     <HashRouter>
       <Switch>
         <Route path='/' component={ App } />
-        <Route path='/*' component={ NotFound }/>
       </Switch>
     </HashRouter>
   </Provider>

@@ -4,8 +4,9 @@
 }
 
 .route-content-wrapper {
+  min-height: 650px;
+  padding-bottom: 100px;
   width: 960px;
-  height: 652px;
   margin: 0 auto 0 auto;
   display: flex;
   flex-direction: row;
