@@ -15,7 +15,7 @@ This project was developed in two weeks utilizing Ruby on Rails, React, Redux, G
 ### Route Creation
 
 #### Feature
-Using Google Maps Javascript API users are able to draw their route by placing markers and receiving real-time rendering and feedback on their route's attributes.
+Using Google Maps JavaScript API users are able to draw their route by placing markers and receiving real-time rendering and feedback on their route's attributes.
 ![route-create]
 
 #### Implementation
@@ -44,7 +44,7 @@ The route index shows all the user's created and completed routes. It provides v
 
 ##### Index Item Creation
 
-To facilitate DRY coding practices, I integrated dynamic index generation dependent on user selected filters. `DetailIndexItem` or `ThumbnailIndexItem` is provided as a conditional paramter to `createIndexItems` where it is then used to assign the component type to be used in building the index.
+To facilitate DRY coding practices, I integrated dynamic index generation dependent on user selected filters. `DetailIndexItem` or `ThumbnailIndexItem` is provided as a conditional parameter to `createIndexItems()` where it is then used to assign the component type to be used in building the index.
 
 
 ``` JavaScript
@@ -83,7 +83,7 @@ Below is a list of other noteworthy features completed during the two week proje
     * Friendship dashboard that allows users to view:
       1. Active friendships.
       2. Friendship requests awaiting their response.
-      3. Sent requests that can be cancelled.
+      3. Sent requests that can be canceled.
 5. **User**
     * Modal with stylized image upload to Amazon S3 in order to change avatar.
 
@@ -91,7 +91,7 @@ Below is a list of other noteworthy features completed during the two week proje
 I have really enjoyed working on this project for two weeks and during the course of development I was able to identify opportunities to continue working on and expand the project. I have listed the most viable of those opportunities below and genuinely look forward to tackling them.
 
 #### User Profile Pages
-Repurpose the logged in user's dashboard into a more generalized component to allow users to view other users' routes and statistics.
+Re-purpose the logged in user's dashboard into a more generalized component to allow users to view other users' routes and statistics.
 
 #### Real-time Run Tracking
 I currently implemented a current location tool to center the map on the user's current location. I would like to explore expanding this to allow a user to track runs in real time. Pressing start at the beginning would drop the first marker and continue to check the user's current location at a set interval, dropping more markers as the user moves away from the last marker.
