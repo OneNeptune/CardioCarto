@@ -8,9 +8,9 @@ const _defaultState =
 
 const sessionReducer = (state = _defaultState, action) => {
   Object.freeze(state);
+  const { currentUser } = action;
   switch(action.type) {
     case RECEIVE_CURRENT_USER:
-      const currentUser = action.currentUser;
       return merge({}, _defaultState, { currentUser });
     default:
       return state;
