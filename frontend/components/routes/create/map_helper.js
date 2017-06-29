@@ -75,14 +75,20 @@ class MapHelper {
   }
 
   clearMap() {
+    for(let i = 0; i < this.labelIndex; i++) {
+      this.routeMarkers[this.labels[i]].setMap(null);
+    }
+    this.routeMarkers = {};
+    this.labelIndex = 0;
     this.directionsDisplay.setDirections({routes: []});
+    this.updateRoute(MapUtil.defaultRoute());
   }
 
   directions() {
     if (this.labelIndex > 1) {
       this.calcRoute();
     } else {
-      this.clearMap();
+      this.directionsDisplay.setDirections({routes: []});
       this.route = MapUtil.defaultRoute();
       this.updateRoute(this.route);
     }

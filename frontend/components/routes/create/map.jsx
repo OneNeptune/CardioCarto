@@ -45,8 +45,7 @@ class Map extends React.Component {
   }
 
   clearMap() {
-    this.createMap();
-    this.MapHelper.directions();
+    this.MapHelper.clearMap();
   }
 
   componentDidMount() {
