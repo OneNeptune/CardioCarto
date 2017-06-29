@@ -114,6 +114,7 @@ class MapHelper {
       (result, status) => {
         if (status === 'OK') {
           this.extractResults(result.routes);
+          this.directionsDisplay.setOptions({preserveViewport: true});
           this.directionsDisplay.setDirections(result);
         }
     });

@@ -137,6 +137,16 @@ class User < ActiveRecord::Base
       .count(:all)
   end
 
+  def find_friends(query)
+    User.all
+      .where
+      .not(id: self
+        .friends
+        .push(self)
+        .push(self.pending_friends))
+      .where("first_name LIKE :query OR last_name LIKE :query", query: "%#{query}%")
+  end
+
   def activity_feed
     active_people = self.friends
     Route.where(user: active_people)

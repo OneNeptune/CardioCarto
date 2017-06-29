@@ -8,5 +8,6 @@ Rails.application.routes.draw do
     resources :routes, except: %i[new edit]
     resources :friendships, except: %i[new edit]
     resources :comments, only: %i[create destroy]
+    resources :search, only: %i[create]
   end
 end
