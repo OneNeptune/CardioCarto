@@ -31,7 +31,7 @@ addMarker(position){
   });
 
   this.routeMarkers[marker.label] = marker;
- }
+}
 ```
 This method was chosen as in addition to requiring a start and end position, Google Maps Directions service accepts ordered waypoints. By tracking the label index, it becomes quicker to generate ordered requests.
 
@@ -60,8 +60,8 @@ createIndexItems(type, routes) {
       route={ route }
     />)
   );
- }
- ```
+}
+```
 
 ### Other Highlights At-A-Glance
 Below is a list of other noteworthy features completed during the two week project not demonstrated above.
