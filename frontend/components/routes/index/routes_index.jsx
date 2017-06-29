@@ -106,9 +106,9 @@ class RoutesIndex extends React.Component {
               </section>
 
               <section className='detail-buttons'>
-                { this.generateButton('group', 'all', 'fa-th', 'All') }
-                { this.generateButton('group', 'completed', 'fa-th', 'Completed') }
-                { this.generateButton('group', 'pending', 'fa-th', 'Pending') }
+                { this.generateButton('group', 'all', 'fa-globe', 'All') }
+                { this.generateButton('group', 'completed', 'fa-play', 'Completed') }
+                { this.generateButton('group', 'pending', 'fa-pause', 'Pending') }
               </section>
             </section>
           </section>
