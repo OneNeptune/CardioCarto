@@ -4,7 +4,6 @@ section, p, footer, small {
   margin: 0;
   padding: 0;
   border: 0;
-  outline: 0;
   font: inherit;
   /*color: inherit;*/
   text-align: inherit;
@@ -46,12 +45,13 @@ button {
     background: none;
     border: 0;
     color: inherit;
-    cursor: pointer; 
+    cursor: pointer;
     font: inherit;
     line-height: normal;
     overflow: visible;
     padding: 0;
     -webkit-appearance: button; /* for input */
+    -moz-appearance: button;
     -webkit-user-select: none; /* for button */
        -moz-user-select: none;
         -ms-user-select: none;

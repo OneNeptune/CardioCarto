@@ -124,6 +124,7 @@ form.route-save-form {
   box-sizing: border-box;
   border-radius: 0;
   -webkit-appearance: none;
+  -moz-appearance: none;
   width: 100%;
   padding: 0 22px 0 22px;
   border: 1px solid #d3d6dc;
@@ -198,6 +199,7 @@ ul.errors {
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
     /* display: none; <- Crashes Chrome on hover */
+    -moz-appearance: none;
     -webkit-appearance: none;
     margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
 }
