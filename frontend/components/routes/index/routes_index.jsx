@@ -26,21 +26,15 @@ class RoutesIndex extends React.Component {
 
   createIndexItems(type, routes) {
     const DetailItem = ({ component: Component, route }) => (
-      <Component route={ route }/>
+      <Component route={ route }/> );
+
+    return routes.map((route) => (
+        <DetailItem
+          component={ type }
+          key={`${type}` + route.id}
+          route={ route } />
+      )
     );
-    if (routes.length) {
-      return routes.map((route) => (
-          <DetailItem
-            component={ type }
-            key={`${type}` + route.id}
-            route={ route } />
-        )
-      );
-    } else {
-      return(
-          <p className='empty-index'>No routes to show.</p>
-      );
-    }
   }
 
   showIndexItems() {
@@ -61,7 +55,11 @@ class RoutesIndex extends React.Component {
     }
 
     const type = (view === 'list') ? DetailIndexItem : ThumbnailIndexItem;
-    return this.createIndexItems(type, routes);
+    if (routes.length) {
+      return this.createIndexItems(type, routes);
+    } else {
+      return(<p className='empty-index'>No routes to show.</p>);
+    }
   }
 
   generateButton(key, value, faClass, text) {
