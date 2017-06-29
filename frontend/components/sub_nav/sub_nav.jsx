@@ -39,16 +39,14 @@ class SubNav extends React.Component {
       return (
         <nav className='sub-nav-wrapper'>
           <ul className={`sub-nav-bar ${stub === 'friends' ? ' short' : ''}`}>
-            <li className={ this.active(links[0]) }>
-              <Link to={ `/${stub}/${links[0]}` }>
-                { desc[0] }
-              </Link>
-            </li>
-            <li className={ this.active([links[1]]) }>
-              <Link to={ `/${stub}/${links[1]}` }>
-                { desc[1] }
-              </Link>
-            </li>
+            { links.map((link, idx) => (
+              <li key={idx} className={ this.active(link) }>
+                <Link to={ `/${stub}/${link}` }>
+                  { desc[idx] }
+                </Link>
+              </li>
+              )
+            )}
             { (stub === 'my_home') ? this.lastTab() : '' }
           </ul>
         </nav>
