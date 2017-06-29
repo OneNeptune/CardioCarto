@@ -17,7 +17,7 @@ class RouteForm extends React.Component {
         type='number'
         min='0'
         max={`${max}`}
-        placeholder={`${tt}`}
+        placeholder={`${tt}`.toUpperCase()}
         />
     );
   }
