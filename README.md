@@ -25,6 +25,18 @@ In the process of creating a route, a user would expect tools that showed them u
 
 ![intuitive-tools]
 
+When a marker is created, a listener is added to inform the map it needs to update the directions when a marker is dragged.
+
+``` JavaScript
+addMarker(position){
+  //... marker creation code
+
+  marker.addListener('dragend', () => this.directions());
+
+  //... rest of code
+}
+```
+
 ##### Syncing Duration Formats
 The user enters their completion time of the route in HH:MM:SS format, the Google Maps API returns time not as a total, but for each leg segment, and the db schema stores time in seconds. The route creator uses a utility to keep all these values in sync.
 
@@ -70,8 +82,11 @@ addMarker(position){
   const marker = new google.maps.Marker({
     position: position,
     label: this.labels[this.labelIndex++ % this.labels.length],
-    map: this.map
+    map: this.map,
+    draggable: true
   });
+
+  marker.addListener('dragend', () => this.directions());
 
   this.routeMarkers[marker.label] = marker;
 }
