@@ -106,28 +106,41 @@ createIndexItems(type, routes) {
 }
 ```
 
+### Friend search
+To allow users to find and send friend requests without needing a direct link to that user's page. I implemented a search of users that are not currently in a friendship stage (sent / pending / active) with the user.
+
+![friend-search]
+
+#### Implementation
+In order to filter down to the eligible users that the current user can send a request to, a backend db query is necessary:
+
+```Ruby
+def find_friends(query)
+  User.all.where
+    .not(id: self
+      .friends
+      .push(self)
+      .push(self.pending_friends))
+    .where("first_name LIKE :query OR last_name LIKE :query", query: "%#{query}%")
+end
+```
+
 ### Other Highlights At-A-Glance
 Below is a list of other noteworthy features completed during the two week project not demonstrated above.
 
-1. **Route creation**
-    * Center map on current location.
-    * Undo last marker placement.
-    * Clear all markers from map without generating a new map.
-2. **Route Show**
+1. **Route Show**
     * Generated paragraph description of the route based on captured data.
     * User submitted comments
     * Mark route as completed / incomplete and update route completion time through modal.
-3. **User Dashboard**
+2. **User Dashboard**
     * Total distance of all completed routes.
     * Total duration of all completed routes.
     * Most recent completed routes in detail, pending route thumbnails.
-4. **Friendships**
-    * Users can search for other users using approximate string matching.
-    * Friendship dashboard that allows users to view:
-      1. Active friendships.
-      2. Friendship requests awaiting their response.
-      3. Sent requests that can be canceled.
-5. **User**
+3. **Friendship dashboard**
+    * Active friendships.
+    * Friendship requests awaiting their response.
+    * Sent requests that can be canceled.
+4. **User**
     * Modal with stylized image upload to Amazon S3 in order to change avatar.
 
 ## Future Concepts
@@ -149,7 +162,8 @@ Recreate the functionality of the app utilizing React Native.
 I currently implemented a current location tool to center the map on the user's current location. I would like to explore expanding this to allow a user to track runs in real time. Pressing start at the beginning would drop the first marker and continue to check the user's current location at a set interval, dropping more markers as the user moves away from the last marker.
 
 [cardiocarto-frontpage]: /app/assets/images/demo/cardiocarto.png "CardioCardo Frontpage"
-[intuitive-tools]: /app/assets/images/demo/intuitive-tools.gif "Intuitive Tools"
-[useful-info]: /app/assets/images/demo/useful-info.gif "Useful info"
-[route-index]: /app/assets/images/demo/route-index.gif "Route Index"
 [route-create]: /app/assets/images/demo/route-create.gif "Route Creation"
+[useful-info]: /app/assets/images/demo/useful-info.gif "Useful info"
+[intuitive-tools]: /app/assets/images/demo/intuitive-tools.gif "Intuitive Tools"
+[route-index]: /app/assets/images/demo/route-index.gif "Route Index"
+[friend-search]: /app/assets/images/demo/friend-search.gif "Friend search"
