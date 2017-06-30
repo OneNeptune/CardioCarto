@@ -1,14 +1,7 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
-
 User.destroy_all
 Route.destroy_all
 Friendship.destroy_all
+Comment.destroy_all
 
 users = [
   User.create(
@@ -27,7 +20,7 @@ users = [
   ),
   User.create(
     first_name: 'Isabel',
-    last_name: 'Robers',
+    last_name: 'Roberts',
     email: Faker::Internet.email,
     password: 'password',
     image: 'https://s3.us-east-2.amazonaws.com/cardio-carto-dev/seedavas/23.jpg'
@@ -125,7 +118,7 @@ users = [
   )
 ]
 
-time_mods = (1..48).to_a
+time_mods = (0..24).to_a
 
 titles = ["New Route!","Midtown East Morning Route","Tour of Brooklyn","Astoria Route","Harlem > Queens > UES","FiDi Afternoon Run","Tour de Bronx","Morning Scenic Jog","Bryant Park Sprint","Chelsea Piers","Central Park Grinder","Bethesda Fountain Route","Roosevelt Island Mash","Rickety Randall Path","Hoboken Shodoken","Manhattan Iron Marathon","Morning Greatlawn","2 laps of the museums","Bx Park","4SQUARE","Mostly Ferry!","WaBridge Frogger","Homerun","Borough Check","Fun Weekend Run","Penn 2 Grand","College Tour","Montauk Daytrip","Central Park Lap","Madison Swirl","Houston Shuttle","Houston to Hell's Kitchen","Short n Sweet","Hi route","Ave Hustle","Tompkins Morning Sprint","HighLineComplete","7th Ave SPRINT","1mile zipper","Gambit","Pearl Sprint"]
 
@@ -163,6 +156,74 @@ Friendship.create(initiator: users[0], receiver: users[1],  status: true)
 Friendship.create(initiator: users[0], receiver: users[2],  status: true)
 Friendship.create(initiator: users[0], receiver: users[3],  status: true)
 Friendship.create(initiator: users[0], receiver: users[4],  status: true)
+Friendship.create(initiator: users[5], receiver: users[0],  status: false)
 Friendship.create(initiator: users[0], receiver: users[6],  status: false)
 Friendship.create(initiator: users[6], receiver: users[7],  status: false)
-Friendship.create(initiator: users[7], receiver: users[8],  status: false)
+
+
+# Table name: comments
+#
+#  id         :integer          not null, primary key
+#  author_id  :integer          not null
+#  route_id   :integer          not null
+#  body       :string           not null
+#  created_at :datetime
+#  updated_at :datetime
+#
+
+users_routes = users[0].routes
+users_friends = (1..4).to_a
+
+
+Comment.create(author_id: users[users_friends.sample].id, route_id: users_routes.sample.id, body: Faker::Lorem.sentence(3, false, 0))
+Comment.create(author_id: users[users_friends.sample].id, route_id: users_routes.sample.id, body: Faker::Lorem.sentence(3, false, 0))
+Comment.create(author_id: users[users_friends.sample].id, route_id: users_routes.sample.id, body: Faker::Lorem.sentence(3, false, 0))
+Comment.create(author_id: users[users_friends.sample].id, route_id: users_routes.sample.id, body: Faker::Lorem.sentence(3, false, 0))
+Comment.create(author_id: users[users_friends.sample].id, route_id: users_routes.sample.id, body: Faker::Lorem.sentence(3, false, 0))
+Comment.create(author_id: users[users_friends.sample].id, route_id: users_routes.sample.id, body: Faker::Lorem.sentence(3, false, 0))
+Comment.create(author_id: users[users_friends.sample].id, route_id: users_routes.sample.id, body: Faker::Lorem.sentence(3, false, 0))
+Comment.create(author_id: users[users_friends.sample].id, route_id: users_routes.sample.id, body: Faker::Lorem.sentence(3, false, 0))
+Comment.create(author_id: users[users_friends.sample].id, route_id: users_routes.sample.id, body: Faker::Lorem.sentence(3, false, 0))
+Comment.create(author_id: users[users_friends.sample].id, route_id: users_routes.sample.id, body: Faker::Lorem.sentence(3, false, 0))
+Comment.create(author_id: users[users_friends.sample].id, route_id: users_routes.sample.id, body: Faker::Lorem.sentence(3, false, 0))
+Comment.create(author_id: users[users_friends.sample].id, route_id: users_routes.sample.id, body: Faker::Lorem.sentence(3, false, 0))
+Comment.create(author_id: users[users_friends.sample].id, route_id: users_routes.sample.id, body: Faker::Lorem.sentence(3, false, 0))
+Comment.create(author_id: users[users_friends.sample].id, route_id: users_routes.sample.id, body: Faker::Lorem.sentence(3, false, 0))
+Comment.create(author_id: users[users_friends.sample].id, route_id: users_routes.sample.id, body: Faker::Lorem.sentence(3, false, 0))
+Comment.create(author_id: users[users_friends.sample].id, route_id: users_routes.sample.id, body: Faker::Lorem.sentence(3, false, 0))
+Comment.create(author_id: users[users_friends.sample].id, route_id: users_routes.sample.id, body: Faker::Lorem.sentence(3, false, 0))
+Comment.create(author_id: users[users_friends.sample].id, route_id: users_routes.sample.id, body: Faker::Lorem.sentence(3, false, 0))
+Comment.create(author_id: users[users_friends.sample].id, route_id: users_routes.sample.id, body: Faker::Lorem.sentence(3, false, 0))
+Comment.create(author_id: users[users_friends.sample].id, route_id: users_routes.sample.id, body: Faker::Lorem.sentence(3, false, 0))
+Comment.create(author_id: users[users_friends.sample].id, route_id: users_routes.sample.id, body: Faker::Lorem.sentence(3, false, 0))
+Comment.create(author_id: users[users_friends.sample].id, route_id: users_routes.sample.id, body: Faker::Lorem.sentence(3, false, 0))
+Comment.create(author_id: users[users_friends.sample].id, route_id: users_routes.sample.id, body: Faker::Lorem.sentence(3, false, 0))
+Comment.create(author_id: users[users_friends.sample].id, route_id: users_routes.sample.id, body: Faker::Lorem.sentence(3, false, 0))
+Comment.create(author_id: users[users_friends.sample].id, route_id: users_routes.sample.id, body: Faker::Lorem.sentence(3, false, 0))
+Comment.create(author_id: users[users_friends.sample].id, route_id: users_routes.sample.id, body: Faker::Lorem.sentence(3, false, 0))
+Comment.create(author_id: users[users_friends.sample].id, route_id: users_routes.sample.id, body: Faker::Lorem.sentence(3, false, 0))
+Comment.create(author_id: users[users_friends.sample].id, route_id: users_routes.sample.id, body: Faker::Lorem.sentence(3, false, 0))
+Comment.create(author_id: users[users_friends.sample].id, route_id: users_routes.sample.id, body: Faker::Lorem.sentence(3, false, 0))
+Comment.create(author_id: users[users_friends.sample].id, route_id: users_routes.sample.id, body: Faker::Lorem.sentence(3, false, 0))
+Comment.create(author_id: users[users_friends.sample].id, route_id: users_routes.sample.id, body: Faker::Lorem.sentence(3, false, 0))
+Comment.create(author_id: users[users_friends.sample].id, route_id: users_routes.sample.id, body: Faker::Lorem.sentence(3, false, 0))
+Comment.create(author_id: users[users_friends.sample].id, route_id: users_routes.sample.id, body: Faker::Lorem.sentence(3, false, 0))
+Comment.create(author_id: users[users_friends.sample].id, route_id: users_routes.sample.id, body: Faker::Lorem.sentence(3, false, 0))
+Comment.create(author_id: users[users_friends.sample].id, route_id: users_routes.sample.id, body: Faker::Lorem.sentence(3, false, 0))
+Comment.create(author_id: users[users_friends.sample].id, route_id: users_routes.sample.id, body: Faker::Lorem.sentence(3, false, 0))
+Comment.create(author_id: users[users_friends.sample].id, route_id: users_routes.sample.id, body: Faker::Lorem.sentence(3, false, 0))
+Comment.create(author_id: users[users_friends.sample].id, route_id: users_routes.sample.id, body: Faker::Lorem.sentence(3, false, 0))
+Comment.create(author_id: users[users_friends.sample].id, route_id: users_routes.sample.id, body: Faker::Lorem.sentence(3, false, 0))
+Comment.create(author_id: users[users_friends.sample].id, route_id: users_routes.sample.id, body: Faker::Lorem.sentence(3, false, 0))
+Comment.create(author_id: users[users_friends.sample].id, route_id: users_routes.sample.id, body: Faker::Lorem.sentence(3, false, 0))
+Comment.create(author_id: users[users_friends.sample].id, route_id: users_routes.sample.id, body: Faker::Lorem.sentence(3, false, 0))
+Comment.create(author_id: users[users_friends.sample].id, route_id: users_routes.sample.id, body: Faker::Lorem.sentence(3, false, 0))
+Comment.create(author_id: users[users_friends.sample].id, route_id: users_routes.sample.id, body: Faker::Lorem.sentence(3, false, 0))
+Comment.create(author_id: users[users_friends.sample].id, route_id: users_routes.sample.id, body: Faker::Lorem.sentence(3, false, 0))
+Comment.create(author_id: users[users_friends.sample].id, route_id: users_routes.sample.id, body: Faker::Lorem.sentence(3, false, 0))
+Comment.create(author_id: users[users_friends.sample].id, route_id: users_routes.sample.id, body: Faker::Lorem.sentence(3, false, 0))
+Comment.create(author_id: users[users_friends.sample].id, route_id: users_routes.sample.id, body: Faker::Lorem.sentence(3, false, 0))
+Comment.create(author_id: users[users_friends.sample].id, route_id: users_routes.sample.id, body: Faker::Lorem.sentence(3, false, 0))
+Comment.create(author_id: users[users_friends.sample].id, route_id: users_routes.sample.id, body: Faker::Lorem.sentence(3, false, 0))
+Comment.create(author_id: users[users_friends.sample].id, route_id: users_routes.sample.id, body: Faker::Lorem.sentence(3, false, 0))
+Comment.create(author_id: users[users_friends.sample].id, route_id: users_routes.sample.id, body: Faker::Lorem.sentence(3, false, 0))
