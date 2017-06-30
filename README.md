@@ -25,11 +25,14 @@ In the process of creating a route, a user would expect tools that showed them u
 
 ![intuitive-tools]
 
-When a marker is created, a listener is added to inform the map it needs to update the directions when a marker is dragged.
+When a marker is created, it is designated as being draggable and an event listener is added to direct the map reprocess the directions when a marker is dragged.
 
 ``` JavaScript
 addMarker(position){
-  //... marker creation code
+  const marker = new google.maps.Marker({
+    //... other marker creation code
+    draggable: true
+  });
 
   marker.addListener('dragend', () => this.directions());
 
