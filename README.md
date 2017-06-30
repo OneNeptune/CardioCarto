@@ -23,7 +23,7 @@ Using Google Maps JavaScript API users are able to draw their route by placing m
 ##### Intuitive Mapping Tools
 In the process of creating a route, a user would expect tools that showed them useful information based on their current map, their current location, as well as the ability to reposition placed markers, undo markers, and to clear the entire map without requiring a reload or losing their current view.
 
-![intutive-tools]
+![intuitive-tools]
 
 ##### Syncing Duration Formats
 The user enters their completion time of the route in HH:MM:SS format, the Google Maps API returns time not as a total, but for each leg segment, and the db schema stores time in seconds. The route creator uses a utility to keep all these values in sync.
@@ -149,7 +149,7 @@ Recreate the functionality of the app utilizing React Native.
 I currently implemented a current location tool to center the map on the user's current location. I would like to explore expanding this to allow a user to track runs in real time. Pressing start at the beginning would drop the first marker and continue to check the user's current location at a set interval, dropping more markers as the user moves away from the last marker.
 
 [cardiocarto-frontpage]: /app/assets/images/demo/cardiocarto.png "CardioCardo Frontpage"
-[intutive-tools]: /app/assets/images/demo/intuitive-tools.gif "Intuitive Tools"
+[intuitive-tools]: /app/assets/images/demo/intuitive-tools.gif "Intuitive Tools"
 [useful-info]: /app/assets/images/demo/useful-info.gif "Useful info"
 [route-index]: /app/assets/images/demo/route-index.gif "Route Index"
 [route-create]: /app/assets/images/demo/route-create.gif "Route Creation"
