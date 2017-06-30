@@ -55,8 +55,11 @@ class MapHelper {
     const marker = new google.maps.Marker({
       position: position,
       label: this.labels[this.labelIndex++ % this.labels.length],
-      map: this.map
+      map: this.map,
+      draggable: true
     });
+
+    marker.addListener('dragend', () => this.directions());
 
     this.routeMarkers[marker.label] = marker;
   }
