@@ -27,7 +27,7 @@ class User < ActiveRecord::Base
 
   attr_reader :password
 
-  has_attached_file :image, default_url: "https://s3.us-east-2.amazonaws.com/cardio-carto-dev/avatar.jpg"
+  has_attached_file :image, styles: { original: "200x200#" }, default_url: "https://s3.us-east-2.amazonaws.com/cardio-carto-dev/avatar.jpg"
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
 
   has_many :routes, dependent: :destroy

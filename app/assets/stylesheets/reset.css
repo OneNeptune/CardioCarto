@@ -5,12 +5,10 @@ section, p, footer, small {
   padding: 0;
   border: 0;
   font: inherit;
-  /*color: inherit;*/
   text-align: inherit;
   text-decoration: inherit;
   vertical-align: inherit;
   box-sizing: inherit;
-  /*background: transparent;*/
 }
 
 html { height: 100% }
@@ -40,8 +38,6 @@ textarea
 	white-space:normal;
 	background:none;
 	line-height:1;
-
-	/* Browsers have different default form fonts */
 	font-size:13px;
 	font-family:Arial;
 }
@@ -55,14 +51,12 @@ button {
     line-height: normal;
     overflow: visible;
     padding: 0;
-    -webkit-appearance: button; /* for input */
+    -webkit-appearance: button;
     -moz-appearance: button;
-    -webkit-user-select: none; /* for button */
+    -webkit-user-select: none;
        -moz-user-select: none;
         -ms-user-select: none;
 }
-/* Clearfix */
-
 .group:after {
   content: "";
   display: block;

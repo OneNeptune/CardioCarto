@@ -46,17 +46,17 @@
   color: #a6a6a6;
 }
 
-.session-form input::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+.session-form input::-webkit-input-placeholder {
   color: #a6a6a6;
   font-family: 'Roboto','Open Sans', sans-serif;
 }
-.session-form input::-moz-placeholder { /* Firefox 19+ */
+.session-form input::-moz-placeholder {
   color: #a6a6a6;
 }
-.session-form input:-ms-input-placeholder { /* IE 10+ */
+.session-form input:-ms-input-placeholder {
   color: #a6a6a6;
 }
-.session-form input:-moz-placeholder { /* Firefox 18- */
+.session-form input:-moz-placeholder {
   color: #a6a6a6;
 }
 

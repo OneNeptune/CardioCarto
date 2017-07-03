@@ -54,8 +54,6 @@ class Header extends React.Component {
         </nav>
       );
     } else {
-      // Login / Signup if not already on these pages
-
       return(
         <nav className='session-links'>
           <Link className='logged-out' to='/auth/login'>Log In</Link>
@@ -89,6 +87,3 @@ class Header extends React.Component {
 }
 
 export default Header;
-
-// <li>Friends</li>
-// <li>Settings</li>

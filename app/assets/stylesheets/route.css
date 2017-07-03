@@ -105,17 +105,17 @@ form.route-save-form {
   color: #a6a6a6;
 }
 
-.route-save-form input::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+.route-save-form input::-webkit-input-placeholder {
   color: #a6a6a6;
   font-family: 'Roboto','Open Sans', sans-serif;
 }
-.route-save-form input::-moz-placeholder { /* Firefox 19+ */
+.route-save-form input::-moz-placeholder {
   color: #a6a6a6;
 }
-.route-save-form input:-ms-input-placeholder { /* IE 10+ */
+.route-save-form input:-ms-input-placeholder {
   color: #a6a6a6;
 }
-.route-save-form input:-moz-placeholder { /* Firefox 18- */
+.route-save-form input:-moz-placeholder {
   color: #a6a6a6;
 }
 
@@ -199,8 +199,7 @@ ul.errors {
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-    /* display: none; <- Crashes Chrome on hover */
     -moz-appearance: none;
     -webkit-appearance: none;
-    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+    margin: 0;
 }
